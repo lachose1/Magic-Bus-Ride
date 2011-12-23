@@ -9,6 +9,7 @@
 #include "DrawableComponent.hpp"
 
 class Component;
+class DrawableComponent;
 
 class Game
 {
