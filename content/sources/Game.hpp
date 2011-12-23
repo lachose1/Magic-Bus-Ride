@@ -5,9 +5,6 @@
 #include <vector>
 #include <string>
 
-#include "Component.hpp"
-#include "DrawableComponent.hpp"
-
 class Component;
 class DrawableComponent;
 
