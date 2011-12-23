@@ -3,6 +3,9 @@
 
 #include "Component.hpp"
 
+class Component;
+class Game;
+
 class DrawableComponent : public Component
 {
 public :

@@ -38,3 +38,8 @@ void Game::run()
         _app->Display();
     }
 }
+
+RenderWindow* Game::getApp()
+{
+    return _app;
+}
