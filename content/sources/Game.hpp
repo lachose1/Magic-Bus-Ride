@@ -5,6 +5,11 @@
 #include <vector>
 #include <string>
 
+#include "Component.hpp"
+#include "DrawableComponent.hpp"
+
+class Component;
+
 class Game
 {
 public :
@@ -20,7 +25,9 @@ private :
     unsigned int _height; //Hauteur de la fenêtre
     unsigned int _colorMode; //ColorMode de la fenêtre
     sf::RenderWindow* _app; //Fenêtre SFML du jeu
-    sf::Event _event; //Event sur la fenêtre
+    sf::Clock _time; //Temps du jeu en ms
+    std::vector<Component*> _components; //Vector des components non-affichables
+    std::vector<DrawableComponent*> _drawableComponents; //Vector des components affichables
 };
 
 #endif

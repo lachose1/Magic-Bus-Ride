@@ -3,6 +3,8 @@
 #include <string>
 
 #include "Game.hpp"
+#include "Component.hpp"
+#include "DrawableComponent.hpp"
 
 using namespace sf;
 using namespace std;
@@ -12,6 +14,7 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
 {
     _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
     _app->SetFramerateLimit(60);
+    _time.Reset();
 }
 
 Game::~Game()
@@ -33,6 +36,5 @@ void Game::run()
 
         _app->Clear();
         _app->Display();
-
     }
 }
