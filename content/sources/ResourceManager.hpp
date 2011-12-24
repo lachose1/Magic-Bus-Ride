@@ -11,6 +11,7 @@ class ResourceManager
 {
 public:
     ResourceManager(std::string path);
+    ResourceManager();
     ~ResourceManager();
     void add(std::string filename);
     T* find(std::string filename)

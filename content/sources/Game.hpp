@@ -5,6 +5,9 @@
 #include <vector>
 #include <string>
 
+#include "InputManager.hpp"
+#include "ResourceManager.hpp"
+
 class Component;
 class DrawableComponent;
 
@@ -16,6 +19,10 @@ public :
     ~Game();
     void run();
     sf::RenderWindow* getApp();
+    //InputManager _inputManager;
+    ResourceManager<sf::Image> _imageManager;
+    ResourceManager<sf::Font> _fontManager;
+    ResourceManager<sf::Music> _musicManager;
     
 private :
 

@@ -12,6 +12,11 @@ ResourceManager<T>::ResourceManager(string path) : _path(path)
 }
 
 template <typename T>
+ResourceManager<T>::ResourceManager()
+{
+}
+
+template <typename T>
 ResourceManager<T>::~ResourceManager()
 {
 }

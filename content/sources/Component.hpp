@@ -14,6 +14,7 @@ public :
 protected :
     
     Component(Game* game);
+    Component();
     ~Component();
     Game* _game; //Pointeur sur un objet Game
 };

@@ -19,6 +19,10 @@ InputManager::InputManager(Game* game)
     }
 }
 
+//InputManager::InputManager()
+//{
+//}
+
 InputManager::~InputManager()
 {
     delete _app;

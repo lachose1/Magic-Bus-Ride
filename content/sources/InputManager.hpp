@@ -2,10 +2,12 @@
 #define INPUT_MANAGER_H
 
 #include "Component.hpp"
+#include "Game.hpp"
 
 class InputManager : public Component
 {
 public :
+    //InputManager();
     InputManager(Game* game);
     ~InputManager();
     static const int KEY_COUNT = 5;
