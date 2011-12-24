@@ -5,11 +5,15 @@
 #include <vector>
 #include <string>
 
+#include "Component.hpp"
+#include "DrawableComponent.hpp"
 #include "InputManager.hpp"
 #include "ResourceManager.hpp"
+#include "Asset.hpp"
 
 class Component;
 class DrawableComponent;
+class InputManager;
 
 class Game
 {
@@ -19,10 +23,10 @@ public :
     ~Game();
     void run();
     sf::RenderWindow* getApp();
-    //InputManager _inputManager;
-    ResourceManager<sf::Image> _imageManager;
-    ResourceManager<sf::Font> _fontManager;
-    ResourceManager<sf::Music> _musicManager;
+    InputManager* _inputManager;
+    ResourceManager<sf::Image>* _imageManager;
+    ResourceManager<sf::Font>* _fontManager;
+    ResourceManager<sf::Music>* _musicManager;
     
 private :
 

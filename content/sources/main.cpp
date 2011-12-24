@@ -1,8 +1,9 @@
 #include <cstdlib>
-#include <SFML/Graphics.hpp> 
+#include <SFML/Graphics.hpp>
 
 #include "Game.hpp"
 
+using namespace std;
 using namespace sf;
 
 int main()

@@ -1,9 +1,8 @@
 #ifndef DRAWABLE_COMPONENT_H
 #define DRAWABLE_COMPONENT_H
 
-#include "Component.hpp"
+#include "Game.hpp"
 
-class Component;
 class Game;
 
 class DrawableComponent : public Component

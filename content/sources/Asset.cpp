@@ -3,7 +3,6 @@
 #include "Asset.hpp"
 
 using namespace std;
-using namespace sf;
 
 template <typename T>
 string Asset<T>::getFilename()

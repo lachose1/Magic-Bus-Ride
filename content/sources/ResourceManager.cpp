@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 
-#include "Asset.hpp"
 #include "ResourceManager.hpp"
 
 using namespace std;

@@ -1,12 +1,9 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <vector>
 #include <string>
 
 #include "Game.hpp"
-#include "Component.hpp"
-#include "DrawableComponent.hpp"
-#include "InputManager.hpp"
-#include "ResourceManager.hpp"
 
 using namespace sf;
 using namespace std;
@@ -18,17 +15,21 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
     _app->SetFramerateLimit(60);
     _time.Reset();
 
-    //_inputManager = InputManager(this);
-    //_components.push_back(_inputManager);
+    _inputManager = new InputManager(this);
+    _components.push_back(_inputManager);
 
-    _imageManager = ResourceManager<Image>("../res/images/");
-    _fontManager = ResourceManager<Font>("../res/fonts/");
-    _musicManager = ResourceManager<Music>("../res/music");
+    _imageManager = new ResourceManager<Image>("../res/images/");
+    _fontManager = new ResourceManager<Font>("../res/fonts/");
+    _musicManager = new ResourceManager<Music>("../res/music/");
 }
 
 Game::~Game()
 {
     delete _app;
+	delete _inputManager;
+	delete _imageManager;
+	delete _fontManager;
+	delete _musicManager;
 }
 
 void Game::run()

@@ -7,7 +7,7 @@ using namespace sf;
 using namespace std;
 
 InputManager::InputManager(Game* game)
-    : Component(game), _app(_game->getApp()), _input(_app->GetInput())
+	: Component(game), _app(game->getApp()), _input(_app->GetInput())
 {
     //bool lastState[5];
     //bool currentState[5];

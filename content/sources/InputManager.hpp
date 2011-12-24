@@ -1,8 +1,9 @@
 #ifndef INPUT_MANAGER_H
 #define INPUT_MANAGER_H
 
-#include "Component.hpp"
 #include "Game.hpp"
+
+class Game;
 
 class InputManager : public Component
 {
