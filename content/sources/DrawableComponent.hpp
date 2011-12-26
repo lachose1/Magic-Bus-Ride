@@ -1,7 +1,7 @@
 #ifndef DRAWABLE_COMPONENT_H
 #define DRAWABLE_COMPONENT_H
 
-#include "Game.hpp"
+#include "Component.hpp"
 
 class Game;
 
