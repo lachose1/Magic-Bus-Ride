@@ -1,7 +1,4 @@
-#include "Game.hpp"
 #include "Component.hpp"
-#include "DrawableComponent.hpp"
-#include "InputManager.hpp"
 
 using namespace std;
 
