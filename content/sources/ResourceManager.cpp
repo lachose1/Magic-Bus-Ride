@@ -1,6 +1,3 @@
-#include <vector>
-#include <string>
-
 #include "ResourceManager.hpp"
 
 using namespace std;
