@@ -1,19 +1,16 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
 
-#include "Component.hpp"
-#include "DrawableComponent.hpp"
-#include "InputManager.hpp"
-#include "ResourceManager.hpp"
-#include "Asset.hpp"
+#include "ResourceManager.hpp" //Temporaire, sera remplacÃ© par des Fwd Decl, mais c'est plus complexe avec les templates.
 
 class Component;
 class DrawableComponent;
 class InputManager;
+class sf::Clock;
+class sf::RenderWindow;
 
 class Game
 {
@@ -30,12 +27,12 @@ public :
     
 private :
 
-    std::string _title; //Titre de la fenêtre RenderWindow
-    unsigned int _width; //Largeur de la fenêtre
-    unsigned int _height; //Hauteur de la fenêtre
-    unsigned int _colorMode; //ColorMode de la fenêtre
-    sf::RenderWindow* _app; //Fenêtre SFML du jeu
-    sf::Clock _time; //Temps du jeu en ms
+    std::string _title; //Titre de la fenï¿½tre RenderWindow
+    unsigned int _width; //Largeur de la fenï¿½tre
+    unsigned int _height; //Hauteur de la fenï¿½tre
+    unsigned int _colorMode; //ColorMode de la fenï¿½tre
+    sf::RenderWindow* _app; //Fenï¿½tre SFML du jeu
+    sf::Clock* _time; //Temps du jeu en ms
     std::vector<Component*> _components; //Vector des components non-affichables
     std::vector<DrawableComponent*> _drawableComponents; //Vector des components affichables
 };
