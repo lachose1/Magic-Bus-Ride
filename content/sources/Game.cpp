@@ -1,8 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <vector>
-#include <string>
-
 #include "Game.hpp"
 
 using namespace sf;
@@ -26,10 +21,11 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
 Game::~Game()
 {
     delete _app;
-	delete _inputManager;
-	delete _imageManager;
-	delete _fontManager;
-	delete _musicManager;
+    delete _inputManager;
+    delete _imageManager;
+    delete _fontManager;
+    delete _musicManager;
+    delete _time;
 }
 
 void Game::run()
