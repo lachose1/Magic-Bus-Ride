@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "InputManager.hpp"
-#include "Component.hpp"
 
 using namespace sf;
 using namespace std;
@@ -9,9 +8,6 @@ using namespace std;
 InputManager::InputManager(Game* game)
 	: Component(game), _app(game->getApp()), _input(_app->GetInput())
 {
-    //bool lastState[5];
-    //bool currentState[5];
-
     for(int i = 0; i < KEY_COUNT; ++i)
     {
         lastState[i] = false;
