@@ -10,11 +10,10 @@ class DrawableComponent : public Component
 public :
 
     virtual void draw() = 0;
-
-protected :
-    
     DrawableComponent(Game* game);
     ~DrawableComponent();
+
+protected :
 };
 
 #endif

@@ -1,11 +1,12 @@
 #ifndef INPUT_MANAGER_H
 #define INPUT_MANAGER_H
 
+#include <SFML/Graphics.hpp>
 #include "Component.hpp"
 
 class Game;
 class sf::RenderWindow;
-class sf::Input; //Not sure if I need the namespace in the forward declaration. If these tow line do not work, remove sf:: and they will.
+class sf::Input;
 
 class InputManager : public Component
 {

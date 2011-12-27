@@ -6,11 +6,11 @@
 #include <vector>
 #include <string>
 
-#include "ResourceManager.hpp" //Temporaire, sera remplacé par des Fwd Decl, mais c'est plus complexe avec les templates.
+#include "ResourceManager.hpp"
+#include "InputManager.hpp"
 
 class Component;
 class DrawableComponent;
-class InputManager;
 class sf::Clock;
 class sf::RenderWindow;
 
@@ -29,11 +29,11 @@ public :
     
 private :
 
-    std::string _title; //Titre de la fen�tre RenderWindow
-    unsigned int _width; //Largeur de la fen�tre
-    unsigned int _height; //Hauteur de la fen�tre
-    unsigned int _colorMode; //ColorMode de la fen�tre
-    sf::RenderWindow* _app; //Fen�tre SFML du jeu
+    std::string _title; //Titre de la fenetre RenderWindow
+    unsigned int _width; //Largeur de la fenetre
+    unsigned int _height; //Hauteur de la fenetre
+    unsigned int _colorMode; //ColorMode de la fenetre
+    sf::RenderWindow* _app; //Fenetre SFML du jeu
     sf::Clock* _time; //Temps du jeu en ms
     std::vector<Component*> _components; //Vector des components non-affichables
     std::vector<DrawableComponent*> _drawableComponents; //Vector des components affichables

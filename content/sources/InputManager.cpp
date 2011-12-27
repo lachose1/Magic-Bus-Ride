@@ -1,5 +1,3 @@
-#include <SFML/Graphics.hpp>
-
 #include "InputManager.hpp"
 
 using namespace sf;
