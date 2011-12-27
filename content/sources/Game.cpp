@@ -8,7 +8,7 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
 {
     _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
     _app->SetFramerateLimit(60);
-    _time.Reset();
+    _time->Reset();
 
     _inputManager = new InputManager(this);
     _components.push_back(_inputManager);

@@ -7,6 +7,9 @@
 #include <string>
 
 #include "ResourceManager.hpp" //Temporaire, sera remplacé par des Fwd Decl, mais c'est plus complexe avec les templates.
+#include "InputManager.hpp"
+
+
 
 class Component;
 class DrawableComponent;
