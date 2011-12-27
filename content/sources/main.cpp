@@ -1,5 +1,4 @@
 #include <cstdlib>
-#include <SFML/Graphics.hpp>
 
 #include "Game.hpp"
 
