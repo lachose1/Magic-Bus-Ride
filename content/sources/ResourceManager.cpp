@@ -12,10 +12,10 @@ ResourceManager<T>::ResourceManager()
 {
 }
 
-template <typename T>
-ResourceManager<T>::~ResourceManager()
-{
-}
+//template <typename T>
+//ResourceManager<T>::~ResourceManager()
+//{
+//}
 
 template <typename T>
 void ResourceManager<T>::add(string filename)

@@ -9,7 +9,6 @@
 #include "ResourceManager.hpp"
 #include "InputManager.hpp"
 
-
 class Component;
 class DrawableComponent;
 class sf::Clock;

@@ -10,7 +10,7 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
     _app->SetFramerateLimit(60);
     _time->Reset();
 
-    _inputManager = new InputManager(this);
+    _inputManager = new InputManager(this, getApp());
     _components.push_back(_inputManager);
 
     _imageManager = new ResourceManager<Image>("../res/images/");
