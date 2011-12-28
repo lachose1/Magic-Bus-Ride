@@ -13,5 +13,5 @@ string Asset<T>::getFilename()
 template<typename T>
 T* Asset<T>::getFile()
 {
-    return _file*;
+    return &_file;
 }

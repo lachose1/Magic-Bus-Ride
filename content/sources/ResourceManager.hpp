@@ -24,20 +24,20 @@ public:
 
     inline void add(std::string filename)
     {
-        _resources.push_back(Asset<T>(filename, _path));
+        _resources.push_back(new Asset<T>(filename, _path));
     }
 
     T* find(std::string filename)
     {
         for(int i = 0; i < _resources.size(); ++i)
-            if(_resources[i].getFilename() == filename)
-                return _resources[i].getFile;
+            if(_resources[i]->getFilename() == filename)
+                return _resources[i]->getFile;
 
         return NULL;
     }
 
 private:
-    std::vector<Asset<T> > _resources;
+    std::vector<Asset<T>* > _resources;
     std::string _path;
 };
 

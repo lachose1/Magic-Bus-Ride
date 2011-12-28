@@ -7,6 +7,7 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
 	: _title(title), _width(width), _height(height), _colorMode(colorMode)
 {
     initialize();
+    loadResources();
 }
 
 Game::~Game()
@@ -39,6 +40,13 @@ void Game::initialize()
     _imageManager = new ResourceManager<Image>("../res/images/");
     _fontManager = new ResourceManager<Font>("../res/fonts/");
     _musicManager = new ResourceManager<Music>("../res/music/");
+}
+
+void Game::loadResources()
+{
+    _imageManager->add("tree.png");
+    _fontManager->add("terminus.ttf");
+    _musicManager->add("sixteen.ogg");
 }
 
 void Game::run()

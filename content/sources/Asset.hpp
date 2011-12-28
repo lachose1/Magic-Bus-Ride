@@ -21,6 +21,7 @@ public:
 
     T* getFile();
     std::string getFilename();
+
 private:
 
     T _file;
@@ -44,6 +45,7 @@ public:
 
     sf::Music* getFile();
     std::string getFilename();
+
 private:
 
     sf::Music _file;

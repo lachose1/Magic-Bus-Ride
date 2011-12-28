@@ -31,6 +31,7 @@ public :
 private :
 
     void initialize();
+    void loadResources();
 
     std::string _title; //Titre de la fenetre RenderWindow
     unsigned int _width; //Largeur de la fenetre
