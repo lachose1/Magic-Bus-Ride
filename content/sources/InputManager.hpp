@@ -14,8 +14,8 @@ public :
     //InputManager();
     InputManager(Game* game, sf::RenderWindow* app);
     ~InputManager();
-    static const int KEY_COUNT = 5;
-    enum KeyName {UP, DOWN, LEFT, RIGHT, SPACE};
+    static const int KEY_COUNT = 6;
+    enum KeyName {UP, DOWN, LEFT, RIGHT, SPACE, ESCAPE};
     bool isKeyPressed(KeyName key);
     bool isNewKey(KeyName key);
     virtual void update();
@@ -23,8 +23,8 @@ public :
 private :
     sf::RenderWindow* _app;
     const sf::Input& _input;
-    bool lastState[KEY_COUNT];
-    bool currentState[KEY_COUNT];
+    bool _lastState[KEY_COUNT];
+    bool _currentState[KEY_COUNT];
 };
 
 #endif

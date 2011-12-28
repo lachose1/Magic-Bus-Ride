@@ -8,8 +8,8 @@ InputManager::InputManager(Game* game, RenderWindow* app)
 {
     for(int i = 0; i < KEY_COUNT; ++i)
     {
-        lastState[i] = false;
-        currentState[i] = false;
+        _lastState[i] = false;
+        _currentState[i] = false;
     }
 }
 
@@ -25,26 +25,28 @@ InputManager::~InputManager()
 void InputManager::update()
 {
     for(int i = 0; i < KEY_COUNT; ++i)
-        lastState[i] = currentState[i];
+        _lastState[i] = _currentState[i];
 
     if(_input.IsKeyDown(sf::Key::W) || _input.IsKeyDown(sf::Key::Up))
-        currentState[UP] = true;
+        _currentState[UP] = true;
     if(_input.IsKeyDown(sf::Key::S) || _input.IsKeyDown(sf::Key::Down))
-        currentState[DOWN] = true;
+        _currentState[DOWN] = true;
     if(_input.IsKeyDown(sf::Key::A) || _input.IsKeyDown(sf::Key::Left))
-        currentState[LEFT] = true;
+        _currentState[LEFT] = true;
     if(_input.IsKeyDown(sf::Key::D) || _input.IsKeyDown(sf::Key::Right))
-        currentState[RIGHT] = true;
+        _currentState[RIGHT] = true;
     if(_input.IsKeyDown(sf::Key::Space))
-        currentState[SPACE] = true;
+        _currentState[SPACE] = true;
+    if(_input.IsKeyDown(sf::Key::Escape))
+        _currentState[ESCAPE] = true;
 }
 
 bool InputManager::isKeyPressed(KeyName key)
 {
-    return currentState[key];
+    return _currentState[key];
 }
 
 bool InputManager::isNewKey(KeyName key)
 {
-    return !lastState[key] && currentState[key];
+    return !_lastState[key] && _currentState[key];
 }

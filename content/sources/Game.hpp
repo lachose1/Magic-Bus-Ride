@@ -22,12 +22,15 @@ public :
     ~Game();
     void run();
     sf::RenderWindow* getApp();
+
     InputManager* _inputManager;
     ResourceManager<sf::Image>* _imageManager;
     ResourceManager<sf::Font>* _fontManager;
     ResourceManager<sf::Music>* _musicManager;
     
 private :
+
+    void initialize();
 
     std::string _title; //Titre de la fenetre RenderWindow
     unsigned int _width; //Largeur de la fenetre

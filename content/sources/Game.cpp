@@ -6,17 +6,7 @@ using namespace std;
 Game::Game(string title, unsigned int width, unsigned int height, unsigned int colorMode)
 	: _title(title), _width(width), _height(height), _colorMode(colorMode)
 {
-    _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
-    _app->SetFramerateLimit(60);
-    _time = new Clock();
-    _time->Reset();
-
-    _inputManager = new InputManager(this, _app);
-    _components.push_back(_inputManager);
-
-    _imageManager = new ResourceManager<Image>("../res/images/");
-    _fontManager = new ResourceManager<Font>("../res/fonts/");
-    _musicManager = new ResourceManager<Music>("../res/music/");
+    initialize();
 }
 
 Game::~Game()
@@ -35,15 +25,33 @@ Game::~Game()
     delete _app;
 }
 
+void Game::initialize()
+{
+    _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
+    _app->SetFramerateLimit(60);
+
+    _time = new Clock();
+    _time->Reset();
+
+    _inputManager = new InputManager(this, _app);
+    _components.push_back(_inputManager);
+
+    _imageManager = new ResourceManager<Image>("../res/images/");
+    _fontManager = new ResourceManager<Font>("../res/fonts/");
+    _musicManager = new ResourceManager<Music>("../res/music/");
+}
+
 void Game::run()
 {
     while(_app->IsOpened())
     {
         Event event;
 
+        _inputManager->update(); //Temporaire, vu que c'est le seul element de _components
+
         while (_app->GetEvent(event))
         {
-            if (event.Type == Event::Closed)
+            if (event.Type == Event::Closed || _inputManager->isKeyPressed(InputManager::ESCAPE))
                 _app->Close();
         }
 
