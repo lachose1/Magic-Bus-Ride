@@ -10,14 +10,23 @@ template <typename T>
 class ResourceManager
 {
 public:
-    //ResourceManager(std::string path);
-    //template <typename T>
     inline ResourceManager(std::string path) : _path(path)
     {
     }
-    ResourceManager();
-    //~ResourceManager();
-    void add(std::string filename);
+
+    inline ResourceManager()
+    {
+    }
+
+    inline ~ResourceManager()
+    {
+    }
+
+    inline void add(std::string filename)
+    {
+        _resources.push_back(Asset<T>(filename, _path));
+    }
+
     T* find(std::string filename)
     {
         for(int i = 0; i < _resources.size(); ++i)
