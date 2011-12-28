@@ -21,6 +21,8 @@ public :
     Game(std::string title, unsigned int width, unsigned int height, unsigned int colorMode);
     ~Game();
     void run();
+    void updateWorld();
+    void drawWorld();
     sf::RenderWindow* getApp();
 
     InputManager* _inputManager;

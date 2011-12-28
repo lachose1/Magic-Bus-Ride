@@ -48,7 +48,7 @@ void Game::loadResources()
     _fontManager->add("terminus.ttf");
     _musicManager->add("sixteen.ogg");
     //Uncomment the following to see that find really does work and to hear some music.
-    //_musicManager->find("sixteen.ogg")->Play();
+    _musicManager->find("sixteen.ogg")->Play();
 }
 
 void Game::run()
@@ -57,17 +57,35 @@ void Game::run()
     {
         Event event;
 
-        _inputManager->update(); //Temporaire, vu que c'est le seul element de _components
-
         while (_app->GetEvent(event))
         {
             if (event.Type == Event::Closed || _inputManager->isKeyPressed(InputManager::ESCAPE))
                 _app->Close();
         }
 
+        updateWorld();
         _app->Clear();
+        drawWorld();
         _app->Display();
     }
+}
+
+void Game::updateWorld()
+{
+    for(unsigned int i = 0; i < _components.size(); i++)
+    {
+        _components[i]->update();
+    }
+
+    for(unsigned int i = 0; i < _drawableComponents.size(); i++)
+    {
+        //_drawableComponents[i]->update(); Ca me donne une erreur, on checkera ca plus tard
+    }
+}
+
+void Game::drawWorld()
+{
+    return;
 }
 
 RenderWindow* Game::getApp()
