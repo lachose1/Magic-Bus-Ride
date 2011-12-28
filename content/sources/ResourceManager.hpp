@@ -35,9 +35,9 @@ public:
 
     T* find(std::string filename)
     {
-        for(int i = 0; i < _resources.size(); ++i)
+        for(unsigned int i = 0; i < _resources.size(); ++i)
             if(_resources[i]->getFilename() == filename)
-                return _resources[i]->getFile;
+                return _resources[i]->getFile();
 
         return NULL;
     }

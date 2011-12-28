@@ -47,6 +47,8 @@ void Game::loadResources()
     _imageManager->add("tree.png");
     _fontManager->add("terminus.ttf");
     _musicManager->add("sixteen.ogg");
+    //Uncomment the following to see that find really does work and to hear some music.
+    //_musicManager->find("sixteen.ogg")->Play();
 }
 
 void Game::run()

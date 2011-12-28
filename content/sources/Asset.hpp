@@ -19,8 +19,15 @@ public:
     {
     }
 
-    T* getFile();
-    std::string getFilename();
+    inline std::string getFilename()
+    {
+        return _filename;
+    }
+
+    inline T* getFile()
+    {
+        return &_file;
+    }
 
 private:
 
@@ -43,8 +50,15 @@ public:
     {
     }
 
-    sf::Music* getFile();
-    std::string getFilename();
+    inline std::string getFilename()
+    {
+        return _filename;
+    }
+
+    inline sf::Music* getFile()
+    {
+        return &_file;
+    }
 
 private:
 
