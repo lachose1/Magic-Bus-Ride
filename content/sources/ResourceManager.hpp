@@ -10,7 +10,11 @@ template <typename T>
 class ResourceManager
 {
 public:
-    ResourceManager(std::string path);
+    //ResourceManager(std::string path);
+    //template <typename T>
+    inline ResourceManager(std::string path) : _path(path)
+    {
+    }
     ResourceManager();
     //~ResourceManager();
     void add(std::string filename);
