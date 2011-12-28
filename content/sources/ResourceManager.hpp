@@ -20,6 +20,12 @@ public:
 
     inline ~ResourceManager()
     {
+        while(!_resources.empty())
+        {
+            delete _resources.back();
+            _resources.pop_back();
+        }
+
     }
 
     inline void add(std::string filename)
