@@ -19,12 +19,12 @@ public:
     {
     }
 
-    inline std::string getFilename()
+    std::string getFilename()
     {
         return _filename;
     }
 
-    inline T* getFile()
+    T* getFile()
     {
         return &_file;
     }

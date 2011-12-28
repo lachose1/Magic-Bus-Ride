@@ -10,15 +10,15 @@ template <typename T>
 class ResourceManager
 {
 public:
-    inline ResourceManager(std::string path) : _path(path)
+    ResourceManager(std::string path) : _path(path)
     {
     }
 
-    inline ResourceManager()
+    ResourceManager()
     {
     }
 
-    inline ~ResourceManager()
+    ~ResourceManager()
     {
         while(!_resources.empty())
         {
@@ -28,7 +28,7 @@ public:
 
     }
 
-    inline void add(std::string filename)
+    void add(std::string filename)
     {
         _resources.push_back(new Asset<T>(filename, _path));
     }
