@@ -8,9 +8,10 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
 {
     _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
     _app->SetFramerateLimit(60);
+    _time = new Clock();
     _time->Reset();
 
-    _inputManager = new InputManager(this, getApp());
+    _inputManager = new InputManager(this, _app);
     _components.push_back(_inputManager);
 
     _imageManager = new ResourceManager<Image>("../res/images/");
@@ -20,8 +21,6 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
 
 Game::~Game()
 {
-    delete _app;
-    delete _inputManager;
     delete _imageManager;
     delete _fontManager;
     delete _musicManager;
@@ -32,6 +31,8 @@ Game::~Game()
         delete _components[i];
         _components[i] = 0;
     }
+    
+    delete _app;
 }
 
 void Game::run()

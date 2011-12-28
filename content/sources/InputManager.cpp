@@ -20,8 +20,6 @@ InputManager::InputManager(Game* game, RenderWindow* app)
 InputManager::~InputManager()
 {
     delete _app;
-    delete[] &lastState;
-    delete[] &currentState;
 }
 
 void InputManager::update()
