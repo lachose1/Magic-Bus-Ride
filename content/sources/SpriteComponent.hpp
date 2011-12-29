@@ -10,7 +10,7 @@ class SpriteComponent : public DrawableComponent
 {
 public :
 
-    virtual sf::Sprite* draw() = 0;
+    virtual void draw() = 0;
     SpriteComponent(Game* game);
     ~SpriteComponent();
     

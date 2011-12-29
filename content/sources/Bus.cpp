@@ -1,4 +1,5 @@
 #include "Bus.hpp"
+#include "Game.hpp"
 
 using namespace std;
 using namespace sf;
@@ -18,7 +19,7 @@ void Bus::update()
     return;
 }
 
-Sprite* Bus::draw()
+void Bus::draw()
 {
-    return &_sprite;
+    _game->getApp()->Draw(_sprite);
 }

@@ -95,7 +95,7 @@ void Game::drawWorld()
     _drawableComponents.push_back(new Bus(this, _imageManager->find("bowser.png")));
     for(unsigned int i = 0; i < _drawableComponents.size(); i++)
     {
-        _app->Draw(*(_drawableComponents[i]->draw()));
+        _drawableComponents[i]->draw();
     }
 }
 
