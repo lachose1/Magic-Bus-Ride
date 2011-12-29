@@ -4,15 +4,13 @@
 #include <SFML/Graphics.hpp>
 #include "DrawableComponent.hpp"
 
-class Game;
-
 class SpriteComponent : public DrawableComponent
 {
 public :
 
-    virtual void draw();
     SpriteComponent(Game* game, std::string filename);
     ~SpriteComponent();
+    virtual void draw();
     
 protected :
 
