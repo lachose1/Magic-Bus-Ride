@@ -22,6 +22,12 @@ Game::~Game()
         delete _components[i];
         _components[i] = 0;
     }
+
+    for(unsigned int i = 0; i < _drawableComponents.size(); ++i)
+    {
+        delete _drawableComponents[i];
+        _drawableComponents[i] = 0;
+    }
     
     delete _app;
 }
