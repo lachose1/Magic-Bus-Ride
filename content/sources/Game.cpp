@@ -85,7 +85,9 @@ void Game::updateWorld()
 
 void Game::drawWorld()
 {
-    return;
+    Sprite pomme;
+    pomme.SetImage(*(_imageManager->find("tree.png")));
+    _app->Draw(pomme);
 }
 
 RenderWindow* Game::getApp()
