@@ -1,10 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <cstdlib>
-#include <iostream>
-#include <map>
-#include <vector>
-#include <fstream>
-#include <string>
 #include "Animation.hpp"
 
 using namespace sf;

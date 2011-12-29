@@ -2,6 +2,9 @@
 #define ANIMATION_H
 
 #include <SFML/Graphics.hpp>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 
