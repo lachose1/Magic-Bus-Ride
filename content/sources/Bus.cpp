@@ -13,8 +13,8 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 
     _inputManager = _game->getInputManager();
 
-    _position = Vector2f(_app->GetWidth()/2.0f - _image->GetWidth()/2.0f,
-        _app->GetHeight() - _image->GetHeight());
+    _position = Vector2f(_app->GetWidth()/2.0f - _sprite.GetSize().x/2.0f,
+        _app->GetHeight() - _sprite.GetSize().y);
 
     _sprite.SetPosition(_position);
 }
@@ -55,5 +55,5 @@ int Bus::getScore()
 
 bool Bus::isInBounds(float x)
 {
-    return x >= 0 && (x + _image->GetWidth()) <= _app->GetWidth();
+    return x >= 0 && (x + _sprite.GetSize().x) <= _app->GetWidth();
 }
