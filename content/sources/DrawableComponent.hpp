@@ -13,6 +13,10 @@ public :
     virtual void draw() = 0;
     DrawableComponent(Game* game);
     ~DrawableComponent();
+
+protected:
+
+    sf::RenderWindow* _app;
 };
 
 #endif

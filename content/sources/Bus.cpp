@@ -18,8 +18,3 @@ void Bus::update()
 {
     return;
 }
-
-void Bus::draw()
-{
-    _game->getApp()->Draw(_sprite);
-}

@@ -12,7 +12,6 @@ public :
     Bus(Game* game, sf::Image* image);
     ~Bus();
     void update();
-    void draw();
 
 private :
 

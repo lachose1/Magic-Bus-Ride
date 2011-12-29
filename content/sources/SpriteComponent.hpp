@@ -10,7 +10,7 @@ class SpriteComponent : public DrawableComponent
 {
 public :
 
-    virtual void draw() = 0;
+    virtual void draw();
     SpriteComponent(Game* game);
     ~SpriteComponent();
     
