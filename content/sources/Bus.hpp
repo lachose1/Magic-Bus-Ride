@@ -13,8 +13,6 @@ public :
     ~Bus();
     void update();
     sf::Sprite* draw();
-    
-protected :
 
 private :
 

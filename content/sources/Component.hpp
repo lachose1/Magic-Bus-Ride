@@ -14,7 +14,7 @@ public :
 
 protected :
     
-    //Game* _game; //Pointeur sur un objet Game
+    Game* _game; //Pointeur sur un objet Game
 };
 
 #endif

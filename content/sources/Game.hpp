@@ -54,6 +54,8 @@ private :
     ResourceManager<sf::Image>* _imageManager;
     ResourceManager<sf::Font>* _fontManager;
     ResourceManager<sf::Music>* _musicManager;
+
+    Bus* _bus;
 };
 
 #endif

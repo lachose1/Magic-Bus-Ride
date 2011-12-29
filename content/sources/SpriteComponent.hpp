@@ -17,7 +17,7 @@ public :
 protected :
 
     sf::Image* _image; //Pointeur sur l'Image associee
-    sf::Sprite _sprite; //Sprite associee
+    sf::Sprite _sprite; //Sprite associe
 };
 
 #endif
