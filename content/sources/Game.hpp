@@ -25,11 +25,6 @@ public :
     void updateWorld();
     void drawWorld();
     sf::RenderWindow* getApp();
-
-    InputManager* _inputManager;
-    ResourceManager<sf::Image>* _imageManager;
-    ResourceManager<sf::Font>* _fontManager;
-    ResourceManager<sf::Music>* _musicManager;
     
 private :
 
@@ -44,6 +39,10 @@ private :
     sf::Clock* _time; //Temps du jeu en ms
     std::vector<Component*> _components; //Vector des components non-affichables
     std::vector<DrawableComponent*> _drawableComponents; //Vector des components affichables
+    InputManager* _inputManager;
+    ResourceManager<sf::Image>* _imageManager;
+    ResourceManager<sf::Font>* _fontManager;
+    ResourceManager<sf::Music>* _musicManager;
 };
 
 #endif
