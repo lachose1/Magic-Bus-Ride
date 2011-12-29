@@ -45,6 +45,7 @@ void Game::initialize()
 void Game::loadResources()
 {
     _imageManager->add("tree.png");
+    _imageManager->add("bowser.png");
     _fontManager->add("terminus.ttf");
     _musicManager->add("sixteen.ogg");
     //Uncomment the following to see that find really does work and to hear some music.
@@ -79,15 +80,17 @@ void Game::updateWorld()
 
     for(unsigned int i = 0; i < _drawableComponents.size(); i++)
     {
-        //_drawableComponents[i]->update(); Ca me donne une erreur, on checkera ca plus tard
+        _drawableComponents[i]->update();
     }
 }
 
 void Game::drawWorld()
 {
-    Sprite pomme;
-    pomme.SetImage(*(_imageManager->find("tree.png")));
-    _app->Draw(pomme);
+    _drawableComponents.push_back(new Bus(this, _imageManager->find("bowser.png")));
+    for(unsigned int i = 0; i < _drawableComponents.size(); i++)
+    {
+        _app->Draw(*(_drawableComponents[i]->draw()));
+    }
 }
 
 RenderWindow* Game::getApp()

@@ -8,6 +8,7 @@
 
 #include "ResourceManager.hpp"
 #include "InputManager.hpp"
+#include "Bus.hpp"
 
 class Component;
 class DrawableComponent;
