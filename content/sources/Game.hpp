@@ -24,6 +24,8 @@ public :
     void run();
     void updateWorld();
     void drawWorld();
+
+    //Getters
     sf::RenderWindow* getApp();
     InputManager* getInputManager();
     ResourceManager<sf::Image>* getImageManager();
@@ -35,14 +37,19 @@ private :
     void initialize();
     void loadResources();
 
-    std::string _title; //Titre de la fenetre RenderWindow
-    unsigned int _width; //Largeur de la fenetre
-    unsigned int _height; //Hauteur de la fenetre
-    unsigned int _colorMode; //ColorMode de la fenetre
-    sf::RenderWindow* _app; //Fenetre SFML du jeu
-    sf::Clock* _time; //Temps du jeu en ms
-    std::vector<Component*> _components; //Vector des components non-affichables
-    std::vector<DrawableComponent*> _drawableComponents; //Vector des components affichables
+    //Attributes pertaining to the RenderWindow
+    std::string _title;
+    unsigned int _width;
+    unsigned int _height;
+    unsigned int _colorMode;
+    sf::RenderWindow* _app;
+    sf::Clock* _time;
+
+    //Vectors for components
+    std::vector<Component*> _components;
+    std::vector<DrawableComponent*> _drawableComponents;
+
+    //Managers
     InputManager* _inputManager;
     ResourceManager<sf::Image>* _imageManager;
     ResourceManager<sf::Font>* _fontManager;
