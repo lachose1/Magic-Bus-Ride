@@ -1,7 +1,12 @@
 #include "SpriteComponent.hpp"
+#include "Game.hpp"
 
-SpriteComponent::SpriteComponent(Game* game) : DrawableComponent(game)
+using namespace std;
+
+SpriteComponent::SpriteComponent(Game* game, string filename) : DrawableComponent(game)
 {
+    _image = _game->getImageManager()->find(filename);
+    _sprite.SetImage(*_image);
 }
 
 SpriteComponent::~SpriteComponent()

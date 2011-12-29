@@ -9,9 +9,10 @@ class Bus : public SpriteComponent
 {
 public :
 
-    Bus(Game* game, sf::Image* image);
+    Bus(Game* game);
     ~Bus();
     void update();
+    static const std::string IMAGE_NAME;
 
 private :
 

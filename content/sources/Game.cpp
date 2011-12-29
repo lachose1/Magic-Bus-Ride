@@ -7,7 +7,6 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
 	: _title(title), _width(width), _height(height), _colorMode(colorMode)
 {
     initialize();
-    loadResources();
 }
 
 Game::~Game()
@@ -46,12 +45,18 @@ void Game::initialize()
     _imageManager = new ResourceManager<Image>("../res/images/");
     _fontManager = new ResourceManager<Font>("../res/fonts/");
     _musicManager = new ResourceManager<Music>("../res/music/");
+
+    loadResources();
+
+    _bus = new Bus(this);
+    _drawableComponents.push_back(_bus);
 }
 
 void Game::loadResources()
 {
     _imageManager->add("tree.png");
     _imageManager->add("bowser.png");
+    _imageManager->add(Bus::IMAGE_NAME);
     _fontManager->add("terminus.ttf");
     _musicManager->add("sixteen.ogg");
     //Uncomment the following to see that find really does work and to hear some music.
@@ -71,6 +76,7 @@ void Game::run()
         }
 
         updateWorld();
+
         _app->Clear();
         drawWorld();
         _app->Display();
@@ -79,12 +85,12 @@ void Game::run()
 
 void Game::updateWorld()
 {
-    for(unsigned int i = 0; i < _components.size(); i++)
+    for(unsigned int i = 0; i < _components.size(); ++i)
     {
         _components[i]->update();
     }
 
-    for(unsigned int i = 0; i < _drawableComponents.size(); i++)
+    for(unsigned int i = 0; i < _drawableComponents.size(); ++i)
     {
         _drawableComponents[i]->update();
     }
@@ -92,8 +98,7 @@ void Game::updateWorld()
 
 void Game::drawWorld()
 {
-    _drawableComponents.push_back(new Bus(this, _imageManager->find("bowser.png")));
-    for(unsigned int i = 0; i < _drawableComponents.size(); i++)
+    for(unsigned int i = 0; i < _drawableComponents.size(); ++i)
     {
         _drawableComponents[i]->draw();
     }

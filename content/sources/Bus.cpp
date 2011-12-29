@@ -4,10 +4,10 @@
 using namespace std;
 using namespace sf;
 
-Bus::Bus(Game* game, Image* image) : SpriteComponent(game)
+const string Bus::IMAGE_NAME = "bus.png";
+
+Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
-    _image = image;
-    _sprite.SetImage(*(_image));
 }
 
 Bus::~Bus()

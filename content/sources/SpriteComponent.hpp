@@ -11,7 +11,7 @@ class SpriteComponent : public DrawableComponent
 public :
 
     virtual void draw();
-    SpriteComponent(Game* game);
+    SpriteComponent(Game* game, std::string filename);
     ~SpriteComponent();
     
 protected :
