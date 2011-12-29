@@ -5,8 +5,14 @@ using namespace std;
 using namespace sf;
 
 TextComponent::TextComponent(Game* game, string text, string fontName, Vector2f position, float size)
-    : DrawableComponent(game), _text(text), _fontManager(_game->getFontManager()), _font(_fontManager->find(fontName)), _position(position), _size(size)
+    : DrawableComponent(game)
 {
+    _text = text;
+    _fontManager = _game->getFontManager();
+    _font = _fontManager->find(fontName);
+    _position = position;
+    _size = size;
+
     _string = String(_text, *_font, _size);
     _string.SetPosition(_position);
 }

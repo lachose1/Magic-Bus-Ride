@@ -50,7 +50,7 @@ void Game::initialize()
 
     _bus = new Bus(this);
     _drawableComponents.push_back(_bus);
-    _drawableComponents.push_back(new TextComponent(
+    _drawableComponents.push_back(new TextComponent(this, "Patate", "terminus.ttf", Vector2f(0, 0)));
 }
 
 void Game::loadResources()
