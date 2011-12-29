@@ -14,12 +14,14 @@ public :
     void update();
     static const std::string IMAGE_NAME;
     int getSpeed();
+    int getScore();
 
 private :
 
     static const int ACCELERATION = 1;
     static const int SPEED_X = 10;
     int _speed;
+    int _score;
     InputManager* _inputManager;
     //Animation _animation;
 

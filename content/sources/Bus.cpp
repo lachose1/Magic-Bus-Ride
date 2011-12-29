@@ -9,6 +9,7 @@ const string Bus::IMAGE_NAME = "bus.png";
 Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
     _speed = 0;
+    _score = 0;
 
     _inputManager = _game->getInputManager();
 
@@ -45,6 +46,11 @@ void Bus::update()
 int Bus::getSpeed()
 {
     return _speed;
+}
+
+int Bus::getScore()
+{
+    return _score;
 }
 
 bool Bus::isInBounds(float x)
