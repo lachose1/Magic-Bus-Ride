@@ -25,6 +25,10 @@ public :
     void updateWorld();
     void drawWorld();
     sf::RenderWindow* getApp();
+    InputManager* getInputManager();
+    ResourceManager<sf::Image>* getImageManager();
+    ResourceManager<sf::Font>* getFontManager();
+    ResourceManager<sf::Music>* getMusicManager();
     
 private :
 

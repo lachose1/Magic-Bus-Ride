@@ -97,3 +97,23 @@ RenderWindow* Game::getApp()
 {
     return _app;
 }
+
+InputManager* Game::getInputManager()
+{
+    return _inputManager;
+}
+
+ResourceManager<sf::Image>* Game::getImageManager()
+{
+    return _imageManager;
+}
+
+ResourceManager<sf::Font>* Game::getFontManager()
+{
+    return _fontManager;
+}
+
+ResourceManager<sf::Music>* Game::getMusicManager()
+{
+    return _musicManager;
+}
