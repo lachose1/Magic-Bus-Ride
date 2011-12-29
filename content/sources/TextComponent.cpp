@@ -25,3 +25,7 @@ void TextComponent::setText(string text)
     _text = text;
     _string.SetText(_text);
 }
+
+void TextComponent::update()
+{
+}

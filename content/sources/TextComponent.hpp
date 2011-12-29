@@ -12,6 +12,7 @@ public:
     TextComponent(Game* game, std::string text, std::string fontName, sf::Vector2f position, float size = 30.0f);
     ~TextComponent();
     virtual void draw();
+    virtual void update();
     void setText(std::string text);
 
 private:

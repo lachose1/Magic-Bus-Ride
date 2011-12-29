@@ -50,6 +50,7 @@ void Game::initialize()
 
     _bus = new Bus(this);
     _drawableComponents.push_back(_bus);
+    _drawableComponents.push_back(new TextComponent(
 }
 
 void Game::loadResources()
