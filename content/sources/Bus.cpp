@@ -10,6 +10,7 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
     _speed = 0;
     _score = 0;
+    _jumping = false;
 
     _inputManager = _game->getInputManager();
 
@@ -17,6 +18,8 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
         _app->GetHeight() - _sprite.GetSize().y);
 
     _sprite.SetPosition(_position);
+
+    setLane();
 }
 
 Bus::~Bus()
@@ -40,7 +43,55 @@ void Bus::update()
     {
         _position.x = x;
         _sprite.SetPosition(_position);
+        setLane();
     }
+}
+
+void Bus::setLane()
+{
+    int laneNumber = (int)(_sprite.GetPosition().x) / LANE_WIDTH;
+
+    switch(laneNumber)
+    {
+    case 0:
+        _lane = LEFT_EDGE;
+        break;
+    case 1:
+        _lane = LEFT;
+        break;
+    case 2:
+        _lane = CENTER;
+        break;
+    case 3:
+        _lane = RIGHT;
+        break;
+    case 4:
+        _lane = RIGHT_EDGE;
+        break;
+    default:
+        _lane = CENTER;
+        break;
+    }
+}
+
+bool Bus::isInBounds(float x)
+{
+    return x >= 0 && (x + _sprite.GetSize().x) <= _app->GetWidth();
+}
+
+bool Bus::isAnimated()
+{
+    return _speed > 0;
+}
+
+bool Bus::isJumping()
+{
+    return _jumping;
+}
+
+Bus::Lane Bus::getLane()
+{
+    return _lane;
 }
 
 int Bus::getSpeed()
@@ -51,9 +102,4 @@ int Bus::getSpeed()
 int Bus::getScore()
 {
     return _score;
-}
-
-bool Bus::isInBounds(float x)
-{
-    return x >= 0 && (x + _sprite.GetSize().x) <= _app->GetWidth();
 }
