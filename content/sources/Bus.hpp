@@ -23,7 +23,7 @@ private :
     int _speed;
     int _score;
     InputManager* _inputManager;
-    //Animation _animation;
+    //std::vector<Animation*> _animations;
 
     bool isInBounds(float x);
 };
