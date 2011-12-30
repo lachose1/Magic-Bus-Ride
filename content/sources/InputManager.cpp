@@ -13,10 +13,6 @@ InputManager::InputManager(Game* game, RenderWindow* app)
     }
 }
 
-//InputManager::InputManager()
-//{
-//}
-
 InputManager::~InputManager()
 {
     delete _app;

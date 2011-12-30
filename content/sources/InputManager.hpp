@@ -11,7 +11,6 @@ class sf::Input;
 class InputManager : public Component
 {
 public :
-    //InputManager();
     InputManager(Game* game, sf::RenderWindow* app);
     ~InputManager();
     static const int KEY_COUNT = 6;
