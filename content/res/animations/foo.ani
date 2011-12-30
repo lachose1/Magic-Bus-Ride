@@ -1,0 +1,13 @@
+idle
+frames:2
+reverse:0
+roundTrip:1
+frame1:0,0,200,200,10
+frame2:0,200,400,200,10
+jumping
+frames:3
+reverse:0
+roundTrip:1
+frame1:0,0,200,200,5
+frame2:0,200,400,200,5
+frame3:0,400,600,200,5
