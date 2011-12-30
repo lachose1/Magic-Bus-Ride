@@ -30,7 +30,7 @@ void Bus::update()
 {
     float x = _position.x;
 
-    if(_inputManager->isKeyPressed(InputManager::UP))
+    if(_inputManager->isKeyPressed(InputManager::UP) && (_speed + ACCELERATION) <= MAX_SPEED)
         _speed += ACCELERATION;
     if(_inputManager->isKeyPressed(InputManager::DOWN) && _speed >= ACCELERATION)
         _speed -= ACCELERATION;

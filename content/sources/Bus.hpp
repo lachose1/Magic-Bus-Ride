@@ -24,6 +24,7 @@ public :
 private :
 
     static const int ACCELERATION = 1;
+    static const int MAX_SPEED = 300;
     static const int SPEED_X = 10;
     static const int LANE_WIDTH = 160; //800px / 5 lanes
 
