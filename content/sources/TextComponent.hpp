@@ -14,6 +14,9 @@ public:
     virtual void draw();
     virtual void update();
     void setText(std::string text);
+    float getWidth();
+    float getHeight();
+    void setPosition(sf::Vector2f position);
 
 private:
 

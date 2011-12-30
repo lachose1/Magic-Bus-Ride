@@ -35,3 +35,19 @@ void TextComponent::setText(string text)
 void TextComponent::update()
 {
 }
+
+void TextComponent::setPosition(Vector2f position)
+{
+    _position = position;
+    _string.SetPosition(_position);
+}
+
+float TextComponent::getWidth()
+{
+    return _string.GetRect().GetWidth();
+}
+
+float TextComponent::getHeight()
+{
+    return _string.GetRect().GetHeight();
+}

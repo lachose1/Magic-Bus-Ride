@@ -50,7 +50,8 @@ void Game::initialize()
 
     _bus = new Bus(this);
     _drawableComponents.push_back(_bus);
-    _drawableComponents.push_back(new TextComponent(this, "Patate", "terminus.ttf", Vector2f(0, 0)));
+    _hud = new Hud(this);
+    _drawableComponents.push_back(_hud);
 }
 
 void Game::loadResources()
@@ -128,4 +129,9 @@ ResourceManager<sf::Font>* Game::getFontManager()
 ResourceManager<sf::Music>* Game::getMusicManager()
 {
     return _musicManager;
+}
+
+Bus* Game::getBus()
+{
+    return _bus;
 }

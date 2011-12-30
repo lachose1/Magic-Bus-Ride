@@ -9,7 +9,7 @@
 #include "ResourceManager.hpp"
 #include "InputManager.hpp"
 #include "Bus.hpp"
-#include "TextComponent.hpp"
+#include "Hud.hpp"
 
 class Component;
 class DrawableComponent;
@@ -29,6 +29,7 @@ public :
     //Getters
     sf::RenderWindow* getApp();
     InputManager* getInputManager();
+    Bus* getBus();
     ResourceManager<sf::Image>* getImageManager();
     ResourceManager<sf::Font>* getFontManager();
     ResourceManager<sf::Music>* getMusicManager();
@@ -55,8 +56,10 @@ private :
     ResourceManager<sf::Image>* _imageManager;
     ResourceManager<sf::Font>* _fontManager;
     ResourceManager<sf::Music>* _musicManager;
-
+    
+    //Drawable Components
     Bus* _bus;
+    Hud* _hud;
 };
 
 #endif
