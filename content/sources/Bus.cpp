@@ -10,6 +10,7 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
     _speed = 0;
     _score = 0;
+    _jumpElapsed = 0;
     _jumping = false;
 
     _inputManager = _game->getInputManager();
@@ -45,6 +46,8 @@ void Bus::update()
         x -= SPEED_X;
     if(_inputManager->isKeyPressed(InputManager::RIGHT))
         x += SPEED_X;
+    if(_inputManager->isNewKey(InputManager::SPACE) && !_jumping)
+        _jumping = true;
 
     if(isInBounds(x))
     {
@@ -53,6 +56,33 @@ void Bus::update()
         setLane();
         setSubRect();
     }
+
+    if(_jumping)
+        jump();
+}
+
+void Bus::jump()
+{
+    float y = _position.y;
+
+    if(_jumpElapsed < JUMP_DURATION / 2)
+    {
+        y -= JUMP_SPEED;
+        ++_jumpElapsed;
+    }
+    else if(_jumpElapsed < JUMP_DURATION)
+    {
+        y += JUMP_SPEED;
+        ++_jumpElapsed;
+    }
+    else
+    {
+        _jumping = false;
+        _jumpElapsed = 0;
+    }
+
+    _position.y = y;
+    _sprite.SetPosition(_position);
 }
 
 void Bus::setLane()

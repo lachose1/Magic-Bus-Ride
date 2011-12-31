@@ -25,16 +25,21 @@ private :
 
     static const int ACCELERATION = 1;
     static const int MAX_SPEED = 300;
-    static const int SPEED_X = 10;
+    static const int SPEED_X = 5;
     static const int LANE_WIDTH = 160; //800px / 5 lanes
+    static const int JUMP_DURATION = 100;
+    static const int JUMP_HEIGHT = 200;
+    static const int JUMP_SPEED = 4; //2 * height / duration
 
     int _speed;
     int _score;
+    int _jumpElapsed;
     bool _jumping;
     Lane _lane;
     InputManager* _inputManager;
     std::vector<Animation*> _animations;
 
+    void jump();
     bool isInBounds(float x);
     void setLane();
     void setSubRect();
