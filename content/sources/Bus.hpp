@@ -33,7 +33,7 @@ private :
     bool _jumping;
     Lane _lane;
     InputManager* _inputManager;
-    //std::vector<Animation*> _animations;
+    std::vector<Animation*> _animations;
 
     bool isInBounds(float x);
     void setLane();

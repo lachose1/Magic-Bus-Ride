@@ -19,6 +19,12 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 
     _sprite.SetPosition(_position);
 
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling1on5"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling2on5"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling3on5"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling4on5"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling5on5"));
+
     setLane();
 }
 

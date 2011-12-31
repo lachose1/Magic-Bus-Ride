@@ -12,7 +12,7 @@ class Animation
 {
 public :
 
-    Animation(const std::string &filepath); //Un constructeur par lequel on peut forcer un filepath pour l'animation
+    Animation(const std::string &filepath, std::string name); //Un constructeur par lequel on peut forcer un filepath pour l'animation
     void createFramesCoordinates(std::vector<sf::IntRect>* rectangles);
     sf::IntRect* nextFrame();
     int getLoops();
