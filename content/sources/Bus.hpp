@@ -27,9 +27,9 @@ private :
     static const int MAX_SPEED = 300;
     static const int SPEED_X = 5;
     static const int LANE_WIDTH = 160; //800px / 5 lanes
-    static const int JUMP_DURATION = 100;
-    static const int JUMP_HEIGHT = 200;
-    static const int JUMP_SPEED = 4; //2 * height / duration
+    static const int JUMP_DURATION = 30;
+    static const int JUMP_HEIGHT = 150;
+    static const int JUMP_SPEED = 10; //2 * height / duration
 
     int _speed;
     int _score;
