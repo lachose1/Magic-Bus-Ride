@@ -5,6 +5,7 @@ using namespace std;
 using namespace sf;
 
 const string Bus::IMAGE_NAME = "bowser.png";
+const float Bus::JUMP_ACCEL = -0.35f;
 
 Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
@@ -25,7 +26,7 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
     setSubRect();
 
     _position = Vector2f(_app->GetWidth()/2.0f - _sprite.GetSize().x/2.0f,
-    _app->GetHeight() - _sprite.GetSize().y);
+    LOWER_BOUND - _sprite.GetSize().y);
 
     _sprite.SetPosition(_position);
 }
@@ -64,19 +65,14 @@ void Bus::update()
 void Bus::jump()
 {
     float y = _position.y;
+    float height = _sprite.GetSize().y;
 
-    if(_jumpElapsed < JUMP_DURATION / 2)
+    y -= JUMP_SPEED * _jumpElapsed + 0.5f * JUMP_ACCEL * _jumpElapsed * _jumpElapsed;
+    ++_jumpElapsed;
+
+    if(y + height > LOWER_BOUND)
     {
-        y -= JUMP_SPEED;
-        ++_jumpElapsed;
-    }
-    else if(_jumpElapsed < JUMP_DURATION)
-    {
-        y += JUMP_SPEED;
-        ++_jumpElapsed;
-    }
-    else
-    {
+        y = LOWER_BOUND - height;
         _jumping = false;
         _jumpElapsed = 0;
     }
