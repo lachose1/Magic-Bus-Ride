@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-const string Bus::IMAGE_NAME = "bus.png";
+const string Bus::IMAGE_NAME = "bowser.png";
 
 Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
@@ -26,6 +26,7 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
     _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling5on5"));
 
     setLane();
+    _sprite.SetSubRect(*(_animations[2]->nextFrame()));
 }
 
 Bus::~Bus()
