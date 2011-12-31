@@ -14,19 +14,19 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 
     _inputManager = _game->getInputManager();
 
-    _position = Vector2f(_app->GetWidth()/2.0f - _sprite.GetSize().x/2.0f,
-        _app->GetHeight() - _sprite.GetSize().y);
-
-    _sprite.SetPosition(_position);
-
     _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling1on5"));
     _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling2on5"));
     _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling3on5"));
     _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling4on5"));
     _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling5on5"));
 
-    setLane();
-    _sprite.SetSubRect(*(_animations[2]->nextFrame()));
+    _lane = CENTER;
+    setSubRect();
+
+    _position = Vector2f(_app->GetWidth()/2.0f - _sprite.GetSize().x/2.0f,
+    _app->GetHeight() - _sprite.GetSize().y);
+
+    _sprite.SetPosition(_position);
 }
 
 Bus::~Bus()
@@ -51,6 +51,7 @@ void Bus::update()
         _position.x = x;
         _sprite.SetPosition(_position);
         setLane();
+        setSubRect();
     }
 }
 
@@ -79,6 +80,11 @@ void Bus::setLane()
         _lane = CENTER;
         break;
     }
+}
+
+void Bus::setSubRect()
+{
+    _sprite.SetSubRect(*(_animations[_lane]->nextFrame()));
 }
 
 bool Bus::isInBounds(float x)

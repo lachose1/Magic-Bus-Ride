@@ -37,6 +37,7 @@ private :
 
     bool isInBounds(float x);
     void setLane();
+    void setSubRect();
 };
 
 #endif
