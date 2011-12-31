@@ -87,7 +87,7 @@ void Bus::jump()
 
 void Bus::setLane()
 {
-    int laneNumber = (int)(_sprite.GetPosition().x) / LANE_WIDTH;
+    int laneNumber = (int)(_sprite.GetPosition().x + _sprite.GetSize().x) / LANE_WIDTH;
 
     switch(laneNumber)
     {
