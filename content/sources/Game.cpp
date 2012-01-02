@@ -52,6 +52,19 @@ void Game::initialize()
     _drawableComponents.push_back(_bus);
     _hud = new Hud(this);
     _drawableComponents.push_back(_hud);
+
+    // Set color and depth clear value
+    glClearDepth(1.f);
+    glClearColor(0.f, 0.f, 0.f, 0.f);
+
+    // Enable Z-buffer read and write
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+
+    // Setup a perspective projection
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(90.f, 1.f, 1.f, 500.f);
 }
 
 void Game::loadResources()
@@ -79,6 +92,7 @@ void Game::run()
 
         updateWorld();
 
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         _app->Clear();
         drawWorld();
         _app->Display();
