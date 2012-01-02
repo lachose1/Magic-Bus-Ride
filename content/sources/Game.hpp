@@ -27,6 +27,7 @@ public :
     void run();
     void updateWorld();
     void drawWorld();
+    void drawOpenGL();
 
     //Getters
     sf::RenderWindow* getApp();
