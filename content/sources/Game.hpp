@@ -12,6 +12,7 @@
 #include "InputManager.hpp"
 #include "Bus.hpp"
 #include "Hud.hpp"
+#include "Road.hpp"
 
 class Component;
 class DrawableComponent;
@@ -36,6 +37,7 @@ public :
     ResourceManager<sf::Image>* getImageManager();
     ResourceManager<sf::Font>* getFontManager();
     ResourceManager<sf::Music>* getMusicManager();
+    float getTime();
     
 private :
 
@@ -64,6 +66,7 @@ private :
     //Drawable Components
     Bus* _bus;
     Hud* _hud;
+    Road* _road;
 };
 
 #endif

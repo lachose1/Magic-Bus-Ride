@@ -54,6 +54,8 @@ void Game::initialize()
     _drawableComponents.push_back(_hud);
 
     initOpenGL();
+    _road = new Road(this);
+    _drawableComponents.push_back(_road);
 }
 
 void Game::loadResources()
@@ -98,9 +100,9 @@ void Game::run()
         }
 
         updateWorld();
-
         _app->Clear();
-        drawOpenGL();
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        //drawOpenGL();
         drawWorld();
         _app->Display();
     }
@@ -128,50 +130,48 @@ void Game::drawWorld()
 }
 
 void Game::drawOpenGL()
-{	
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glTranslatef(0.f, 0.f, -200.f);
-    glRotatef(_time->GetElapsedTime() * 50, 1.f, 0.f, 0.f);
-    glRotatef(_time->GetElapsedTime() * 30, 0.f, 1.f, 0.f);
-    glRotatef(_time->GetElapsedTime() * 90, 0.f, 0.f, 1.f);
-    
-	glBegin(GL_QUADS);
+{		        
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        glTranslatef(0.f, 0.f, -200.f);
+        
+        glRotatef(_time->GetElapsedTime() * 50, 1.f, 0.f, 0.f); //Ces lignes sont temporaires, juste pour
+        glRotatef(_time->GetElapsedTime() * 30, 0.f, 1.f, 0.f); //bien tester l'animation OpenGL
+        glRotatef(_time->GetElapsedTime() * 90, 0.f, 0.f, 1.f); //en faisant tourner le cube
 
-    glVertex3f(-50.f, -50.f, -50.f);
-    glVertex3f(-50.f,  50.f, -50.f);
-    glVertex3f( 50.f,  50.f, -50.f);
-    glVertex3f( 50.f, -50.f, -50.f);
+	    glBegin(GL_QUADS);
 
-    glVertex3f(-50.f, -50.f, 50.f);
-    glVertex3f(-50.f,  50.f, 50.f);
-    glVertex3f( 50.f,  50.f, 50.f);
-    glVertex3f( 50.f, -50.f, 50.f);
+        glVertex3f(-50.f, -50.f, -50.f);
+        glVertex3f(-50.f,  50.f, -50.f);
+        glVertex3f( 50.f,  50.f, -50.f);
+        glVertex3f( 50.f, -50.f, -50.f);
 
-    glVertex3f(-50.f, -50.f, -50.f);
-    glVertex3f(-50.f,  50.f, -50.f);
-    glVertex3f(-50.f,  50.f,  50.f);
-    glVertex3f(-50.f, -50.f,  50.f);
+        glVertex3f(-50.f, -50.f, 50.f);
+        glVertex3f(-50.f,  50.f, 50.f);
+        glVertex3f( 50.f,  50.f, 50.f);
+        glVertex3f( 50.f, -50.f, 50.f);
 
-    glVertex3f(50.f, -50.f, -50.f);
-    glVertex3f(50.f,  50.f, -50.f);
-    glVertex3f(50.f,  50.f,  50.f);
-    glVertex3f(50.f, -50.f,  50.f);
+        glVertex3f(-50.f, -50.f, -50.f);
+        glVertex3f(-50.f,  50.f, -50.f);
+        glVertex3f(-50.f,  50.f,  50.f);
+        glVertex3f(-50.f, -50.f,  50.f);
 
-    glVertex3f(-50.f, -50.f,  50.f);
-    glVertex3f(-50.f, -50.f, -50.f);
-    glVertex3f( 50.f, -50.f, -50.f);
-    glVertex3f( 50.f, -50.f,  50.f);
+        glVertex3f(50.f, -50.f, -50.f);
+        glVertex3f(50.f,  50.f, -50.f);
+        glVertex3f(50.f,  50.f,  50.f);
+        glVertex3f(50.f, -50.f,  50.f);
 
-    glVertex3f(-50.f, 50.f,  50.f);
-    glVertex3f(-50.f, 50.f, -50.f);
-    glVertex3f( 50.f, 50.f, -50.f);
-    glVertex3f( 50.f, 50.f,  50.f);
+        glVertex3f(-50.f, -50.f,  50.f);
+        glVertex3f(-50.f, -50.f, -50.f);
+        glVertex3f( 50.f, -50.f, -50.f);
+        glVertex3f( 50.f, -50.f,  50.f);
 
-glEnd();
-	
+        glVertex3f(-50.f, 50.f,  50.f);
+        glVertex3f(-50.f, 50.f, -50.f);
+        glVertex3f( 50.f, 50.f, -50.f);
+        glVertex3f( 50.f, 50.f,  50.f);
 
+    glEnd();
 }
 
 RenderWindow* Game::getApp()
@@ -202,4 +202,9 @@ ResourceManager<sf::Music>* Game::getMusicManager()
 Bus* Game::getBus()
 {
     return _bus;
+}
+
+float Game::getTime()
+{
+    return _time->GetElapsedTime();
 }
