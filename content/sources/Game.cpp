@@ -48,14 +48,14 @@ void Game::initialize()
 
     loadResources();
 
+    initOpenGL();
+    _road = new Road(this);
+    _drawableComponents.push_back(_road);
+
     _bus = new Bus(this);
     _drawableComponents.push_back(_bus);
     _hud = new Hud(this);
     _drawableComponents.push_back(_hud);
-
-    initOpenGL();
-    _road = new Road(this);
-    _drawableComponents.push_back(_road);
 }
 
 void Game::loadResources()

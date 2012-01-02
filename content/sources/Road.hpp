@@ -9,6 +9,7 @@ public :
 
     void draw();
     void update();
+    void createRoad();
     Road(Game* game);
     ~Road();
 
