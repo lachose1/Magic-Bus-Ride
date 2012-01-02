@@ -34,44 +34,44 @@ void Road::createRoad()
     glBegin(GL_QUADS);
         
         //Front
-        glVertex3f(-50.f,  10.f,  75.f);
-        glVertex3f( 50.f,  10.f,  75.f);
-        glVertex3f( 50.f, -10.f,  75.f);
-        glVertex3f(-50.f, -10.f,  75.f);
+        glVertex3f(-25.f,  10.f,  75.f);
+        glVertex3f( 25.f,  10.f,  75.f);
+        glVertex3f( 25.f, -10.f,  75.f);
+        glVertex3f(-25.f, -10.f,  75.f);
 
         //Right
-        glVertex3f( 50.f,  10.f,  75.f);
-        glVertex3f( 50.f,  10.f, -75.f);
-        glVertex3f( 50.f, -10.f, -75.f);
-        glVertex3f( 50.f, -10.f,  75.f);
+        glVertex3f( 25.f,  10.f,  75.f);
+        glVertex3f( 25.f,  10.f, -75.f);
+        glVertex3f( 25.f, -10.f, -75.f);
+        glVertex3f( 25.f, -10.f,  75.f);
 
         //Back
-        glVertex3f( 50.f,  10.f, -75.f);
-        glVertex3f(-50.f,  10.f, -75.f);
-        glVertex3f(-50.f, -10.f, -75.f);
-        glVertex3f( 50.f, -10.f, -75.f);
+        glVertex3f( 25.f,  10.f, -75.f);
+        glVertex3f(-25.f,  10.f, -75.f);
+        glVertex3f(-25.f, -10.f, -75.f);
+        glVertex3f( 25.f, -10.f, -75.f);
 
         //Left
-        glVertex3f(-50.f,  10.f, -75.f);
-        glVertex3f(-50.f,  10.f,  75.f);
-        glVertex3f(-50.f, -10.f,  75.f);
-        glVertex3f(-50.f, -10.f, -75.f);
+        glVertex3f(-25.f,  10.f, -75.f);
+        glVertex3f(-25.f,  10.f,  75.f);
+        glVertex3f(-25.f, -10.f,  75.f);
+        glVertex3f(-25.f, -10.f, -75.f);
 
         //Top
         glTexCoord2f(0.0f, 1.0f);
-        glVertex3f(-50.f,  10.f, -75.f);
+        glVertex3f(-25.f,  10.f, -75.f);
         glTexCoord2f(1.0f, 1.0f);
-        glVertex3f( 50.f,  10.f, -75.f);
+        glVertex3f( 25.f,  10.f, -75.f);
         glTexCoord2f(1.0f, 0.0f);
-        glVertex3f( 50.f,  10.f,  75.f);
+        glVertex3f( 25.f,  10.f,  75.f);
         glTexCoord2f(0.0f, 0.0f);
-        glVertex3f(-50.f,  10.f,  75.f);
+        glVertex3f(-25.f,  10.f,  75.f);
 
         //Bottom
-        glVertex3f(-50.f, -10.f,  75.f);
-        glVertex3f( 50.f, -10.f,  75.f);
-        glVertex3f( 50.f, -10.f, -75.f);
-        glVertex3f(-50.f, -10.f, -75.f);
+        glVertex3f(-25.f, -10.f,  75.f);
+        glVertex3f( 25.f, -10.f,  75.f);
+        glVertex3f( 25.f, -10.f, -75.f);
+        glVertex3f(-25.f, -10.f, -75.f);
 
     glEnd();
 }
