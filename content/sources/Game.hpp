@@ -41,6 +41,7 @@ private :
 
     void initialize();
     void loadResources();
+    void initOpenGL();
 
     //Attributes pertaining to the RenderWindow
     std::string _title;

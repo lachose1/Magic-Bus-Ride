@@ -53,6 +53,24 @@ void Game::initialize()
     _hud = new Hud(this);
     _drawableComponents.push_back(_hud);
 
+    initOpenGL();
+}
+
+void Game::loadResources()
+{
+    _imageManager->add("tree.png");
+    _imageManager->add("bowser.png");
+    _imageManager->add(Bus::IMAGE_NAME);
+    _fontManager->add("terminus.ttf");
+    _musicManager->add("sixteen.ogg");
+    //Uncomment the following to see that find really does work and to hear some music.
+    //_musicManager->find("sixteen.ogg")->Play();
+}
+
+void Game::initOpenGL()
+{
+    _app->PreserveOpenGLStates(true); //Pour preserver la 3D de opengl en dessinant des sprites
+
     // Set color and depth clear value
     glClearDepth(1.f);
     glClearColor(0.f, 0.f, 0.f, 0.f);
@@ -65,17 +83,6 @@ void Game::initialize()
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(90.f, 1.f, 1.f, 500.f);
-}
-
-void Game::loadResources()
-{
-    _imageManager->add("tree.png");
-    _imageManager->add("bowser.png");
-    _imageManager->add(Bus::IMAGE_NAME);
-    _fontManager->add("terminus.ttf");
-    _musicManager->add("sixteen.ogg");
-    //Uncomment the following to see that find really does work and to hear some music.
-    //_musicManager->find("sixteen.ogg")->Play();
 }
 
 void Game::run()
@@ -94,7 +101,7 @@ void Game::run()
 
         _app->Clear();
         drawOpenGL();
-        //drawWorld();
+        drawWorld();
         _app->Display();
     }
 }
