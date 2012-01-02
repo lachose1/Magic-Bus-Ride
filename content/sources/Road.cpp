@@ -28,6 +28,9 @@ void Road::update()
 
 void Road::createRoad()
 {
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _game->roadTexture);
+
     glBegin(GL_QUADS);
         
         //Front
@@ -51,13 +54,17 @@ void Road::createRoad()
         //Left
         glVertex3f(-50.f,  10.f, -75.f);
         glVertex3f(-50.f,  10.f,  75.f);
-        glVertex3f(-50.f, -10.f, -75.f);
+        glVertex3f(-50.f, -10.f,  75.f);
         glVertex3f(-50.f, -10.f, -75.f);
 
         //Top
+        glTexCoord2f(0.0f, 1.0f);
         glVertex3f(-50.f,  10.f, -75.f);
+        glTexCoord2f(1.0f, 1.0f);
         glVertex3f( 50.f,  10.f, -75.f);
+        glTexCoord2f(1.0f, 0.0f);
         glVertex3f( 50.f,  10.f,  75.f);
+        glTexCoord2f(0.0f, 0.0f);
         glVertex3f(-50.f,  10.f,  75.f);
 
         //Bottom

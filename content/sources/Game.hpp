@@ -29,6 +29,8 @@ public :
     void updateWorld();
     void drawWorld();
     void drawOpenGL();
+    int loadTexture(std::string texture);
+    int roadTexture; //For test purposes
 
     //Getters
     sf::RenderWindow* getApp();
