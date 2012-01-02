@@ -28,50 +28,53 @@ void Road::update()
 
 void Road::createRoad()
 {
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, _game->roadTexture);
+    for(int i = 0; i < 150; i++)
+    {
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, _game->roadTexture);
 
-    glBegin(GL_QUADS);
+        glBegin(GL_QUADS);
         
-        //Front
-        glVertex3f(-25.f,  10.f,  75.f);
-        glVertex3f( 25.f,  10.f,  75.f);
-        glVertex3f( 25.f, -10.f,  75.f);
-        glVertex3f(-25.f, -10.f,  75.f);
+            //Front
+            glVertex3f(-25.f,  10.f,  0.f-i*5);
+            glVertex3f( 25.f,  10.f,  0.f-i*5);
+            glVertex3f( 25.f, -10.f,  0.f-i*5);
+            glVertex3f(-25.f, -10.f,  0.f-i*5);
 
-        //Right
-        glVertex3f( 25.f,  10.f,  75.f);
-        glVertex3f( 25.f,  10.f, -75.f);
-        glVertex3f( 25.f, -10.f, -75.f);
-        glVertex3f( 25.f, -10.f,  75.f);
+            //Right
+            glVertex3f( 25.f,  10.f,  0.f-i*5);
+            glVertex3f( 25.f,  10.f, -10.f-i*5);
+            glVertex3f( 25.f, -10.f, -10.f-i*5);
+            glVertex3f( 25.f, -10.f,  0.f-i*5);
 
-        //Back
-        glVertex3f( 25.f,  10.f, -75.f);
-        glVertex3f(-25.f,  10.f, -75.f);
-        glVertex3f(-25.f, -10.f, -75.f);
-        glVertex3f( 25.f, -10.f, -75.f);
+            //Back
+            glVertex3f( 25.f,  10.f, -10.f-i*5);
+            glVertex3f(-25.f,  10.f, -10.f-i*5);
+            glVertex3f(-25.f, -10.f, -10.f-i*5);
+            glVertex3f( 25.f, -10.f, -10.f-i*5);
 
-        //Left
-        glVertex3f(-25.f,  10.f, -75.f);
-        glVertex3f(-25.f,  10.f,  75.f);
-        glVertex3f(-25.f, -10.f,  75.f);
-        glVertex3f(-25.f, -10.f, -75.f);
+            //Left
+            glVertex3f(-25.f,  10.f, -10.f-i*5);
+            glVertex3f(-25.f,  10.f,  0.f-i*5);
+            glVertex3f(-25.f, -10.f,  0.f-i*5);
+            glVertex3f(-25.f, -10.f, -10.f-i*5);
 
-        //Top
-        glTexCoord2f(0.0f, 1.0f);
-        glVertex3f(-25.f,  10.f, -75.f);
-        glTexCoord2f(1.0f, 1.0f);
-        glVertex3f( 25.f,  10.f, -75.f);
-        glTexCoord2f(1.0f, 0.0f);
-        glVertex3f( 25.f,  10.f,  75.f);
-        glTexCoord2f(0.0f, 0.0f);
-        glVertex3f(-25.f,  10.f,  75.f);
+            //Top
+            glTexCoord2f(0.0f, 0.5f);
+            glVertex3f(-25.f,  10.f, -10.f-i*5);
+            glTexCoord2f(1.0f, 0.5f);
+            glVertex3f( 25.f,  10.f, -10.f-i*5);
+            glTexCoord2f(1.0f, 0.0f);
+            glVertex3f( 25.f,  10.f,  0.f-i*5);
+            glTexCoord2f(0.0f, 0.0f);
+            glVertex3f(-25.f,  10.f,  0.f-i*5);
 
-        //Bottom
-        glVertex3f(-25.f, -10.f,  75.f);
-        glVertex3f( 25.f, -10.f,  75.f);
-        glVertex3f( 25.f, -10.f, -75.f);
-        glVertex3f(-25.f, -10.f, -75.f);
+            //Bottom
+            glVertex3f(-25.f, -10.f,  0.f-i*5);
+            glVertex3f( 25.f, -10.f,  0.f-i*5);
+            glVertex3f( 25.f, -10.f, -10.f-i*5);
+            glVertex3f(-25.f, -10.f, -10.f-i*5);
 
-    glEnd();
+        glEnd();
+    }
 }

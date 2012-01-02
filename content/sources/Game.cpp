@@ -7,6 +7,7 @@ Game::Game(string title, unsigned int width, unsigned int height, unsigned int c
 	: _title(title), _width(width), _height(height), _colorMode(colorMode)
 {
     initialize();
+    _level = "Main Menu";
 }
 
 Game::~Game()
@@ -220,4 +221,9 @@ Bus* Game::getBus()
 float Game::getTime()
 {
     return _time->GetElapsedTime();
+}
+
+string Game::getLevel()
+{
+    return _level;
 }

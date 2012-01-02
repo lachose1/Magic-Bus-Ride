@@ -40,6 +40,7 @@ public :
     ResourceManager<sf::Font>* getFontManager();
     ResourceManager<sf::Music>* getMusicManager();
     float getTime();
+    std::string getLevel();
     
 private :
 
@@ -69,6 +70,9 @@ private :
     Bus* _bus;
     Hud* _hud;
     Road* _road;
+
+    //Attributes related to the game
+    std::string _level;
 };
 
 #endif
