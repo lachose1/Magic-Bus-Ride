@@ -1,7 +1,6 @@
 #ifndef OPENGL_COMPONENT_H
 #define OPENGL_COMPONENT_H
 
-#include <SFML/Windows.hpp>
 #include "DrawableComponent.hpp"
 
 class OpenGLComponent : public DrawableComponent
