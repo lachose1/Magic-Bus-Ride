@@ -1,7 +1,7 @@
 #ifndef FPS_COUNTER_H
 #define FPS_COUNTER_H
 
-#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "Component.hpp"
 
@@ -21,8 +21,7 @@ private:
     Game* _game;
     float _fps;
     float _elapsedTime;
-    int _frames;
-    sf::Clock _clock;
+    sf::RenderWindow* _app;
 
 };
 

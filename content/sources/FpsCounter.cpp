@@ -9,11 +9,8 @@ const float FpsCounter::INTERVAL = 1.0f;
 FpsCounter::FpsCounter(Game* game) : Component(game)
 {
     _fps = -1; //Impossible value as default, so the first computed value is always different.
+    _app = game->getApp();
     _elapsedTime = 0;
-    _frames = 0;
-    _clock = Clock();
-
-    _clock.Reset();
 }
 
 FpsCounter::~FpsCounter()
@@ -22,15 +19,12 @@ FpsCounter::~FpsCounter()
 
 void FpsCounter::update()
 {
-    ++_frames;
-    _elapsedTime += _clock.GetElapsedTime();
+    _elapsedTime += _app->GetFrameTime();
 
     if(_elapsedTime > INTERVAL)
     {
-        _fps = _frames / _elapsedTime;
-        _frames = 0;
+        _fps = 1.0f / _app->GetFrameTime();
         _elapsedTime -= INTERVAL;
-        _clock.Reset();
     }
 }
 
