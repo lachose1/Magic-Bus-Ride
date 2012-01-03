@@ -8,6 +8,7 @@
 #include "Bus.hpp"
 #include "FpsCounter.hpp"
 #include "TextComponent.hpp"
+#include "InputManager.hpp"
 
 class Hud : public DrawableComponent
 {
@@ -21,6 +22,7 @@ public :
 
 private :
 
+    InputManager* _inputManager;
     Bus* _bus;
     FpsCounter* _fpsCounter;
     TextComponent* _score;
@@ -28,6 +30,7 @@ private :
     TextComponent* _fps;
     std::string convertIntToString(int n);
     std::string convertFloatToString(float n);
+    bool _fpsEnabled;
 };
 
 #endif
