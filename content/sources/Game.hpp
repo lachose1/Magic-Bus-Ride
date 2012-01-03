@@ -42,6 +42,7 @@ public :
     ResourceManager<sf::Music>* getMusicManager();
     float getTime();
     std::string getLevel();
+    FpsCounter* getFpsCounter();
     
 private :
 

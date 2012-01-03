@@ -240,3 +240,8 @@ string Game::getLevel()
 {
     return _level;
 }
+
+FpsCounter* Game::getFpsCounter()
+{
+    return _fpsCounter;
+}
