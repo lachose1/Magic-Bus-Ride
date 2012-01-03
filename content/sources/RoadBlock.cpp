@@ -22,44 +22,44 @@ void RoadBlock::draw(int x, int y)
     glBegin(GL_QUADS);
         
         //Front
-        glVertex3f(-25.f,  10.f,  0.f-y);
-        glVertex3f( 25.f,  10.f,  0.f-y);
-        glVertex3f( 25.f, -10.f,  0.f-y);
-        glVertex3f(-25.f, -10.f,  0.f-y);
+        glVertex3f(-20.f,  5.f,  0.f-y*20.f);
+        glVertex3f( 20.f,  5.f,  0.f-y*20.f);
+        glVertex3f( 20.f, -5.f,  0.f-y*20.f);
+        glVertex3f(-20.f, -5.f,  0.f-y*20.f);
 
         //Right
-        glVertex3f( 25.f,  10.f,  0.f-y);
-        glVertex3f( 25.f,  10.f, -10.f-y);
-        glVertex3f( 25.f, -10.f, -10.f-y);
-        glVertex3f( 25.f, -10.f,  0.f-y);
+        glVertex3f( 20.f,  5.f,  0.f-y*20.f);
+        glVertex3f( 20.f,  5.f, -20.f-y*20.f);
+        glVertex3f( 20.f, -5.f, -20.f-y*20.f);
+        glVertex3f( 20.f, -5.f,  0.f-y*20.f);
         
         //Back
-        glVertex3f( 25.f,  10.f, -10.f-y);
-        glVertex3f(-25.f,  10.f, -10.f-y);
-        glVertex3f(-25.f, -10.f, -10.f-y);
-        glVertex3f( 25.f, -10.f, -10.f-y);
+        glVertex3f( 20.f,  5.f, -20.f-y*20.f);
+        glVertex3f(-20.f,  5.f, -20.f-y*20.f);
+        glVertex3f(-20.f, -5.f, -20.f-y*20.f);
+        glVertex3f( 20.f, -5.f, -20.f-y*20.f);
 
         //Left
-        glVertex3f(-25.f,  10.f, -10.f-y);
-        glVertex3f(-25.f,  10.f,  0.f-y);
-        glVertex3f(-25.f, -10.f,  0.f-y);
-        glVertex3f(-25.f, -10.f, -10.f-y);
+        glVertex3f(-20.f,  5.f, -20.f-y*20.f);
+        glVertex3f(-20.f,  5.f,  0.f-y*20.f);
+        glVertex3f(-20.f, -5.f,  0.f-y*20.f);
+        glVertex3f(-20.f, -5.f, -20.f-y*20.f);
         
         //Top
         glTexCoord2f(0.0f, 0.5f);
-        glVertex3f(-25.f,  10.f, -10.f-y);
+        glVertex3f(-20.f,  5.f, -20.f-y*20.f);
         glTexCoord2f(1.0f, 0.5f);
-        glVertex3f( 25.f,  10.f, -10.f-y);
+        glVertex3f( 20.f,  5.f, -20.f-y*20.f);
         glTexCoord2f(1.0f, 0.0f);
-        glVertex3f( 25.f,  10.f,  0.f-y);
+        glVertex3f( 20.f,  5.f,  0.f-y*20.f);
         glTexCoord2f(0.0f, 0.0f);
-        glVertex3f(-25.f,  10.f,  0.f-y);
+        glVertex3f(-20.f,  5.f,  0.f-y*20.f);
 
         //Bottom
-        glVertex3f(-25.f, -10.f,  0.f-y);
-        glVertex3f( 25.f, -10.f,  0.f-y);
-        glVertex3f( 25.f, -10.f, -10.f-y);
-        glVertex3f(-25.f, -10.f, -10.f-y);
+        glVertex3f(-20.f, -5.f,  0.f-y*20.f);
+        glVertex3f( 20.f, -5.f,  0.f-y*20.f);
+        glVertex3f( 20.f, -5.f, -20.f-y*20.f);
+        glVertex3f(-20.f, -5.f, -20.f-y*20.f);
 
     glEnd();
 }
