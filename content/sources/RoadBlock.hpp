@@ -18,6 +18,7 @@ private :
     int _type;
     int _height;
     bool _solid;
+    static const float BLOCK_WIDTH;
 };
 
 #endif
