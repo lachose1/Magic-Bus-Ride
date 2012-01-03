@@ -13,6 +13,7 @@
 #include "Bus.hpp"
 #include "Hud.hpp"
 #include "Road.hpp"
+#include "FpsCounter.hpp"
 
 class Component;
 class DrawableComponent;
@@ -65,6 +66,9 @@ private :
     ResourceManager<sf::Image>* _imageManager;
     ResourceManager<sf::Font>* _fontManager;
     ResourceManager<sf::Music>* _musicManager;
+
+    //Other components
+    FpsCounter* _fpsCounter;
     
     //Drawable Components
     Bus* _bus;

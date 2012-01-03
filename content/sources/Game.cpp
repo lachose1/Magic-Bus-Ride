@@ -17,13 +17,19 @@ Game::~Game()
     delete _musicManager;
     delete _time;
 
-    for(unsigned int i = 0; i < _components.size(); ++i)
+    unsigned int size;
+
+    size = _components.size();
+
+    for(unsigned int i = 0; i < size; ++i)
     {
         delete _components[i];
         _components[i] = 0;
     }
 
-    for(unsigned int i = 0; i < _drawableComponents.size(); ++i)
+    size = _drawableComponents.size();
+
+    for(unsigned int i = 0; i < size; ++i)
     {
         delete _drawableComponents[i];
         _drawableComponents[i] = 0;
@@ -39,6 +45,9 @@ void Game::initialize()
 
     _time = new Clock();
     _time->Reset();
+
+    _fpsCounter = new FpsCounter(this);
+    _components.push_back(_fpsCounter);
 
     _inputManager = new InputManager(this, _app);
     _components.push_back(_inputManager);
@@ -180,11 +189,15 @@ int Game::loadTexture(string texture) {
     _imageManager->add(texture);
 
     GLuint textureId;
-    glGenTextures(1, &textureId);
-    glBindTexture(GL_TEXTURE_2D, textureId);
-    gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA, _imageManager->find(texture)->GetWidth(), _imageManager->find(texture)->GetHeight(), GL_RGBA, GL_UNSIGNED_BYTE, _imageManager->find(texture)->GetPixelsPtr());
+    glGenTextures(1, &textureId);
+
+    glBindTexture(GL_TEXTURE_2D, textureId);
+
+    gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA, _imageManager->find(texture)->GetWidth(), _imageManager->find(texture)->GetHeight(), GL_RGBA, GL_UNSIGNED_BYTE, _imageManager->find(texture)->GetPixelsPtr());
+
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+
     return textureId;
 }
 
