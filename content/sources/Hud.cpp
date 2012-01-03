@@ -47,7 +47,8 @@ void Hud::draw()
 {
     _score->draw();
     _speed->draw();
-    _fps->draw();
+    if(_fpsEnabled)
+        _fps->draw();
 }
 
 string Hud::convertIntToString(int n)
