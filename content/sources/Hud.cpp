@@ -29,7 +29,7 @@ void Hud::update()
         _fpsEnabled = !_fpsEnabled;
 
     string score = convertIntToString(_bus->getScore());
-    string speed = convertIntToString(_bus->getSpeed());
+    string speed = convertFloatToString(_bus->getSpeed());
     _score->setText(score);
     _speed->setText(speed);
     _speed->setPosition(Vector2f(_app->GetWidth() - _speed->getWidth(), 0));

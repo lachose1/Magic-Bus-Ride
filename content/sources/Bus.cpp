@@ -6,6 +6,7 @@ using namespace sf;
 
 const string Bus::IMAGE_NAME = "bowser.png";
 const float Bus::JUMP_ACCEL = -0.35f;
+const float Bus::ACCELERATION = 25.0f;
 
 Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
@@ -15,6 +16,7 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
     _jumping = false;
 
     _inputManager = _game->getInputManager();
+    _app = _game->getApp();
 
     _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling1on5"));
     _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling2on5"));
@@ -39,14 +41,16 @@ void Bus::update()
 {
     float x = _position.x;
 
-    if(_inputManager->isKeyPressed(InputManager::UP) && (_speed + ACCELERATION) <= MAX_SPEED)
-        _speed += ACCELERATION;
-    if(_inputManager->isKeyPressed(InputManager::DOWN) && _speed >= ACCELERATION)
-        _speed -= ACCELERATION;
+    float time = _app->GetFrameTime();
+
+    if(_inputManager->isKeyPressed(InputManager::UP) && (_speed + ACCELERATION * time) <= MAX_SPEED)
+        _speed += ACCELERATION * time;
+    if(_inputManager->isKeyPressed(InputManager::DOWN) && _speed >= ACCELERATION * time)
+        _speed -= ACCELERATION * time;
     if(_inputManager->isKeyPressed(InputManager::LEFT))
-        x -= SPEED_X;
+        x -= SPEED_X * time;
     if(_inputManager->isKeyPressed(InputManager::RIGHT))
-        x += SPEED_X;
+        x += SPEED_X * time;
     if(_inputManager->isNewKey(InputManager::SPACE) && !_jumping)
         _jumping = true;
 
