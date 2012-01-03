@@ -2,6 +2,7 @@
 #define ROAD_H
 
 #include "OpenGLComponent.hpp"
+#include "RoadBlock.hpp"
 
 class Road : public OpenGLComponent
 {
@@ -20,6 +21,8 @@ private :
 
     std::string _mapName;
     std::vector<int**> _map;
+    RoadBlock* _blockTest;
+
 };
 
 #endif
