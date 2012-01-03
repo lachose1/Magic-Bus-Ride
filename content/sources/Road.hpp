@@ -9,6 +9,7 @@ public :
 
     void draw();
     void update();
+    void loadMap();
     void createRoad();
     Road(Game* game);
     ~Road();
@@ -16,6 +17,9 @@ public :
 protected:
 
 private :
+
+    std::string _mapName;
+    std::vector<int**> _map;
 };
 
 #endif

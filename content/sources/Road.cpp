@@ -5,6 +5,8 @@ using namespace std;
 
 Road::Road(Game* game) : OpenGLComponent(game)
 {
+    _mapName = _game->getLevel() + ".map";
+    loadMap();
 }
 
 Road::~Road()
@@ -24,6 +26,17 @@ void Road::draw()
 
 void Road::update()
 {
+}
+
+void Road::loadMap()
+{
+    ifstream mapFile("../res/maps/" + _mapName);
+    
+    if(mapFile)
+    {
+
+    }
+    mapFile.close();
 }
 
 void Road::createRoad()

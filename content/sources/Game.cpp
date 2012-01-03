@@ -6,8 +6,8 @@ using namespace std;
 Game::Game(string title, unsigned int width, unsigned int height, unsigned int colorMode)
 	: _title(title), _width(width), _height(height), _colorMode(colorMode)
 {
+    _level = "level1-1";
     initialize();
-    _level = "Main Menu";
 }
 
 Game::~Game()
