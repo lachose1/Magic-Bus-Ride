@@ -41,7 +41,7 @@ void Road::loadMap()
 
 void Road::createRoad()
 {
-    for(int i = 0; i < 150; i++)
+    for(int i = 0; i < 1000; i++)
     {
         glEnable(GL_TEXTURE_2D);
         glBindTexture(GL_TEXTURE_2D, _game->roadTexture);
