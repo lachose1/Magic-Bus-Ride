@@ -1,13 +1,17 @@
 #ifndef ROADBLOCK_H
 #define ROADBLOCK_H
 
-class RoadBlock
+#include "OpenGLComponent.hpp"
+
+class RoadBlock : public OpenGLComponent
 {
 public :
 
-    RoadBlock(int type, int height);
+    RoadBlock(Game* game, int type, int height);
     ~RoadBlock();
     bool isSolid();
+    void draw(int x, int y);
+    void update();
 
 private :
 
