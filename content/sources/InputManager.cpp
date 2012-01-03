@@ -29,6 +29,7 @@ void InputManager::update()
     _currentState[RIGHT] = _input.IsKeyDown(sf::Key::D) || _input.IsKeyDown(sf::Key::Right);
     _currentState[SPACE] = _input.IsKeyDown(sf::Key::Space);
     _currentState[ESCAPE] = _input.IsKeyDown(sf::Key::Escape);
+    _currentState[F1] = _input.IsKeyDown(sf::Key::F1);
 }
 
 bool InputManager::isKeyPressed(KeyName key)

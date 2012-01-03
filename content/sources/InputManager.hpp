@@ -13,8 +13,8 @@ class InputManager : public Component
 public :
     InputManager(Game* game, sf::RenderWindow* app);
     ~InputManager();
-    static const int KEY_COUNT = 6;
-    enum KeyName {UP, DOWN, LEFT, RIGHT, SPACE, ESCAPE};
+    static const int KEY_COUNT = 7;
+    enum KeyName {UP, DOWN, LEFT, RIGHT, SPACE, ESCAPE, F1};
     bool isKeyPressed(KeyName key);
     bool isNewKey(KeyName key);
     virtual void update();
