@@ -55,6 +55,7 @@ void Game::initialize()
     _imageManager = new ResourceManager<Image>("../res/images/");
     _fontManager = new ResourceManager<Font>("../res/fonts/");
     _musicManager = new ResourceManager<Music>("../res/music/");
+    _textureManager = new TextureManager(this);
 
     loadResources();
 
@@ -73,11 +74,13 @@ void Game::loadResources()
     _imageManager->add("tree.png");
     _imageManager->add("bowser.png");
     _imageManager->add(Bus::IMAGE_NAME);
-    roadTexture = loadTexture("road1.png");
+    _textureManager->load("road1.png");
     _fontManager->add("terminus.ttf");
     _musicManager->add("sixteen.ogg");
     //Uncomment the following to see that find really does work and to hear some music.
     //_musicManager->find("sixteen.ogg")->Play();
+
+    roadTexture = _textureManager->find("road1.png");
 }
 
 void Game::initOpenGL()
@@ -183,22 +186,6 @@ void Game::drawOpenGL()
         glVertex3f( 50.f, 50.f,  50.f);
 
     glEnd();
-}
-
-int Game::loadTexture(string texture) {
-    _imageManager->add(texture);
-
-    GLuint textureId;
-    glGenTextures(1, &textureId);
-
-    glBindTexture(GL_TEXTURE_2D, textureId);
-
-    gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA, _imageManager->find(texture)->GetWidth(), _imageManager->find(texture)->GetHeight(), GL_RGBA, GL_UNSIGNED_BYTE, _imageManager->find(texture)->GetPixelsPtr());
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-
-    return textureId;
 }
 
 RenderWindow* Game::getApp()

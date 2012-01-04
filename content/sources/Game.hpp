@@ -14,6 +14,7 @@
 #include "Hud.hpp"
 #include "Road.hpp"
 #include "FpsCounter.hpp"
+#include "TextureManager.hpp"
 
 class Component;
 class DrawableComponent;
@@ -30,7 +31,6 @@ public :
     void updateWorld();
     void drawWorld();
     void drawOpenGL();
-    int loadTexture(std::string texture);
     int roadTexture; //For test purposes
 
     //Getters
@@ -67,6 +67,7 @@ private :
     ResourceManager<sf::Image>* _imageManager;
     ResourceManager<sf::Font>* _fontManager;
     ResourceManager<sf::Music>* _musicManager;
+    TextureManager* _textureManager;
 
     //Other components
     FpsCounter* _fpsCounter;
