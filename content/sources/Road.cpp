@@ -44,25 +44,25 @@ void Road::loadMap()
 
 void Road::createRoad()
 {
-    for(int i = 0; i < 1; i++)
+    for(int i = 0; i < 200; i++)
     {
-        _blockTest2->draw(0, 1);
-        _blockTest->draw(1, 2);
-        _blockTest->draw(1, 3);
-        _blockTest->draw(1, 4);
-        _blockTest->draw(1, 5);
-        _blockTest2->draw(2, 3);
-        _blockTest->draw(3, 4);
-		_blockTest->draw(3, 0);
-		_blockTest->draw(3, -1);
-		_blockTest->draw(3, -2);
-		_blockTest->draw(3, -3);
-		_blockTest->draw(3, -4);
-		_blockTest->draw(3, -5);
-		_blockTest->draw(3, -6);
-        _blockTest->draw(3, -7);
-        _blockTest2->draw(4, 5);
-        _blockTest->draw(5, 6);
-        _blockTest2->draw(6, 7);
+        _blockTest2->draw(0, 1+i);
+        _blockTest->draw(1, 2+i);
+        _blockTest->draw(1, 3+i);
+        _blockTest->draw(1, 4+i);
+        _blockTest->draw(1, 5+i);
+        _blockTest2->draw(2, 3+i);
+        _blockTest->draw(3, 4+i);
+		_blockTest->draw(3, 0+i);
+		_blockTest->draw(3, -1+i);
+		_blockTest->draw(3, -2+i);
+		_blockTest->draw(3, -3+i);
+		_blockTest->draw(3, -4+i);
+		_blockTest->draw(3, -5+i);
+		_blockTest->draw(3, -6+i);
+        _blockTest->draw(3, -7+i);
+        _blockTest2->draw(4, 5+i);
+        _blockTest->draw(5, 6+i);
+        _blockTest2->draw(6, 7+i);
     }
 }
