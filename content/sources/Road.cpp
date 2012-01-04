@@ -19,7 +19,8 @@ void Road::draw()
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         glTranslatef(0.f, 0.f, -200.f);
-        glRotatef(20, 1.f, 0.f, 0.f); //Ces lignes sont temporaires, juste pour
+        glRotatef(10, 1.f, 0.f, 0.f); //Ces lignes sont temporaires, juste pour
+        //glRotatef(_game->getTime() * 60, 1.f, 0.f, 0.f); //Ces lignes sont temporaires, juste pour
         //glRotatef(_game->getTime() * 30, 0.f, 1.f, 0.f); //bien tester l'animation OpenGL
         //glRotatef(_game->getTime() * 90, 0.f, 0.f, 1.f); //en faisant tourner le cube
         createRoad();
@@ -51,6 +52,14 @@ void Road::createRoad()
         _blockTest->draw(1, 5);
         _blockTest->draw(2, 3);
         _blockTest->draw(3, 4);
+		_blockTest->draw(3, 0);
+		_blockTest->draw(3, -1);
+		_blockTest->draw(3, -2);
+		_blockTest->draw(3, -3);
+		_blockTest->draw(3, -4);
+		_blockTest->draw(3, -5);
+		_blockTest->draw(3, -6);
+        _blockTest->draw(3, -7);
         _blockTest->draw(4, 5);
         _blockTest->draw(5, 6);
         _blockTest->draw(6, 7);
