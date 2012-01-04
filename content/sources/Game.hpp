@@ -30,7 +30,6 @@ public :
     void run();
     void updateWorld();
     void drawWorld();
-    void drawOpenGL();
     int roadTexture; //For test purposes
     int grassTexture;
 
