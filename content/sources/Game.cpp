@@ -75,12 +75,14 @@ void Game::loadResources()
     _imageManager->add("bowser.png");
     _imageManager->add(Bus::IMAGE_NAME);
     _textureManager->load("road1.png");
+    _textureManager->load("grass1.png");
     _fontManager->add("terminus.ttf");
     _musicManager->add("sixteen.ogg");
     //Uncomment the following to see that find really does work and to hear some music.
     //_musicManager->find("sixteen.ogg")->Play();
 
     roadTexture = _textureManager->find("road1.png");
+    grassTexture = _textureManager->find("grass1.png");
 }
 
 void Game::initOpenGL()

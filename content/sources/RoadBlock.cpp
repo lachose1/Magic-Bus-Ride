@@ -20,7 +20,12 @@ bool RoadBlock::isSolid()
 void RoadBlock::draw(int x, int y)
 {
     glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, _game->roadTexture);
+    int texture;
+    if(_type == 1)
+        texture = _game->roadTexture;
+    if(_type == 2)
+        texture = _game->grassTexture;
+    glBindTexture(GL_TEXTURE_2D, texture);
 
     float firstLaneX1 = BLOCK_WIDTH*3 - BLOCK_WIDTH/2;
     float firstLaneX2 = BLOCK_WIDTH*3 + BLOCK_WIDTH/2;

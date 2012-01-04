@@ -32,6 +32,7 @@ public :
     void drawWorld();
     void drawOpenGL();
     int roadTexture; //For test purposes
+    int grassTexture;
 
     //Getters
     sf::RenderWindow* getApp();
