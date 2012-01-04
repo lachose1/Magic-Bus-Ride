@@ -6,7 +6,6 @@ using namespace std;
 Game::Game(string title, unsigned int width, unsigned int height, unsigned int colorMode)
 	: _title(title), _width(width), _height(height), _colorMode(colorMode)
 {
-    _level = "level1-1";
     initialize();
 }
 
@@ -40,6 +39,8 @@ Game::~Game()
 
 void Game::initialize()
 {
+    _level = "level1-1";
+    _cameraPosition = -400.f;
     _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
     _app->SetFramerateLimit(60);
 
@@ -125,6 +126,7 @@ void Game::run()
 
 void Game::updateWorld()
 {
+    updateCamera();
     for(unsigned int i = 0; i < _components.size(); ++i)
     {
         _components[i]->update();
@@ -142,6 +144,13 @@ void Game::drawWorld()
     {
         _drawableComponents[i]->draw();
     }
+}
+
+void Game::updateCamera()
+{
+    if(_bus->getSpeed() == 0)
+        return;
+    _cameraPosition += _bus->getSpeed() / 10.f;
 }
 
 RenderWindow* Game::getApp()
@@ -187,4 +196,9 @@ string Game::getLevel()
 FpsCounter* Game::getFpsCounter()
 {
     return _fpsCounter;
+}
+
+float Game::getCameraPosition()
+{
+    return _cameraPosition;
 }

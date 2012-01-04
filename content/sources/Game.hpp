@@ -30,6 +30,7 @@ public :
     void run();
     void updateWorld();
     void drawWorld();
+    void updateCamera();
     int roadTexture; //For test purposes
     int grassTexture;
 
@@ -43,6 +44,7 @@ public :
     float getTime();
     std::string getLevel();
     FpsCounter* getFpsCounter();
+    float getCameraPosition();
     
 private :
 
@@ -79,6 +81,7 @@ private :
 
     //Attributes related to the game
     std::string _level;
+    float _cameraPosition;
 };
 
 #endif
