@@ -19,6 +19,7 @@ private :
     int _height;
     bool _solid;
     static const float BLOCK_WIDTH;
+    static const float BLOCK_LENGTH;
 };
 
 #endif
