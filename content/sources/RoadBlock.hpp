@@ -7,7 +7,7 @@ class RoadBlock : public OpenGLComponent
 {
 public :
 
-    RoadBlock(Game* game, int type, int height);
+    RoadBlock(Game* game, int type, float height = 5.f);
     ~RoadBlock();
     bool isSolid();
     void draw(int x, int y);
@@ -16,7 +16,7 @@ public :
 private :
 
     int _type;
-    int _height;
+    float _height;
     bool _solid;
     static const float BLOCK_WIDTH;
     static const float BLOCK_LENGTH;

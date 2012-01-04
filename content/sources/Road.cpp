@@ -7,7 +7,7 @@ Road::Road(Game* game) : OpenGLComponent(game)
 {
     _mapName = _game->getLevel() + ".map";
     loadMap();
-    _blockTest = new RoadBlock(_game, 0, 1);
+    _blockTest = new RoadBlock(_game, 0);
 }
 
 Road::~Road()

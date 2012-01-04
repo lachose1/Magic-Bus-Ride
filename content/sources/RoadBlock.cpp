@@ -4,7 +4,7 @@
 const float RoadBlock::BLOCK_WIDTH = 50.f;
 const float RoadBlock::BLOCK_LENGTH = 20.f;
 
-RoadBlock::RoadBlock(Game* game, int type, int height) : OpenGLComponent(game), _type(type), _height(height)
+RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game), _type(type), _height(height)
 {
 }
 
@@ -29,44 +29,44 @@ void RoadBlock::draw(int x, int y)
     glBegin(GL_QUADS);
         
         //Front
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  5.f,  0.f-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  5.f,  0.f-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -5.f,  0.f-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -5.f,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  _height,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  _height,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -_height,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -_height,  0.f-y*BLOCK_LENGTH);
 
         //Right
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  5.f,   0.f-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -5.f,   0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  _height,   0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -_height,   0.f-y*BLOCK_LENGTH);
         
         //Back
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
 
         //Left
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  5.f,  0.f-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -5.f,  0.f-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  _height,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -_height,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
         
         //Top
         glTexCoord2f(0.0f, 0.12f);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
         glTexCoord2f(1.0f, 0.12f);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
         glTexCoord2f(1.0f, 0.0f);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  5.f,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  _height,  0.f-y*BLOCK_LENGTH);
         glTexCoord2f(0.0f, 0.0f);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  5.f,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  _height,  0.f-y*BLOCK_LENGTH);
 
         //Bottom
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -5.f,  0.f-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -5.f,  0.f-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -5.f, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -_height,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -_height,  0.f-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX2+x*BLOCK_WIDTH, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
+        glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
 
     glEnd();
 }
