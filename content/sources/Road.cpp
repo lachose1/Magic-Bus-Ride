@@ -78,7 +78,7 @@ void Road::createRoad()
     {
         for(int j = 0; j < 7; j++)
         {
-            int nextBlock = i + currentRow;
+            unsigned int nextBlock = i + currentRow;
             if(nextBlock >= size)
                 nextBlock = size-1;
             blockContainer = new RoadBlock(_game, _map[nextBlock][j]);
