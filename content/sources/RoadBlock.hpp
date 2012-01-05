@@ -22,6 +22,8 @@ private :
     float _height;
     bool _solid;
     int _texture;
+    int _textureWidth;
+    int _textureHeight;
 
 };
 

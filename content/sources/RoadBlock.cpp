@@ -15,9 +15,13 @@ RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game)
         break;
     case ROAD:
         _texture = _game->getTextureManager()->find("road1.png");
+        _textureWidth = _game->getImageManager()->find("road1.png")->GetWidth();
+        _textureHeight = _game->getImageManager()->find("road1.png")->GetHeight();
         break;
     case GRASS:
         _texture = _game->getTextureManager()->find("grass1.png");
+        _textureWidth = _game->getImageManager()->find("grass1.png")->GetWidth();
+        _textureHeight = _game->getImageManager()->find("grass1.png")->GetHeight();
         break;
     default:
         break;
@@ -41,7 +45,10 @@ void RoadBlock::draw(int x, int y)
 
     float firstLaneX1 = BLOCK_WIDTH*3 - BLOCK_WIDTH/2;
     float firstLaneX2 = BLOCK_WIDTH*3 + BLOCK_WIDTH/2;
-
+    float texturePointX = BLOCK_WIDTH*10 / _textureWidth;
+    if(texturePointX < 1)
+        texturePointX = 1;
+    float texturePointY = BLOCK_LENGTH*10 / _textureHeight;
 
     glBegin(GL_QUADS);
         
@@ -70,11 +77,11 @@ void RoadBlock::draw(int x, int y)
         glVertex3f(-firstLaneX1+x*BLOCK_WIDTH, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
         
         //Top
-        glTexCoord2f(0.0f, 0.12f);
+        glTexCoord2f(0.0f, texturePointY);
         glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glTexCoord2f(1.0f, 0.12f);
+        glTexCoord2f(texturePointX, texturePointY);
         glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH);
-        glTexCoord2f(1.0f, 0.0f);
+        glTexCoord2f(texturePointX, 0.0f);
         glVertex3f(-firstLaneX2+x*BLOCK_WIDTH,  _height,  0.f-y*BLOCK_LENGTH);
         glTexCoord2f(0.0f, 0.0f);
         glVertex3f(-firstLaneX1+x*BLOCK_WIDTH,  _height,  0.f-y*BLOCK_LENGTH);
