@@ -75,6 +75,7 @@ void Bus::update()
 void Bus::draw()
 {
     drawShadow();
+    drawCollisionSquare();
     _app->Draw(_sprite);
 }
 
@@ -89,6 +90,19 @@ void Bus::drawShadow()
     shadow.SetCenter(centerValue, centerValue);
     shadow.SetScale(2, 1); 
     _app->Draw(shadow);
+}
+
+void Bus::drawCollisionSquare()
+{
+    float z = _game->getCameraPosition()+10.f;
+    glBegin(GL_QUADS);
+        glColor3f(0.5f, 0.0f, 1.0f);
+        glVertex3f(-20.f, 20.f, -z);
+        glVertex3f( 20.f, 20.f, -z);
+        glVertex3f( 20.f, 10.f, -z);
+        glVertex3f(-20.f, 10.f, -z);
+        glColor3f(1.0f, 1.0f, 1.0f);
+    glEnd();
 }
 
 void Bus::jump()

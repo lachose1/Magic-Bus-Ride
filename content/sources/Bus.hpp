@@ -18,6 +18,7 @@ public :
     void update();
     void draw();
     void drawShadow();
+    void drawCollisionSquare();
     int getSpeed();
     int getScore();
     bool isAnimated();
