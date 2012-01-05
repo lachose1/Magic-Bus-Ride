@@ -19,6 +19,8 @@ private :
     sf::IntRect _currentRect;
     int _currentX;
     int _currentY;
+    int _windowX;
+    int _windowY;
 };
 
 #endif
