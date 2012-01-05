@@ -12,16 +12,22 @@ RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game)
     switch(_type)
     {
     case HOLE:
+        _texture = _game->getTextureManager()->find("transparent.png");
+        _textureWidth = _game->getImageManager()->find("transparent.png")->GetWidth();
+        _textureHeight = _game->getImageManager()->find("transparent.png")->GetHeight();
+        _solid = false;
         break;
     case ROAD:
         _texture = _game->getTextureManager()->find("road2.png");
         _textureWidth = _game->getImageManager()->find("road2.png")->GetWidth();
         _textureHeight = _game->getImageManager()->find("road2.png")->GetHeight();
+        _solid = true;
         break;
     case GRASS:
         _texture = _game->getTextureManager()->find("grass1.png");
         _textureWidth = _game->getImageManager()->find("grass1.png")->GetWidth();
         _textureHeight = _game->getImageManager()->find("grass1.png")->GetHeight();
+        _solid = true;
         break;
     default:
         break;
@@ -40,7 +46,6 @@ bool RoadBlock::isSolid()
 void RoadBlock::draw(int x, int y)
 {
     glEnable(GL_TEXTURE_2D);
-
     glBindTexture(GL_TEXTURE_2D, _texture);
 
     float firstLaneX1 = BLOCK_WIDTH*3 - BLOCK_WIDTH/2;
