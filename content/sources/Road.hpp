@@ -23,7 +23,6 @@ private :
     std::vector<int**> _map;
     RoadBlock* _blockTest;
     RoadBlock* _blockTest2;
-
 };
 
 #endif

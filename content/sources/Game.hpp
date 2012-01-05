@@ -31,8 +31,6 @@ public :
     void updateWorld();
     void drawWorld();
     void updateCamera();
-    int roadTexture; //For test purposes
-    int grassTexture;
 
     //Getters
     sf::RenderWindow* getApp();
@@ -45,6 +43,7 @@ public :
     std::string getLevel();
     FpsCounter* getFpsCounter();
     float getCameraPosition();
+    TextureManager* getTextureManager();
     
 private :
 
