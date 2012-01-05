@@ -6,7 +6,21 @@ using namespace std;
 Road::Road(Game* game) : OpenGLComponent(game)
 {
     _mapName = _game->getLevel() + ".map";
-    loadMap();
+    
+    ifstream mapStream("../res/maps/" + _mapName);
+    
+    if(!mapStream)
+    {
+        cerr << "Failed to open file " << _mapName << endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    readLength(mapStream);
+    _map = vector< std::vector<int> > (_length, vector<int>(LANES, 0));
+    loadMap(mapStream);
+
+    mapStream.close();
+
     _blockTest = new RoadBlock(_game, 1);
     _blockTest2 = new RoadBlock(_game, 2);
 }
@@ -31,15 +45,16 @@ void Road::update()
 {
 }
 
-void Road::loadMap()
+void Road::readLength(ifstream& stream)
 {
-    ifstream mapFile("../res/maps/" + _mapName);
-    
-    if(mapFile)
-    {
+    stream >> _length;
+}
 
-    }
-    mapFile.close();
+void Road::loadMap(ifstream& stream)
+{
+    for(int i = 0; i < _length; ++i)
+        for(int j = 0; j < LANES; ++j)
+            stream >> _map[i][j];
 }
 
 void Road::createRoad()
