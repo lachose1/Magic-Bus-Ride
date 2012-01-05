@@ -12,9 +12,6 @@ RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game)
     switch(_type)
     {
     case HOLE:
-        _texture = _game->getTextureManager()->find("transparent.png");
-        _textureWidth = _game->getImageManager()->find("transparent.png")->GetWidth();
-        _textureHeight = _game->getImageManager()->find("transparent.png")->GetHeight();
         _solid = false;
         break;
     case ROAD:
@@ -45,6 +42,8 @@ bool RoadBlock::isSolid()
 
 void RoadBlock::draw(int x, int y)
 {
+    if(_type == HOLE )
+        return;
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, _texture);
 
