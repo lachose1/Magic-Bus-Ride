@@ -71,13 +71,18 @@ void Road::createRoad()
 {
     RoadBlock* blockContainer;
     unsigned int size = _map.size();
-
-    for(unsigned int i = 0; i < size; i++)
+    int currentRow = getRow();
+    if( currentRow < 0)
+        currentRow = 0;
+    for(unsigned int i = 0; i < 26; i++)
     {
         for(int j = 0; j < 7; j++)
         {
-            blockContainer = new RoadBlock(_game, _map[i][j]);
-            blockContainer->draw(j, i);
+            int nextBlock = i + currentRow;
+            if(nextBlock >= size)
+                nextBlock = size-1;
+            blockContainer = new RoadBlock(_game, _map[nextBlock][j]);
+            blockContainer->draw(j, nextBlock);
         }
     }
     _blockLength = blockContainer->getBlockLength();

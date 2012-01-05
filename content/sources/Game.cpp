@@ -40,7 +40,7 @@ Game::~Game()
 void Game::initialize()
 {
     _level = "level1-1";
-    _cameraPosition = -400.f;
+    _cameraPosition = -50.f;
     _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
     _app->SetFramerateLimit(60);
 
