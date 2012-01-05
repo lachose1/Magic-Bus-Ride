@@ -25,7 +25,7 @@ public :
 private :
 
     static const float ACCELERATION;
-    static const int MAX_SPEED = 300;
+    static const int MAX_SPEED = 50;
     static const int SPEED_X = 400;
     static const int LANE_WIDTH = 160; //800px / 5 lanes
     static const int JUMP_SPEED = 4;

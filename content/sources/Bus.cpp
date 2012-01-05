@@ -6,7 +6,7 @@ using namespace sf;
 
 const string Bus::IMAGE_NAME = "bowser.png";
 const float Bus::JUMP_ACCEL = -0.35f;
-const float Bus::ACCELERATION = 25.0f;
+const float Bus::ACCELERATION = 15.0f;
 
 Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
@@ -43,9 +43,9 @@ void Bus::update()
 
     float time = _app->GetFrameTime();
 
-    if(_inputManager->isKeyPressed(InputManager::UP) && (_speed + ACCELERATION * time) <= MAX_SPEED)
+    if(_inputManager->isKeyPressed(InputManager::UP))
         _speed += ACCELERATION * time;
-    if(_inputManager->isKeyPressed(InputManager::DOWN) && _speed >= ACCELERATION * time)
+    if(_inputManager->isKeyPressed(InputManager::DOWN))
         _speed -= ACCELERATION * time;
     if(_inputManager->isKeyPressed(InputManager::LEFT))
         x -= SPEED_X * time;
@@ -53,6 +53,11 @@ void Bus::update()
         x += SPEED_X * time;
     if(_inputManager->isNewKey(InputManager::SPACE) && !_jumping)
         _jumping = true;
+
+    if(_speed > MAX_SPEED)
+        _speed = MAX_SPEED;
+    else if(_speed < 0)
+        _speed = 0;
 
     if(isInBounds(x))
     {
