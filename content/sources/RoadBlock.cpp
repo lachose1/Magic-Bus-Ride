@@ -14,9 +14,9 @@ RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game)
     case HOLE:
         break;
     case ROAD:
-        _texture = _game->getTextureManager()->find("road1.png");
-        _textureWidth = _game->getImageManager()->find("road1.png")->GetWidth();
-        _textureHeight = _game->getImageManager()->find("road1.png")->GetHeight();
+        _texture = _game->getTextureManager()->find("road2.png");
+        _textureWidth = _game->getImageManager()->find("road2.png")->GetWidth();
+        _textureHeight = _game->getImageManager()->find("road2.png")->GetHeight();
         break;
     case GRASS:
         _texture = _game->getTextureManager()->find("grass1.png");
