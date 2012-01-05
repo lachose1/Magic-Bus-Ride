@@ -5,8 +5,23 @@
 const float RoadBlock::BLOCK_WIDTH = 15.f;
 const float RoadBlock::BLOCK_LENGTH = 20.f;
 
-RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game), _type(type), _height(height)
+RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game), _height(height)
 {
+    _type = (Type)type;
+
+    switch(_type)
+    {
+    case HOLE:
+        break;
+    case ROAD:
+        _texture = _game->getTextureManager()->find("road1.png");
+        break;
+    case GRASS:
+        _texture = _game->getTextureManager()->find("grass1.png");
+        break;
+    default:
+        break;
+    }
 }
 
 RoadBlock::~RoadBlock()
@@ -21,12 +36,8 @@ bool RoadBlock::isSolid()
 void RoadBlock::draw(int x, int y)
 {
     glEnable(GL_TEXTURE_2D);
-    int texture;
-    if(_type == 1)
-        texture = _game->roadTexture;
-    if(_type == 2)
-        texture = _game->grassTexture;
-    glBindTexture(GL_TEXTURE_2D, texture);
+
+    glBindTexture(GL_TEXTURE_2D, _texture);
 
     float firstLaneX1 = BLOCK_WIDTH*3 - BLOCK_WIDTH/2;
     float firstLaneX2 = BLOCK_WIDTH*3 + BLOCK_WIDTH/2;

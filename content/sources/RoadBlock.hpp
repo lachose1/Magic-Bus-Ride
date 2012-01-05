@@ -6,7 +6,7 @@
 class RoadBlock : public OpenGLComponent
 {
 public :
-
+    enum Type {HOLE, ROAD, GRASS};
     RoadBlock(Game* game, int type, float height = 5.f);
     ~RoadBlock();
     bool isSolid();
@@ -15,11 +15,14 @@ public :
 
 private :
 
-    int _type;
-    float _height;
-    bool _solid;
     static const float BLOCK_WIDTH;
     static const float BLOCK_LENGTH;
+
+    Type _type;
+    float _height;
+    bool _solid;
+    int _texture;
+
 };
 
 #endif

@@ -81,9 +81,6 @@ void Game::loadResources()
     _musicManager->add("sixteen.ogg");
     //Uncomment the following to see that find really does work and to hear some music.
     //_musicManager->find("sixteen.ogg")->Play();
-
-    roadTexture = _textureManager->find("road1.png");
-    grassTexture = _textureManager->find("grass1.png");
 }
 
 void Game::initOpenGL()
@@ -201,4 +198,9 @@ FpsCounter* Game::getFpsCounter()
 float Game::getCameraPosition()
 {
     return _cameraPosition;
+}
+
+TextureManager* Game::getTextureManager()
+{
+    return _textureManager;
 }
