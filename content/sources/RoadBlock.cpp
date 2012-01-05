@@ -1,6 +1,7 @@
 #include "RoadBlock.hpp"
 #include "Game.hpp"
 
+
 const float RoadBlock::BLOCK_WIDTH = 15.f;
 const float RoadBlock::BLOCK_LENGTH = 20.f;
 
