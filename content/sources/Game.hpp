@@ -16,6 +16,7 @@
 #include "FpsCounter.hpp"
 #include "TextureManager.hpp"
 #include "ParallaxLayer.hpp"
+#include "SkyBox.hpp"
 
 class Component;
 class DrawableComponent;
@@ -80,6 +81,7 @@ private :
     Hud* _hud;
     Road* _road;
     ParallaxLayer* _parallaxLayer1;
+    SkyBox* _skyBox;
 
     //Attributes related to the game
     std::string _level;

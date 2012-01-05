@@ -4,25 +4,57 @@
 using namespace std;
 using namespace sf;
 
-SkyBox::SkyBox(Game* game, string skyImage, string groundImage) : DrawableComponent(game)
+SkyBox::SkyBox(Game* game) : OpenGLComponent(game)
 {
-
-    _skyImage = _game->getImageManager()->find(skyImage);
-    _groundImage = _game->getImageManager()->find(groundImage);
-    _skySprite.SetImage(*_skyImage);
-    _groundSprite.SetImage(*_groundImage);
+    _skyTexture = _game->getTextureManager()->find("sky1.png");
+    _groundTexture = _game->getTextureManager()->find("desert1.png");
 }
 
 SkyBox::~SkyBox()
 {
-    delete _skyImage;
-    delete _groundImage;
 }
 
 void SkyBox::draw()
 {
-    _app->Draw(_skySprite);
-    _app->Draw(_groundSprite);
+    float maxView = _game->getCameraPosition() / 40.f;
+    for(int j = 0; j < 100; j++)
+    {
+        for(int i = 0; i < 20; i++)
+        {
+            //glEnable(GL_TEXTURE_2D);
+            //glBindTexture(GL_TEXTURE_2D, _skyTexture);
+
+            //glBegin(GL_QUADS);
+
+            //    //Sky
+            //    glTexCoord2f(0.0f, 1.0f);
+            //    glVertex3f(-200.f+i*40.f,  100.f, 200.f-j*20.f);
+            //    glTexCoord2f(1.0f, 1.0f);
+            //    glVertex3f(-160.f+i*40.f,  100.f, 200.f-j*20.f);
+            //    glTexCoord2f(1.0f, 0.0f);
+            //    glVertex3f(-160.f+i*40.f,  100.f, 180.f-j*20.f);
+            //    glTexCoord2f(0.0f, 0.0f);
+            //    glVertex3f(-200.f+i*40.f,  100.f, 180.f-j*20.f);
+
+            //glEnd();
+
+            glBindTexture(GL_TEXTURE_2D, _groundTexture);
+
+            glBegin(GL_QUADS);
+
+                //Ground
+                glTexCoord2f(0.0f, 1.0f);
+                glVertex3f(-400.f+i*40.f, -50.f, 200.f-j*20.f);
+                glTexCoord2f(1.0f, 1.0f);
+                glVertex3f(-360.f+i*40.f, -50.f, 200.f-j*20.f);
+                glTexCoord2f(1.0f, 0.0f);
+                glVertex3f(-360.f+i*40.f, -50.f, 180.f-j*20.f);
+                glTexCoord2f(0.0f, 0.0f);
+                glVertex3f(-400.f+i*40.f, -50.f, 180.f-j*20.f);
+
+            glEnd();
+        }
+    }
 }
 
 void SkyBox::update()

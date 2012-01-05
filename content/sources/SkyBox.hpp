@@ -1,23 +1,21 @@
 #ifndef SKYBOX_H
 #define SKYBOX_H
 
-#include "DrawableComponent.hpp"
+#include "OpenGLComponent.hpp"
 
-class SkyBox : DrawableComponent
+class SkyBox : public OpenGLComponent
 {
 public :
 
-    SkyBox(Game* game, std::string skyImage, std::string groundImage);
+    SkyBox(Game* game);
     ~SkyBox();
     void update();
     void draw();
 
 private :
 
-    sf::Image* _skyImage;
-    sf::Image* _groundImage;
-    sf::Sprite _skySprite;
-    sf::Sprite _groundSprite;
+    int _skyTexture;
+    int _groundTexture;
 };
 
 #endif

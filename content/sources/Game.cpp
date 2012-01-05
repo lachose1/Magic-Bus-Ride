@@ -64,6 +64,8 @@ void Game::initialize()
 
     _parallaxLayer1 = new ParallaxLayer(this, "skybox1.png", 1);
     _drawableComponents.push_back(_parallaxLayer1);
+    _skyBox = new SkyBox(this);
+    _drawableComponents.push_back(_skyBox);
     _road = new Road(this);
     _drawableComponents.push_back(_road);
     _bus = new Bus(this);
@@ -82,6 +84,8 @@ void Game::loadResources()
     _textureManager->load("grass1.png");
     _textureManager->load("road2.png");
     _textureManager->load("transparent.png");
+    _textureManager->load("sky1.png");
+    _textureManager->load("desert1.png");
     _fontManager->add("terminus.ttf");
     _musicManager->add("sixteen.ogg");
     //Uncomment the following to see that find really does work and to hear some music.
