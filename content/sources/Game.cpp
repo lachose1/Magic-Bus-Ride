@@ -138,6 +138,7 @@ void Game::updateWorld()
     {
         _drawableComponents[i]->update();
     }
+    _completionPercentage = (_road->getRow() / _road->getLength())*100;
 }
 
 void Game::drawWorld()
@@ -208,4 +209,9 @@ float Game::getCameraPosition()
 TextureManager* Game::getTextureManager()
 {
     return _textureManager;
+}
+
+float Game::getCompletionPercentage()
+{
+    return _completionPercentage;
 }

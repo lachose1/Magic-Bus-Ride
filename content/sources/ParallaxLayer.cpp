@@ -20,4 +20,6 @@ ParallaxLayer::~ParallaxLayer()
 
 void ParallaxLayer::update()
 {
+    _currentY = (_height-600)*(_game->getCompletionPercentage()/100);
+    _sprite.SetSubRect(IntRect(_currentX, _currentY, _currentX + 800, _currentY + 600));
 }

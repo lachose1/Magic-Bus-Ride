@@ -103,3 +103,8 @@ void RoadBlock::draw(int x, int y)
 void RoadBlock::update()
 {
 }
+
+float RoadBlock::getBlockLength()
+{
+    return BLOCK_LENGTH;
+}

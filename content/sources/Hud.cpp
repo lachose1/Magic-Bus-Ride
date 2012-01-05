@@ -15,8 +15,10 @@ Hud::Hud(Game* game) : DrawableComponent(game)
     _score = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
     _speed = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
     _fps = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
+    _percentage = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
+    _cameraPosition = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
 
-    _fpsEnabled = false;
+    _devEnabled = false;
 }
 
 Hud::~Hud()
@@ -26,7 +28,7 @@ Hud::~Hud()
 void Hud::update()
 {
     if(_inputManager->isNewKey(InputManager::F1))
-        _fpsEnabled = !_fpsEnabled;
+        _devEnabled = !_devEnabled;
 
     string score = convertIntToString(_bus->getScore());
     string speed = convertFloatToString(_bus->getSpeed());
@@ -34,11 +36,17 @@ void Hud::update()
     _speed->setText(speed);
     _speed->setPosition(Vector2f(_app->GetWidth() - _speed->getWidth(), 0));
 
-    if(_fpsEnabled)
+    if(_devEnabled)
     {
         string fps = convertFloatToString(_fpsCounter->getFps());
+        string percentage = convertFloatToString(_game->getCompletionPercentage());
+        string cameraPosition = convertFloatToString(_game->getCameraPosition());
         _fps->setText(fps);
+        _percentage->setText(percentage + "%");
+        _cameraPosition->setText(cameraPosition);
         _fps->setPosition(Vector2f(_app->GetWidth() - _fps->getWidth(), _app->GetHeight() - _fps->getHeight()));
+        _percentage->setPosition(Vector2f(0 + _percentage->getWidth(), _app->GetHeight() - _percentage->getHeight()));
+        _cameraPosition->setPosition(Vector2f(_percentage->getWidth() + 40 + _cameraPosition->getWidth(), _app->GetHeight() - _percentage->getHeight()));
     }
     
 }
@@ -47,8 +55,12 @@ void Hud::draw()
 {
     _score->draw();
     _speed->draw();
-    if(_fpsEnabled)
+    if(_devEnabled)
+    {
         _fps->draw();
+        _percentage->draw();
+        _cameraPosition->draw();
+    }
 }
 
 string Hud::convertIntToString(int n)

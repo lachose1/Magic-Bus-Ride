@@ -16,6 +16,8 @@ public :
 
     void draw();
     void update();
+    float getRow();
+    int getLength();
     Road(Game* game);
     ~Road();
 
@@ -30,6 +32,7 @@ private :
     RoadBlock* _blockTest;
     RoadBlock* _blockTest2;
     int _length;
+    float _blockLength;
 };
 
 #endif

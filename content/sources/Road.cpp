@@ -45,6 +45,16 @@ void Road::update()
 {
 }
 
+float Road::getRow()
+{
+    return _game->getCameraPosition() / _blockLength;
+}
+
+int Road::getLength()
+{
+    return _length;
+}
+
 void Road::readLength(ifstream& stream)
 {
     stream >> _length;
@@ -70,4 +80,6 @@ void Road::createRoad()
             blockContainer->draw(j, i);
         }
     }
+    _blockLength = blockContainer->getBlockLength();
+    delete blockContainer;
 }

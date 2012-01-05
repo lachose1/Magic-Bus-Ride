@@ -45,6 +45,7 @@ public :
     FpsCounter* getFpsCounter();
     float getCameraPosition();
     TextureManager* getTextureManager();
+    float getCompletionPercentage();
     
 private :
 
@@ -83,6 +84,7 @@ private :
     //Attributes related to the game
     std::string _level;
     float _cameraPosition;
+    float _completionPercentage;
 };
 
 #endif

@@ -12,6 +12,7 @@ public :
     bool isSolid();
     void draw(int x, int y);
     void update();
+    float getBlockLength();
 
 private :
 

@@ -28,9 +28,11 @@ private :
     TextComponent* _score;
     TextComponent* _speed;
     TextComponent* _fps;
+    TextComponent* _percentage;
+    TextComponent* _cameraPosition;
     std::string convertIntToString(int n);
     std::string convertFloatToString(float n);
-    bool _fpsEnabled;
+    bool _devEnabled;
 };
 
 #endif
