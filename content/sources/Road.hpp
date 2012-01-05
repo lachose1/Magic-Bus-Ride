@@ -24,6 +24,7 @@ public :
 private :
 
     void createRoad();
+	void createEnvironment();
     void readLength(std::ifstream& stream);
     void loadMap(std::ifstream& stream);
 

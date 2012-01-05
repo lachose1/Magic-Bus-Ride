@@ -39,6 +39,7 @@ void Road::draw()
         //glRotatef(_game->getTime() * 30, 0.f, 1.f, 0.f); //bien tester l'animation OpenGL
         //glRotatef(_game->getTime() * 90, 0.f, 0.f, 1.f); //en faisant tourner le cube
         createRoad();
+		createEnvironment();
 }
 
 void Road::update()
@@ -87,4 +88,38 @@ void Road::createRoad()
     }
     _blockLength = blockContainer->getBlockLength();
     delete blockContainer;
+}
+
+void Road::createEnvironment()
+{
+	int currentRow = getRow();
+    if( currentRow < 0)
+        currentRow = 0;
+	glBindTexture(GL_TEXTURE_2D, _game->getTextureManager()->find("skyscraper1.png"));
+	for(int i = 0; i < 10; i++)
+	{
+        glBegin(GL_QUADS);
+
+            //Skyscraper
+            glTexCoord2f(0.0f, 1.0f);
+            glVertex3f(-70.f,  50.f, -100.f-i*40.f);
+            glTexCoord2f(1.0f, 1.0f);
+            glVertex3f(-50.f,  50.f, -100.f-i*40.f);
+            glTexCoord2f(1.0f, 0.0f);
+            glVertex3f(-50.f, -50.f, -100.f-i*40.f);
+            glTexCoord2f(0.0f, 0.0f);
+            glVertex3f(-70.f, -50.f, -100.f-i*40.f);
+
+			//Skyscraper
+            glTexCoord2f(0.0f, 1.0f);
+            glVertex3f(70.f,  50.f, -160.f-i*60.f);
+            glTexCoord2f(1.0f, 1.0f);
+            glVertex3f(50.f,  50.f, -160.f-i*60.f);
+            glTexCoord2f(1.0f, 0.0f);
+            glVertex3f(50.f, -50.f, -160.f-i*60.f);
+            glTexCoord2f(0.0f, 0.0f);
+            glVertex3f(70.f, -50.f, -160.f-i*60.f);
+
+        glEnd();
+	}
 }

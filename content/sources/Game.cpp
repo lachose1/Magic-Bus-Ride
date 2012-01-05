@@ -86,6 +86,7 @@ void Game::loadResources()
     _textureManager->load("transparent.png");
     _textureManager->load("sky1.png");
     _textureManager->load("desert1.png");
+	_textureManager->load("skyscraper1.png");
     _fontManager->add("terminus.ttf");
     _musicManager->add("sixteen.ogg");
     //Uncomment the following to see that find really does work and to hear some music.
