@@ -59,25 +59,15 @@ void Road::loadMap(ifstream& stream)
 
 void Road::createRoad()
 {
-    for(int i = 0; i < 200; i++)
+    RoadBlock* blockContainer;
+    unsigned int size = _map.size();
+
+    for(unsigned int i = 0; i < size; i++)
     {
-        _blockTest2->draw(0, 1+i);
-        _blockTest->draw(1, 2+i);
-        _blockTest->draw(1, 3+i);
-        _blockTest->draw(1, 4+i);
-        _blockTest->draw(1, 5+i);
-        _blockTest2->draw(2, 3+i);
-        _blockTest->draw(3, 4+i);
-		_blockTest->draw(3, 0+i);
-		_blockTest->draw(3, -1+i);
-		_blockTest->draw(3, -2+i);
-		_blockTest->draw(3, -3+i);
-		_blockTest->draw(3, -4+i);
-		_blockTest->draw(3, -5+i);
-		_blockTest->draw(3, -6+i);
-        _blockTest->draw(3, -7+i);
-        _blockTest2->draw(4, 5+i);
-        _blockTest->draw(5, 6+i);
-        _blockTest2->draw(6, 7+i);
+        for(int j = 0; j < 7; j++)
+        {
+            blockContainer = new RoadBlock(_game, _map[i][j]);
+            blockContainer->draw(j, i);
+        }
     }
 }
