@@ -61,9 +61,11 @@ void Game::initialize()
     loadResources();
 
     initOpenGL();
+
+    _parallaxLayer1 = new ParallaxLayer(this, "skybox1.png", 1);
+    _drawableComponents.push_back(_parallaxLayer1);
     _road = new Road(this);
     _drawableComponents.push_back(_road);
-
     _bus = new Bus(this);
     _drawableComponents.push_back(_bus);
     _hud = new Hud(this);
@@ -72,6 +74,7 @@ void Game::initialize()
 
 void Game::loadResources()
 {
+    _imageManager->add("skybox1.png");
     _imageManager->add("tree.png");
     _imageManager->add("bowser.png");
     _imageManager->add(Bus::IMAGE_NAME);

@@ -15,6 +15,7 @@
 #include "Road.hpp"
 #include "FpsCounter.hpp"
 #include "TextureManager.hpp"
+#include "ParallaxLayer.hpp"
 
 class Component;
 class DrawableComponent;
@@ -77,6 +78,7 @@ private :
     Bus* _bus;
     Hud* _hud;
     Road* _road;
+    ParallaxLayer* _parallaxLayer1;
 
     //Attributes related to the game
     std::string _level;
