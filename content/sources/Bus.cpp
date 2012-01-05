@@ -82,8 +82,9 @@ void Bus::drawShadow()
 {
     float currentShadowSize = SHADOW_SIZE;//-(600-_position.y)/10+55.f;
     float shadowX = _position.x/2+currentShadowSize;
+    float shadowAlpha = 50.f+_position.y/5.0;
 
-    Shape shadow = Shape::Circle(shadowX, 550.f, currentShadowSize, Color(0, 0, 0, 100));
+    Shape shadow = Shape::Circle(shadowX, 550.f, currentShadowSize, Color(0, 0, 0, shadowAlpha));
     shadow.SetCenter(7.f, 7.f);
     shadow.SetScale(2, 1); 
     _app->Draw(shadow);
