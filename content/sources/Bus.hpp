@@ -33,6 +33,7 @@ private :
     static const int JUMP_SPEED = 4;
     static const float JUMP_ACCEL;
     static const int LOWER_BOUND = 550;
+    static const float SHADOW_SIZE;
 
     float _speed;
     int _score;

@@ -7,6 +7,7 @@ using namespace sf;
 const string Bus::IMAGE_NAME = "bowser.png";
 const float Bus::JUMP_ACCEL = -0.35f;
 const float Bus::ACCELERATION = 15.0f;
+const float Bus::SHADOW_SIZE = 13.0f;
 
 Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
@@ -73,13 +74,19 @@ void Bus::update()
 
 void Bus::draw()
 {
-    _app->Draw(_sprite);
     drawShadow();
+    _app->Draw(_sprite);
 }
 
 void Bus::drawShadow()
 {
-    //Shape Circle = sf::Shape::Circle(_position.x, _position.y, 2.f, Color::Blue
+    float currentShadowSize = SHADOW_SIZE;//-(600-_position.y)/10+55.f;
+    float shadowX = _position.x/2+currentShadowSize;
+
+    Shape shadow = Shape::Circle(shadowX, 550.f, currentShadowSize, Color(0, 0, 0, 100));
+    shadow.SetCenter(7.f, 7.f);
+    shadow.SetScale(2, 1); 
+    _app->Draw(shadow);
 }
 
 void Bus::jump()

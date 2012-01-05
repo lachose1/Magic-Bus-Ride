@@ -2,7 +2,7 @@
 #include "Game.hpp"
 
 
-const float RoadBlock::BLOCK_WIDTH = 15.f;
+const float RoadBlock::BLOCK_WIDTH = 12.75f;
 const float RoadBlock::BLOCK_LENGTH = 20.f;
 
 RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game), _type(type), _height(height)
