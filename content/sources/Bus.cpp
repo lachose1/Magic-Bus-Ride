@@ -66,6 +66,17 @@ void Bus::update()
         jump();
 }
 
+void Bus::draw()
+{
+    _app->Draw(_sprite);
+    drawShadow();
+}
+
+void Bus::drawShadow()
+{
+    //Shape Circle = sf::Shape::Circle(_position.x, _position.y, 2.f, Color::Blue
+}
+
 void Bus::jump()
 {
     float y = _position.y;

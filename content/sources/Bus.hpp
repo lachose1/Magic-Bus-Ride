@@ -16,6 +16,8 @@ public :
     ~Bus();
 
     void update();
+    void draw();
+    void drawShadow();
     int getSpeed();
     int getScore();
     bool isAnimated();
@@ -30,7 +32,7 @@ private :
     static const int LANE_WIDTH = 160; //800px / 5 lanes
     static const int JUMP_SPEED = 4;
     static const float JUMP_ACCEL;
-    static const int LOWER_BOUND = 600;
+    static const int LOWER_BOUND = 550;
 
     float _speed;
     int _score;
