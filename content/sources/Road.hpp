@@ -30,8 +30,6 @@ private :
 
     std::string _mapName;
     std::vector<std::vector<int> > _map;
-    RoadBlock* _blockTest;
-    RoadBlock* _blockTest2;
     int _length;
     float _blockLength;
 };
