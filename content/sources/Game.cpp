@@ -134,17 +134,12 @@ void Game::run()
 
 		if(_inputManager->isNewKey(InputManager::P))
 		   _paused = !_paused;
-<<<<<<< HEAD
-		
-		updateWorld();
-=======
 
         if(!_paused)
 		    updateWorld();
         else
             _inputManager->update();
 
->>>>>>> 0054cca76bf18811e974eafec2f713b19311b293
 		_app->Clear();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		drawWorld();
