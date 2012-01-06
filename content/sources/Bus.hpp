@@ -9,7 +9,6 @@
 class Bus : public SpriteComponent
 {
 public :
-    enum Lane {LEFT_EDGE, LEFT, CENTER, RIGHT, RIGHT_EDGE};
     static const std::string IMAGE_NAME;
 
     Bus(Game* game);
@@ -24,14 +23,15 @@ public :
     bool isMoving();
     bool isJumping();
     bool isAlive();
-    Lane getLane();
+    int getLane();
 
 private :
 
     static const float ACCELERATION;
     static const int MAX_SPEED = 50;
     static const int SPEED_X = 400;
-    static const int LANE_WIDTH = 160; //800px / 5 lanes
+    static const int LANE_WIDTH = 102;
+    static const int VOID_WIDTH = 86
     static const int JUMP_SPEED = 4;
     static const float JUMP_ACCEL;
     static const int LOWER_BOUND = 550;
@@ -42,7 +42,7 @@ private :
     int _jumpElapsed;
     bool _jumping;
     bool _alive;
-    Lane _lane;
+    int _lane;
     sf::RenderWindow* _app;
     InputManager* _inputManager;
     std::vector<Animation*> _animations;

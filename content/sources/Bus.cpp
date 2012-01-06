@@ -28,7 +28,7 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 	_animations.push_back(new Animation("../res/animations/bowser.ani", "rolling6on7"));
 	_animations.push_back(new Animation("../res/animations/bowser.ani", "rolling7on7"));
 
-    _lane = CENTER;
+    _lane = 3;
     setSubRect();
 
     _position = Vector2f(_app->GetWidth()/2.0f - _sprite.GetSize().x/2.0f,
@@ -129,29 +129,7 @@ void Bus::jump()
 
 void Bus::setLane()
 {
-    int laneNumber = (int)(_sprite.GetPosition().x + _sprite.GetSize().x) / LANE_WIDTH;
-
-    switch(laneNumber)
-    {
-    case 0:
-        _lane = LEFT_EDGE;
-        break;
-    case 1:
-        _lane = LEFT;
-        break;
-    case 2:
-        _lane = CENTER;
-        break;
-    case 3:
-        _lane = RIGHT;
-        break;
-    case 4:
-        _lane = RIGHT_EDGE;
-        break;
-    default:
-        _lane = CENTER;
-        break;
-    }
+    _lane = (int)(_sprite.GetPosition().x + _sprite.GetSize().x - VOID_WIDTH) / LANE_WIDTH;
 }
 
 void Bus::setSubRect()
@@ -174,7 +152,7 @@ bool Bus::isJumping()
     return _jumping;
 }
 
-Bus::Lane Bus::getLane()
+int Bus::getLane()
 {
     return _lane;
 }
