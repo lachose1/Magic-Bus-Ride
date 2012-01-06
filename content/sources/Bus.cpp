@@ -20,11 +20,13 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
     _inputManager = _game->getInputManager();
     _app = _game->getApp();
 
-    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling1on5"));
-    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling2on5"));
-    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling3on5"));
-    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling4on5"));
-    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling5on5"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling1on7"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling2on7"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling3on7"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling4on7"));
+    _animations.push_back(new Animation("../res/animations/bowser.ani", "rolling5on7"));
+	_animations.push_back(new Animation("../res/animations/bowser.ani", "rolling6on7"));
+	_animations.push_back(new Animation("../res/animations/bowser.ani", "rolling7on7"));
 
     _lane = CENTER;
     setSubRect();
