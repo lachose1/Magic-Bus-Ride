@@ -27,6 +27,8 @@ class Game
 {
 public :
     
+    static const float INIT_POS;
+
     Game(std::string title, unsigned int width, unsigned int height, unsigned int colorMode);
     ~Game();
     void run();

@@ -21,8 +21,9 @@ public :
     void drawCollisionSquare();
     int getSpeed();
     int getScore();
-    bool isAnimated();
+    bool isMoving();
     bool isJumping();
+    bool isAlive();
     Lane getLane();
 
 private :
@@ -40,6 +41,7 @@ private :
     int _score;
     int _jumpElapsed;
     bool _jumping;
+    bool _alive;
     Lane _lane;
     sf::RenderWindow* _app;
     InputManager* _inputManager;

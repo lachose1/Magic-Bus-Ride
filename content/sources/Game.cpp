@@ -3,6 +3,8 @@
 using namespace sf;
 using namespace std;
 
+const float Game::INIT_POS = -50.0f;
+
 Game::Game(string title, unsigned int width, unsigned int height, unsigned int colorMode)
 	: _title(title), _width(width), _height(height), _colorMode(colorMode)
 {
@@ -40,7 +42,7 @@ Game::~Game()
 void Game::initialize()
 {
     _level = "level1-1";
-    _cameraPosition = -50.f;
+    _cameraPosition = INIT_POS;
     _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
     _app->SetFramerateLimit(60);
 
@@ -156,9 +158,13 @@ void Game::drawWorld()
 
 void Game::updateCamera()
 {
-    if(_bus->getSpeed() == 0)
-        return;
-    _cameraPosition += _bus->getSpeed() / 10.f;
+    if(!_bus->isAlive())
+        _cameraPosition -= 15.0f;
+    else if(_bus->isMoving())
+        _cameraPosition += _bus->getSpeed() / 10.f;
+
+    if(_cameraPosition < INIT_POS)
+        _cameraPosition = INIT_POS;
 }
 
 RenderWindow* Game::getApp()

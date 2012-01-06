@@ -15,6 +15,7 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
     _score = 0;
     _jumpElapsed = 0;
     _jumping = false;
+    _alive = true;
 
     _inputManager = _game->getInputManager();
     _app = _game->getApp();
@@ -161,7 +162,7 @@ bool Bus::isInBounds(float x)
     return x >= 0 && (x + _sprite.GetSize().x) <= _app->GetWidth();
 }
 
-bool Bus::isAnimated()
+bool Bus::isMoving()
 {
     return _speed > 0;
 }
@@ -184,4 +185,9 @@ int Bus::getSpeed()
 int Bus::getScore()
 {
     return _score;
+}
+
+bool Bus::isAlive()
+{
+    return _alive;
 }
