@@ -80,7 +80,7 @@ void Road::createRoad()
 
 void Road::drawRoad()
 {
-    for(unsigned int i = getRow(); i < MAX_ROWS + getRow() && i < _length; ++i)
+    for(int i = getRow(); i < MAX_ROWS + getRow() && i < _length; ++i)
         for(int j = 0; j < LANES; ++j)
             _blocks[i][j]->draw(j, i);
 }
