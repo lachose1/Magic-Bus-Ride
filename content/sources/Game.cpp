@@ -173,7 +173,7 @@ void Game::drawWorld()
 void Game::updateCamera()
 {
     if(!_bus->isAlive())
-        _cameraPosition -= 20.0f;
+        _cameraPosition -= 15.0f;
     else if(_bus->isMoving())
         _cameraPosition += _bus->getSpeed() / 10.f;
 
