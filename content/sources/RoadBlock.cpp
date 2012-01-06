@@ -44,14 +44,17 @@ void RoadBlock::draw(int x, int y)
 {
     if(_type == HOLE )
         return;
+
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, _texture);
 
     float firstLaneX1 = BLOCK_WIDTH*3 - BLOCK_WIDTH/2;
     float firstLaneX2 = BLOCK_WIDTH*3 + BLOCK_WIDTH/2;
     float texturePointX = BLOCK_WIDTH*10 / _textureWidth;
+
     if(texturePointX < 1)
         texturePointX = 1;
+
     float texturePointY = BLOCK_LENGTH*10 / _textureHeight;
 
     glBegin(GL_QUADS);

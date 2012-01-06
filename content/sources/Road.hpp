@@ -12,6 +12,7 @@ class Road : public OpenGLComponent
 {
 public :
 
+    static const int MAX_ROWS = 26;
     static const int LANES = 7;
 
     void draw();
@@ -24,12 +25,14 @@ public :
 private :
 
     void createRoad();
+    void drawRoad();
 	void createEnvironment();
     void readLength(std::ifstream& stream);
     void loadMap(std::ifstream& stream);
 
     std::string _mapName;
     std::vector<std::vector<int> > _map;
+    std::vector<std::vector<RoadBlock*> > _blocks;
     int _length;
     float _blockLength;
 };

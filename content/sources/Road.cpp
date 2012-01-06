@@ -5,6 +5,8 @@ using namespace std;
 
 Road::Road(Game* game) : OpenGLComponent(game)
 {
+    _blockLength = RoadBlock::BLOCK_LENGTH;
+
     _mapName = _game->getLevel() + ".map";
     
     ifstream mapStream("../res/maps/" + _mapName);
@@ -16,10 +18,12 @@ Road::Road(Game* game) : OpenGLComponent(game)
     }
     
     readLength(mapStream);
-    _map = vector< std::vector<int> > (_length, vector<int>(LANES, 0));
+    _map = vector< vector<int> > (_length, vector<int>(LANES, 0));
     loadMap(mapStream);
 
     mapStream.close();
+
+    createRoad();
 }
 
 Road::~Road()
@@ -31,7 +35,7 @@ void Road::draw()
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         glTranslatef(0.f, -50.f, _game->getCameraPosition());
-        createRoad();
+        drawRoad();
 		createEnvironment();
 }
 
@@ -41,7 +45,11 @@ void Road::update()
 
 float Road::getRow()
 {
-    return _game->getCameraPosition() / _blockLength;
+    float row = _game->getCameraPosition() / _blockLength;
+    if(row > 0)
+        return row;
+    else
+        return 0;
 }
 
 int Road::getLength()
@@ -63,32 +71,26 @@ void Road::loadMap(ifstream& stream)
 
 void Road::createRoad()
 {
-    RoadBlock* blockContainer;
-    unsigned int size = _map.size();
-    int currentRow = getRow();
-    if( currentRow < 0)
-        currentRow = 0;
-    for(unsigned int i = 0; i < 26; i++)
-    {
-        for(int j = 0; j < 7; j++)
-        {
-            unsigned int nextBlock = i + currentRow;
-            if(nextBlock >= size)
-                nextBlock = size-1;
-            blockContainer = new RoadBlock(_game, _map[nextBlock][j]);
-            blockContainer->draw(j, nextBlock);
-        }
-    }
-    _blockLength = blockContainer->getBlockLength();
-    delete blockContainer;
+    _blocks = vector< vector<RoadBlock*> > (_length, vector<RoadBlock*>(LANES));
+
+    for(int i = 0; i < _length; ++i)
+        for(int j = 0; j < LANES; ++j)
+            _blocks[i][j] = new RoadBlock(_game, _map[i][j]);
+}
+
+void Road::drawRoad()
+{
+    for(unsigned int i = getRow(); i < MAX_ROWS + getRow() && i < _length; ++i)
+        for(int j = 0; j < LANES; ++j)
+            _blocks[i][j]->draw(j, i);
 }
 
 void Road::createEnvironment()
 {
 	int currentRow = getRow();
-    if( currentRow < 0)
-        currentRow = 0;
+
 	glBindTexture(GL_TEXTURE_2D, _game->getTextureManager()->find("skyscraper1.png"));
+
 	for(int i = 0; i < 10; i++)
 	{
         glBegin(GL_QUADS);
