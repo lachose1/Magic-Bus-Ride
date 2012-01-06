@@ -8,14 +8,18 @@ const string Bus::IMAGE_NAME = "bowser.png";
 const float Bus::JUMP_ACCEL = -0.4f;
 const float Bus::ACCELERATION = 15.0f;
 const float Bus::SHADOW_SIZE = 13.0f;
+const float Bus::BLINK_INTERVAL = 0.25f;
+const float Bus::BLINK_MAX = 1.0f;
 
 Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 {
     _speed = 0;
     _score = 0;
     _jumpElapsed = 0;
+    _blinkElapsed = 0;
     _jumping = false;
     _alive = true;
+    _blinking = false;
 
     _inputManager = _game->getInputManager();
     _app = _game->getApp();
@@ -42,12 +46,16 @@ void Bus::update()
 {
     if(!_jumping && isOnHole())
         _alive = false;
-    if(_game->getCameraPosition() == Game::INIT_POS)
+    if(_game->getCameraPosition() == Game::INIT_POS && !_alive)
+    {
         _alive = true;
+        _blinking = true;
+    }
 
     float x = _position.x;
 
-    handleInput(x);
+    if(_alive && !_blinking)
+        handleInput(x);
 
     if(_speed > MAX_SPEED)
         _speed = MAX_SPEED;
@@ -64,6 +72,8 @@ void Bus::update()
 
     if(_jumping)
         jump();
+    if(_blinking)
+        blink();
 
     if(!_alive)
     {
@@ -98,9 +108,12 @@ void Bus::handleInput(float& x)
 
 void Bus::draw()
 {
-    drawShadow();
-    drawCollisionSquare();
-    _app->Draw(_sprite);
+    if(_alive)
+    {
+        drawShadow();
+        drawCollisionSquare();
+        _app->Draw(_sprite);
+    }
 }
 
 void Bus::drawShadow()
@@ -146,6 +159,26 @@ void Bus::jump()
 
     _position.y = y;
     _sprite.SetPosition(_position);
+}
+
+void Bus::blink()
+{
+    _blinkElapsed += _app->GetFrameTime();
+
+    if(_blinkElapsed < BLINK_INTERVAL)
+        _sprite.SetColor(Color(255, 255, 255, 255));
+    else if(_blinkElapsed < 2 * BLINK_INTERVAL)
+        _sprite.SetColor(Color(255, 255, 255, 0));
+    else if(_blinkElapsed < 3 * BLINK_INTERVAL)
+        _sprite.SetColor(Color(255, 255, 255, 255));
+    else if(_blinkElapsed < BLINK_MAX)
+        _sprite.SetColor(Color(255, 255, 255, 0));
+    else
+    {
+        _sprite.SetColor(Color(255, 255, 255, 255));
+        _blinkElapsed = 0.0f;
+        _blinking = false;
+    }
 }
 
 void Bus::setLane()

@@ -36,18 +36,23 @@ private :
     static const float JUMP_ACCEL;
     static const int LOWER_BOUND = 550;
     static const float SHADOW_SIZE;
+    static const float BLINK_INTERVAL;
+    static const float BLINK_MAX;
 
     float _speed;
+    float _blinkElapsed;
     int _score;
     int _jumpElapsed;
     bool _jumping;
     bool _alive;
+    bool _blinking;
     int _lane;
     sf::RenderWindow* _app;
     InputManager* _inputManager;
     std::vector<Animation*> _animations;
 
     void jump();
+    void blink();
     void handleInput(float& x);
     bool isOnHole();
     bool isInBounds(float x);
