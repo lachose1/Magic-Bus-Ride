@@ -151,6 +151,8 @@ void Bus::jump()
 void Bus::setLane()
 {
     _lane = (int)(_sprite.GetPosition().x + (_sprite.GetSize().x / 2) - VOID_WIDTH) / LANE_WIDTH;
+    if(_lane > 6)
+        _lane = 6;
 }
 
 void Bus::setSubRect()
@@ -195,5 +197,9 @@ bool Bus::isAlive()
 
 bool Bus::isOnHole()
 {
-    return !_game->getRoad()->isSolid(_lane);
+    bool onHole = !_game->getRoad()->isSolid(_lane);
+    bool outOfRoad = (_position.x + _sprite.GetSize().x / 2) < VOID_WIDTH ||
+        (_position.x + _sprite.GetSize().x / 2) > (_app->GetWidth() - VOID_WIDTH);
+
+    return onHole || outOfRoad;
 }
