@@ -136,16 +136,14 @@ void Game::run()
 void Game::updateWorld()
 {
     updateCamera();
+
     for(unsigned int i = 0; i < _components.size(); ++i)
-    {
         _components[i]->update();
-    }
 
     for(unsigned int i = 0; i < _drawableComponents.size(); ++i)
-    {
         _drawableComponents[i]->update();
-    }
-    _completionPercentage = (_road->getRow() / _road->getLength())*100;
+
+    _completionPercentage = _road->getRow() / _road->getLength() * 100;
 }
 
 void Game::drawWorld()
@@ -159,7 +157,7 @@ void Game::drawWorld()
 void Game::updateCamera()
 {
     if(!_bus->isAlive())
-        _cameraPosition -= 15.0f;
+        _cameraPosition -= 20.0f;
     else if(_bus->isMoving())
         _cameraPosition += _bus->getSpeed() / 10.f;
 
@@ -225,4 +223,9 @@ TextureManager* Game::getTextureManager()
 float Game::getCompletionPercentage()
 {
     return _completionPercentage;
+}
+
+Road* Game::getRoad()
+{
+    return _road;
 }

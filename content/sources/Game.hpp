@@ -49,6 +49,7 @@ public :
     float getCameraPosition();
     TextureManager* getTextureManager();
     float getCompletionPercentage();
+    Road* getRoad();
     
 private :
 

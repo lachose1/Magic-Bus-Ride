@@ -45,7 +45,7 @@ void Road::update()
 
 float Road::getRow()
 {
-    float row = _game->getCameraPosition() / _blockLength;
+    float row = (_game->getCameraPosition() + 50) / _blockLength;
     if(row > 0)
         return row;
     else
@@ -80,7 +80,12 @@ void Road::createRoad()
 
 void Road::drawRoad()
 {
-    for(int i = getRow(); i < MAX_ROWS + getRow() && i < _length; ++i)
+    int startingRow = getRow() - 1;
+
+    if(startingRow < 0)
+        startingRow = 0;
+
+    for(int i = startingRow; i < MAX_ROWS + startingRow && i < _length; ++i)
         for(int j = 0; j < LANES; ++j)
             _blocks[i][j]->draw(j, i);
 }

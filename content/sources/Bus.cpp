@@ -5,7 +5,7 @@ using namespace std;
 using namespace sf;
 
 const string Bus::IMAGE_NAME = "bowser.png";
-const float Bus::JUMP_ACCEL = -0.35f;
+const float Bus::JUMP_ACCEL = -0.4f;
 const float Bus::ACCELERATION = 15.0f;
 const float Bus::SHADOW_SIZE = 13.0f;
 
@@ -30,11 +30,8 @@ Bus::Bus(Game* game) : SpriteComponent(game, IMAGE_NAME)
 
     _lane = 3;
     setSubRect();
-
-    _position = Vector2f(_app->GetWidth()/2.0f - _sprite.GetSize().x/2.0f,
-    LOWER_BOUND - _sprite.GetSize().y);
-
-    _sprite.SetPosition(_position);
+    
+    resetPosition();
 }
 
 Bus::~Bus()
@@ -43,20 +40,14 @@ Bus::~Bus()
 
 void Bus::update()
 {
+    if(!_jumping && isOnHole())
+        _alive = false;
+    if(_game->getCameraPosition() == Game::INIT_POS)
+        _alive = true;
+
     float x = _position.x;
 
-    float time = _app->GetFrameTime();
-
-    if(_inputManager->isKeyPressed(InputManager::UP))
-        _speed += ACCELERATION * time;
-    if(_inputManager->isKeyPressed(InputManager::DOWN))
-        _speed -= ACCELERATION * time;
-    if(_inputManager->isKeyPressed(InputManager::LEFT))
-        x -= SPEED_X * time;
-    if(_inputManager->isKeyPressed(InputManager::RIGHT))
-        x += SPEED_X * time;
-    if(_inputManager->isNewKey(InputManager::SPACE) && !_jumping)
-        _jumping = true;
+    handleInput(x);
 
     if(_speed > MAX_SPEED)
         _speed = MAX_SPEED;
@@ -73,6 +64,36 @@ void Bus::update()
 
     if(_jumping)
         jump();
+
+    if(!_alive)
+    {
+        _speed = 0;
+        resetPosition();
+    }
+}
+
+void Bus::resetPosition()
+{
+    _position = Vector2f(_app->GetWidth()/2.0f - _sprite.GetSize().x/2.0f,
+    LOWER_BOUND - _sprite.GetSize().y);
+
+    _sprite.SetPosition(_position);
+}
+
+void Bus::handleInput(float& x)
+{
+    float time = _app->GetFrameTime();
+
+    if(_inputManager->isKeyPressed(InputManager::UP))
+        _speed += ACCELERATION * time;
+    if(_inputManager->isKeyPressed(InputManager::DOWN))
+        _speed -= ACCELERATION * time;
+    if(_inputManager->isKeyPressed(InputManager::LEFT))
+        x -= SPEED_X * time;
+    if(_inputManager->isKeyPressed(InputManager::RIGHT))
+        x += SPEED_X * time;
+    if(_inputManager->isNewKey(InputManager::SPACE) && !_jumping)
+        _jumping = true;
 }
 
 void Bus::draw()
@@ -170,4 +191,9 @@ int Bus::getScore()
 bool Bus::isAlive()
 {
     return _alive;
+}
+
+bool Bus::isOnHole()
+{
+    return !_game->getRoad()->isSolid(_lane);
 }
