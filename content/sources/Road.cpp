@@ -118,3 +118,8 @@ void Road::createEnvironment()
         glEnd();
 	}
 }
+
+bool Road::isSolid(int lane)
+{
+    return _blocks[getRow()][lane]->isSolid();
+}
