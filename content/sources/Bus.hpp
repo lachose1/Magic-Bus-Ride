@@ -31,7 +31,7 @@ private :
     static const int MAX_SPEED = 50;
     static const int SPEED_X = 400;
     static const int LANE_WIDTH = 102;
-    static const int VOID_WIDTH = 86;
+    static const int VOID_WIDTH = 43;
     static const int JUMP_SPEED = 4;
     static const float JUMP_ACCEL;
     static const int LOWER_BOUND = 550;

@@ -150,7 +150,7 @@ void Bus::jump()
 
 void Bus::setLane()
 {
-    _lane = (int)(_sprite.GetPosition().x + _sprite.GetSize().x - VOID_WIDTH) / LANE_WIDTH;
+    _lane = (int)(_sprite.GetPosition().x + (_sprite.GetSize().x / 2) - VOID_WIDTH) / LANE_WIDTH;
 }
 
 void Bus::setSubRect()
