@@ -11,7 +11,7 @@ Menu::Menu(Game* game, string logo, float positionX, float positionY, vector<Dra
 	_app = _game->getApp();
 	_logoImage = _game->getImageManager()->find(logo);
 	_logoSprite.SetImage(*(_logoImage));
-	_logoSprite.SetPosition(_position.x-_logoImage->GetWidth(), _position.y);
+	_logoSprite.SetPosition(_position.x-_logoImage->GetWidth()/2, _position.y);
 }
 
 Menu::~Menu()

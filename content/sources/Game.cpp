@@ -42,6 +42,7 @@ Game::~Game()
 void Game::initialize()
 {
     _level = "level1-1";
+	_paused = false;
     _cameraPosition = INIT_POS;
     _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
     _app->SetFramerateLimit(60);
@@ -74,6 +75,12 @@ void Game::initialize()
     _drawableComponents.push_back(_bus);
     _hud = new Hud(this);
     _drawableComponents.push_back(_hud);
+	//_mainMenu = new Menu(this...
+	vector<DrawableComponent*> pauseElements;
+	pauseElements.push_back( new TextComponent(this, "Choix1", "terminus.ttf", Vector2f(300.f, 200.f)));
+	pauseElements.push_back( new TextComponent(this, "Choix2", "terminus.ttf", Vector2f(300.f, 250.f)));
+	pauseElements.push_back( new TextComponent(this, "Choix3", "terminus.ttf", Vector2f(300.f, 300.f)));
+	_pauseMenu = new Menu(this, "tree.png", _app->GetWidth()/2, 50.f, pauseElements);
 }
 
 void Game::loadResources()
@@ -125,11 +132,14 @@ void Game::run()
                 _app->Close();
         }
 
-        updateWorld();
-        _app->Clear();
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        drawWorld();
-        _app->Display();
+		if(_inputManager->isNewKey(InputManager::P))
+		   _paused = !_paused;
+
+		updateWorld();
+		_app->Clear();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		drawWorld();
+		_app->Display();
     }
 }
 
@@ -152,6 +162,8 @@ void Game::drawWorld()
     {
         _drawableComponents[i]->draw();
     }
+	if(_paused)
+		_pauseMenu->draw();
 }
 
 void Game::updateCamera()

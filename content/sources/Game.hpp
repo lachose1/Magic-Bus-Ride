@@ -17,6 +17,7 @@
 #include "TextureManager.hpp"
 #include "ParallaxLayer.hpp"
 #include "SkyBox.hpp"
+#include "Menu.hpp"
 
 class Component;
 class DrawableComponent;
@@ -85,11 +86,14 @@ private :
     Road* _road;
     ParallaxLayer* _parallaxLayer1;
     SkyBox* _skyBox;
+	Menu* _mainMenu;
+	Menu* _pauseMenu;
 
     //Attributes related to the game
     std::string _level;
     float _cameraPosition;
     float _completionPercentage;
+	bool _paused;
 };
 
 #endif
