@@ -30,6 +30,7 @@ private :
     TextComponent* _fps;
     TextComponent* _percentage;
     TextComponent* _cameraPosition;
+    TextComponent* _currentRow;
     std::string convertIntToString(int n);
     std::string convertFloatToString(float n);
     bool _devEnabled;

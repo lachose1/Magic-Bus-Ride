@@ -17,6 +17,7 @@ Hud::Hud(Game* game) : DrawableComponent(game)
     _fps = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
     _percentage = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
     _cameraPosition = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
+    _currentRow = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
 
     _devEnabled = false;
 }
@@ -41,12 +42,15 @@ void Hud::update()
         string fps = convertFloatToString(_fpsCounter->getFps());
         string percentage = convertFloatToString(_game->getCompletionPercentage());
         string cameraPosition = convertFloatToString(_game->getCameraPosition());
+        string currentRow = convertFloatToString(_game->getRoad()->getRow());
         _fps->setText(fps);
         _percentage->setText(percentage + "%");
         _cameraPosition->setText(cameraPosition);
+        _currentRow->setText(currentRow);
         _fps->setPosition(Vector2f(_app->GetWidth() - _fps->getWidth(), _app->GetHeight() - _fps->getHeight()));
         _percentage->setPosition(Vector2f(0 + _percentage->getWidth(), _app->GetHeight() - _percentage->getHeight()));
-        _cameraPosition->setPosition(Vector2f(_percentage->getWidth() + 40 + _cameraPosition->getWidth(), _app->GetHeight() - _percentage->getHeight()));
+        _cameraPosition->setPosition(Vector2f(_percentage->getWidth() + 40 + _cameraPosition->getWidth(), _app->GetHeight() - _cameraPosition->getHeight()));
+        _currentRow->setPosition(Vector2f(_percentage->getWidth() + 40 + _currentRow->getWidth(), _app->GetHeight() - _currentRow->getHeight()));
     }
     
 }
@@ -59,7 +63,8 @@ void Hud::draw()
     {
         _fps->draw();
         _percentage->draw();
-        _cameraPosition->draw();
+        //_cameraPosition->draw();
+        _currentRow->draw();
     }
 }
 
