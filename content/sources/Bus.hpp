@@ -48,9 +48,12 @@ private :
     std::vector<Animation*> _animations;
 
     void jump();
+    void handleInput(float& x);
+    bool isOnHole();
     bool isInBounds(float x);
     void setLane();
     void setSubRect();
+    void resetPosition();
 };
 
 #endif
