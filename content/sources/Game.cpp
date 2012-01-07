@@ -133,9 +133,9 @@ void Game::run()
                 _app->Close();
         }
 
-		if(_inputManager->isNewKey(InputManager::P))
+		if(_inputManager->isNewKey(InputManager::P) && !_editing)
 		   _paused = !_paused;
-        if(_inputManager->isNewKey(InputManager::F2))
+        if(_inputManager->isNewKey(InputManager::F2) && !_paused)
             _editing = !_editing;
 
         if(!_paused && !_editing)
