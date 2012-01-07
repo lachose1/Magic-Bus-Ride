@@ -20,6 +20,7 @@ public :
     void update();
     float getRow();
     int getLength();
+    int getColumn();
     bool isSolid(int lane);
     Road(Game* game);
     ~Road();

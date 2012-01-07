@@ -72,6 +72,11 @@ float Road::getRow()
         return 0;
 }
 
+int Road::getColumn()
+{
+    return _column;
+}
+
 int Road::getLength()
 {
     return _length;
