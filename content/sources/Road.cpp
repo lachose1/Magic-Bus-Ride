@@ -8,6 +8,8 @@ Road::Road(Game* game) : OpenGLComponent(game)
     _blockLength = RoadBlock::BLOCK_LENGTH;
 
     _mapName = _game->getLevel() + ".map";
+
+    _inputManager = _game->getInputManager();
     
     ifstream mapStream("../res/maps/" + _mapName);
     

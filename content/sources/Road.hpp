@@ -7,6 +7,7 @@
 #include <vector>
 #include "OpenGLComponent.hpp"
 #include "RoadBlock.hpp"
+#include "InputManager.hpp"
 
 class Road : public OpenGLComponent
 {
@@ -36,6 +37,7 @@ private :
     std::vector<std::vector<RoadBlock*> > _blocks;
     int _length;
     float _blockLength;
+    InputManager* _inputManager;
 };
 
 #endif
