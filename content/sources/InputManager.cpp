@@ -30,6 +30,7 @@ void InputManager::update()
     _currentState[SPACE] = _input.IsKeyDown(sf::Key::Space);
     _currentState[ESCAPE] = _input.IsKeyDown(sf::Key::Escape);
     _currentState[F1] = _input.IsKeyDown(sf::Key::F1);
+    _currentState[F2] = _input.IsKeyDown(sf::Key::F2);
     _currentState[P] = _input.IsKeyDown(sf::Key::P);
 }
 
