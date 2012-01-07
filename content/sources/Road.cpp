@@ -5,6 +5,8 @@ using namespace std;
 
 Road::Road(Game* game) : OpenGLComponent(game)
 {
+    _column = 0;
+
     _blockLength = RoadBlock::BLOCK_LENGTH;
 
     _mapName = _game->getLevel() + ".map";
@@ -43,6 +45,22 @@ void Road::draw()
 
 void Road::update()
 {
+    if(_game->isEditing())
+    {
+        handleInput();
+    }
+}
+
+void Road::handleInput()
+{
+    if(_inputManager->isNewKey(InputManager::UP) && getRow() < _length)
+        _game->moveCamera(_blockLength);
+    if(_inputManager->isNewKey(InputManager::DOWN) && getRow() > 0)
+        _game->moveCamera(-_blockLength);
+    if(_inputManager->isNewKey(InputManager::LEFT) && _column > 0)
+        --_column;
+    if(_inputManager->isNewKey(InputManager::RIGHT) && _column < LANES)
+        ++_column;
 }
 
 float Road::getRow()

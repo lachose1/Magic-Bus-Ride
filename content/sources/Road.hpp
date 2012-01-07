@@ -31,6 +31,7 @@ private :
 	void createEnvironment();
     void readLength(std::ifstream& stream);
     void loadMap(std::ifstream& stream);
+    void handleInput();
 
     std::string _mapName;
     std::vector<std::vector<int> > _map;
@@ -38,6 +39,7 @@ private :
     int _length;
     float _blockLength;
     InputManager* _inputManager;
+    int _column;
 };
 
 #endif
