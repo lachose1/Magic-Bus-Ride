@@ -189,6 +189,14 @@ void Game::updateCamera()
         _cameraPosition = INIT_POS;
 }
 
+void Game::moveCamera(float z)
+{
+    _cameraPosition += z;
+
+    if(_cameraPosition < INIT_POS)
+        _cameraPosition = INIT_POS;
+}
+
 RenderWindow* Game::getApp()
 {
     return _app;

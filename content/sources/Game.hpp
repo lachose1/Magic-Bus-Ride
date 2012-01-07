@@ -36,6 +36,7 @@ public :
     void updateWorld();
     void drawWorld();
     void updateCamera();
+    void moveCamera(float z);
 
     //Getters
     sf::RenderWindow* getApp();
