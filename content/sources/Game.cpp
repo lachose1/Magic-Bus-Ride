@@ -145,6 +145,7 @@ void Game::run()
         else
         {
             _inputManager->update();
+            _hud->update();
             _road->update();
         }
 
