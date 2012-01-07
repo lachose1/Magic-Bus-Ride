@@ -7,6 +7,18 @@ const float RoadBlock::BLOCK_LENGTH = 20.f;
 
 RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game), _height(height)
 {
+    setType(type);
+}
+
+RoadBlock::~RoadBlock()
+{
+}
+
+void RoadBlock::setType(int type)
+{
+    if(type < 0 || type > 2)
+        type = 0;
+
     _type = (Type)type;
 
     switch(_type)
@@ -29,10 +41,6 @@ RoadBlock::RoadBlock(Game* game, int type, float height) : OpenGLComponent(game)
     default:
         break;
     }
-}
-
-RoadBlock::~RoadBlock()
-{
 }
 
 bool RoadBlock::isSolid()
