@@ -9,3 +9,12 @@ DrawableComponent::DrawableComponent(Game* game) : Component(game)
 DrawableComponent::~DrawableComponent()
 {
 }
+
+sf::Vector2f* DrawableComponent::getPosition()
+{
+	return 0;
+}
+
+void DrawableComponent::getSize()
+{
+}

@@ -51,3 +51,8 @@ float TextComponent::getHeight()
 {
     return _string.GetRect().GetHeight();
 }
+
+Vector2f* TextComponent::getPosition()
+{
+	return &_position;
+}

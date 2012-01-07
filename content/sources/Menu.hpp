@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Component.hpp"
 #include "DrawableComponent.hpp"
+#include "Animation.hpp"
 
 class Game;
 
@@ -23,6 +24,8 @@ private :
 	sf::RenderWindow* _app;
 	sf::Image* _logoImage;
 	sf::Sprite _logoSprite;
+	sf::Sprite _selector;
+	Animation* _selectorAnimation;
 };
 
 #endif

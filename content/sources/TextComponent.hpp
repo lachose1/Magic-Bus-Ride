@@ -16,6 +16,7 @@ public:
     void setText(std::string text);
     float getWidth();
     float getHeight();
+	sf::Vector2f* getPosition();
     void setPosition(sf::Vector2f position);
 
 private:

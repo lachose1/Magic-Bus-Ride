@@ -89,6 +89,7 @@ void Game::loadResources()
     _imageManager->add("skybox1.png");
     _imageManager->add("tree.png");
     _imageManager->add("bowser.png");
+	_imageManager->add("arrow.png");
     _imageManager->add(Bus::IMAGE_NAME);
     _textureManager->load("road1.png");
     _textureManager->load("grass1.png");
