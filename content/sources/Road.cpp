@@ -59,8 +59,26 @@ void Road::handleInput()
         _game->moveCamera(-_blockLength);
     if(_inputManager->isNewKey(InputManager::LEFT) && _column > 0)
         --_column;
-    if(_inputManager->isNewKey(InputManager::RIGHT) && _column < LANES)
+    if(_inputManager->isNewKey(InputManager::RIGHT) && _column < LANES - 1)
         ++_column;
+
+    int row = (int)getRow();
+
+    if(_inputManager->isKeyPressed(InputManager::NUM0))
+    {
+        _map[row][_column] = 0;
+        _blocks[row][_column]->setType(0);
+    }
+    else if(_inputManager->isKeyPressed(InputManager::NUM1))
+    {
+        _map[row][_column] = 1;
+        _blocks[row][_column]->setType(1);
+    }
+    else if(_inputManager->isKeyPressed(InputManager::NUM2))
+    {
+        _map[row][_column] = 2;
+        _blocks[row][_column]->setType(2);
+    }
 }
 
 float Road::getRow()
