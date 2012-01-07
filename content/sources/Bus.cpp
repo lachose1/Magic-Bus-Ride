@@ -108,7 +108,7 @@ void Bus::handleInput(float& x)
 
 void Bus::draw()
 {
-    if(_alive)
+    if(_alive && !_game->isEditing())
     {
         drawShadow();
         drawCollisionSquare();
