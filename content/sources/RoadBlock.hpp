@@ -14,8 +14,7 @@ public :
     ~RoadBlock();
     bool isSolid();
     void draw(int x, int y);
-    void update();
-    float getBlockLength();
+    void update();    
 
 private :
 
