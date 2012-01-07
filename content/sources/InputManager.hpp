@@ -14,7 +14,7 @@ public :
     InputManager(Game* game, sf::RenderWindow* app);
     ~InputManager();
     static const int KEY_COUNT = 12;
-    enum KeyName {UP, DOWN, LEFT, RIGHT, SPACE, ESCAPE, F1, F2, P, ZERO, ONE, TWO};
+    enum KeyName {UP, DOWN, LEFT, RIGHT, SPACE, ESCAPE, F1, F2, P, NUM0, NUM1, NUM2};
     bool isKeyPressed(KeyName key);
     bool isNewKey(KeyName key);
     virtual void update();
