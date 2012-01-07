@@ -18,6 +18,7 @@ Hud::Hud(Game* game) : DrawableComponent(game)
     _percentage = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
     _cameraPosition = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
     _row = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
+    _column = new TextComponent(_game, "0", FONT_NAME, Vector2f(0,0));
 
     _devEnabled = false;
 }
@@ -43,14 +44,19 @@ void Hud::update()
         string percentage = convertFloatToString(_game->getCompletionPercentage());
         string cameraPosition = convertFloatToString(_game->getCameraPosition());
         string row = convertFloatToString(_game->getRoad()->getRow());
+        string column = convertIntToString(_game->getRoad()->getColumn());
+
         _fps->setText(fps);
         _percentage->setText(percentage + "%");
         _cameraPosition->setText(cameraPosition);
         _row->setText(row);
+        _column->setText(column);
+
         _fps->setPosition(Vector2f(_app->GetWidth() - _fps->getWidth(), _app->GetHeight() - _fps->getHeight()));
-        _percentage->setPosition(Vector2f(0 + _percentage->getWidth(), _app->GetHeight() - _percentage->getHeight()));
-        _cameraPosition->setPosition(Vector2f(_percentage->getWidth() + 40 + _cameraPosition->getWidth(), _app->GetHeight() - _cameraPosition->getHeight()));
-        _row->setPosition(Vector2f(_percentage->getWidth() + 40 + _row->getWidth(), _app->GetHeight() - _row->getHeight()));
+        _percentage->setPosition(Vector2f(0, _app->GetHeight() - _percentage->getHeight()));
+        _cameraPosition->setPosition(Vector2f(_percentage->getWidth() + 40, _app->GetHeight() - _cameraPosition->getHeight()));
+        _row->setPosition(Vector2f(_percentage->getWidth() + 40, _app->GetHeight() - _row->getHeight()));
+        _column->setPosition(Vector2f(_percentage->getWidth() + _row->getWidth() + 80, _app->GetHeight() - _column->getHeight()));
     }
     
 }
@@ -65,6 +71,7 @@ void Hud::draw()
         _percentage->draw();
         //_cameraPosition->draw();
         _row->draw();
+        _column->draw();
     }
 }
 

@@ -31,6 +31,7 @@ private :
     TextComponent* _percentage;
     TextComponent* _cameraPosition;
     TextComponent* _row;
+    TextComponent* _column;
     std::string convertIntToString(int n);
     std::string convertFloatToString(float n);
     bool _devEnabled;
