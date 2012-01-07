@@ -43,6 +43,7 @@ void Game::initialize()
 {
     _level = "level1-1";
 	_paused = false;
+    _editing = false;
     _cameraPosition = INIT_POS;
     _app = new RenderWindow(VideoMode(_width, _height, _colorMode), _title);
     _app->SetFramerateLimit(60);
@@ -244,4 +245,9 @@ float Game::getCompletionPercentage()
 Road* Game::getRoad()
 {
     return _road;
+}
+
+bool Game::isEditing()
+{
+    return _editing;
 }

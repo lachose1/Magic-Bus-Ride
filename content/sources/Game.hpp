@@ -51,6 +51,7 @@ public :
     TextureManager* getTextureManager();
     float getCompletionPercentage();
     Road* getRoad();
+    bool isEditing();
     
 private :
 
@@ -94,6 +95,7 @@ private :
     float _cameraPosition;
     float _completionPercentage;
 	bool _paused;
+    bool _editing;
 };
 
 #endif
