@@ -135,11 +135,18 @@ void Game::run()
 
 		if(_inputManager->isNewKey(InputManager::P))
 		   _paused = !_paused;
+        if(_inputManager->isNewKey(InputManager::F2))
+            _editing = !_editing;
 
-        if(!_paused)
+        if(!_paused && !_editing)
 		    updateWorld();
-        else
+        else if(_paused)
             _inputManager->update();
+        else
+        {
+            _inputManager->update();
+            _road->update();
+        }
 
 		_app->Clear();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
