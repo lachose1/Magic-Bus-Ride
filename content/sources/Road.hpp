@@ -32,6 +32,7 @@ private :
 	void createEnvironment();
     void readLength(std::ifstream& stream);
     void loadMap(std::ifstream& stream);
+    void writeMap();
     void handleInput();
 
     std::string _mapName;

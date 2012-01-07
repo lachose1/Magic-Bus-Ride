@@ -79,6 +79,9 @@ void Road::handleInput()
         _map[row][_column] = 2;
         _blocks[row][_column]->setType(2);
     }
+
+    if(_inputManager->isNewKey(InputManager::S))
+        writeMap();
 }
 
 float Road::getRow()
@@ -110,6 +113,32 @@ void Road::loadMap(ifstream& stream)
     for(int i = 0; i < _length; ++i)
         for(int j = 0; j < LANES; ++j)
             stream >> _map[i][j];
+}
+
+void Road::writeMap()
+{
+    ofstream mapStream("../res/maps/" + _mapName);
+    
+    if(!mapStream)
+    {
+        cerr << "Failed to open file " << _mapName << endl;
+        exit(EXIT_FAILURE);
+    }
+
+    mapStream << _length << endl;
+
+    for(int i = 0; i < _length; ++i)
+    {
+        for(int j = 0; j < LANES; ++j)
+        {
+            if(j != LANES - 1)
+                mapStream << _map[i][j] << " ";
+            else
+                mapStream << _map[i][j] << endl;
+        }
+    }
+
+    mapStream.close();
 }
 
 void Road::createRoad()
