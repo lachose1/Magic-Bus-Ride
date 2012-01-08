@@ -53,6 +53,7 @@ public :
     float getCompletionPercentage();
     Road* getRoad();
     bool isEditing();
+	void menuAction(std::string action);
     
 private :
 

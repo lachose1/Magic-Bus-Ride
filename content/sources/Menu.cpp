@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-Menu::Menu(Game* game, string logo, float positionX, float positionY, vector<DrawableComponent*> elements) : Component(game), _elements(elements)
+Menu::Menu(Game* game, string logo, float positionX, float positionY, vector<DrawableComponent*> elements, vector<string> actions) : Component(game), _elements(elements), _actions(actions)
 {
 	_position.x = positionX;
 	_position.y = positionY;
@@ -35,10 +35,17 @@ void Menu::draw()
 
 void Menu::update()
 {
+	if(_inputManager->isNewKey(InputManager::ENTER))
+		matchChoice();
 	_selector.SetSubRect((*_selectorAnimation->nextFrame()));
 	if(_inputManager->isNewKey(InputManager::UP) && _selectorChoice > 0)
 		_selectorChoice--;
 	if(_inputManager->isNewKey(InputManager::DOWN) && _selectorChoice < _maxChoices-1)
 		_selectorChoice++;
 	_selector.SetPosition(_elements[_selectorChoice]->getPosition()->x - 75.f, _elements[_selectorChoice]->getPosition()->y + _selector.GetImage()->GetHeight()/2);
+}
+
+void Menu::matchChoice()
+{
+	_game->menuAction(_actions[_selectorChoice]);
 }

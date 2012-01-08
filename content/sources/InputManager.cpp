@@ -36,6 +36,7 @@ void InputManager::update()
     _currentState[NUM0] = _input.IsKeyDown(sf::Key::Num0) || _input.IsKeyDown(sf::Key::Numpad0);
     _currentState[NUM1] = _input.IsKeyDown(sf::Key::Num1) || _input.IsKeyDown(sf::Key::Numpad1);
     _currentState[NUM2] = _input.IsKeyDown(sf::Key::Num2) || _input.IsKeyDown(sf::Key::Numpad2);
+	_currentState[ENTER] = _input.IsKeyDown(sf::Key::Return);
 }
 
 bool InputManager::isKeyPressed(KeyName key)

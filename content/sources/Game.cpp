@@ -78,10 +78,14 @@ void Game::initialize()
     _drawableComponents.push_back(_hud);
 	//_mainMenu = new Menu(this...
 	vector<DrawableComponent*> pauseElements;
-	pauseElements.push_back( new TextComponent(this, "Choix1", "terminus.ttf", Vector2f(300.f, 200.f)));
-	pauseElements.push_back( new TextComponent(this, "Choix2", "terminus.ttf", Vector2f(300.f, 250.f)));
-	pauseElements.push_back( new TextComponent(this, "Choix3", "terminus.ttf", Vector2f(300.f, 300.f)));
-	_pauseMenu = new Menu(this, "tree.png", _app->GetWidth()/2, 50.f, pauseElements);
+	vector<string> pauseActions;
+	pauseElements.push_back( new TextComponent(this, "Resume", "terminus.ttf", Vector2f(300.f, 200.f)));
+	pauseActions.push_back("resume");
+	pauseElements.push_back( new TextComponent(this, "Map Editor", "terminus.ttf", Vector2f(300.f, 250.f)));
+	pauseActions.push_back("mapeditor");
+	pauseElements.push_back( new TextComponent(this, "Quit Game", "terminus.ttf", Vector2f(300.f, 300.f)));
+	pauseActions.push_back("quit");
+	_pauseMenu = new Menu(this, "tree.png", _app->GetWidth()/2, 50.f, pauseElements, pauseActions);
 }
 
 void Game::loadResources()
@@ -270,4 +274,17 @@ Road* Game::getRoad()
 bool Game::isEditing()
 {
     return _editing;
+}
+
+void Game::menuAction(string action)
+{
+	if(action == "resume")
+		_paused = !_paused;
+	if(action == "mapeditor")
+	{
+		_paused = !_paused;
+		_editing = !_editing;
+	}
+	if(action == "quit")
+		_app->Close();
 }

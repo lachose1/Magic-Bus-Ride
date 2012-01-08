@@ -13,15 +13,17 @@ class Menu : public Component
 {
 public :
 
-	Menu(Game* game, std::string logo, float positionX, float positionY, std::vector<DrawableComponent*> elements);
+	Menu(Game* game, std::string logo, float positionX, float positionY, std::vector<DrawableComponent*> elements, std::vector<std::string> actions);
     ~Menu();
 	void draw();
 	void update();
+	void matchChoice();
     
 private :
 
 	sf::Vector2f _position;
 	std::vector<DrawableComponent*> _elements;
+	std::vector<std::string> _actions;
 	sf::RenderWindow* _app;
 	sf::Image* _logoImage;
 	sf::Sprite _logoSprite;
