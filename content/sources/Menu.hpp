@@ -29,7 +29,7 @@ private :
 	sf::Sprite _logoSprite;
 	sf::Sprite _selector;
 	Animation* _selectorAnimation;
-	int _selectorChoice;
+	unsigned int _selectorChoice;
 	unsigned int _maxChoices;
 	InputManager* _inputManager;
 };
