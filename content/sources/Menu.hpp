@@ -5,6 +5,7 @@
 #include "Component.hpp"
 #include "DrawableComponent.hpp"
 #include "Animation.hpp"
+#include "InputManager.hpp"
 
 class Game;
 
@@ -26,6 +27,9 @@ private :
 	sf::Sprite _logoSprite;
 	sf::Sprite _selector;
 	Animation* _selectorAnimation;
+	int _selectorChoice;
+	unsigned int _maxChoices;
+	InputManager* _inputManager;
 };
 
 #endif

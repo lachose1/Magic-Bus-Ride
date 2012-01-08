@@ -142,7 +142,10 @@ void Game::run()
         if(!_paused && !_editing)
 		    updateWorld();
         else if(_paused)
+		{
             _inputManager->update();
+			_pauseMenu->update();
+		}
         else
         {
             _inputManager->update();
