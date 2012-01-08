@@ -56,3 +56,8 @@ Vector2f* TextComponent::getPosition()
 {
 	return &_position;
 }
+
+Vector2f* TextComponent::getSize()
+{
+	return &Vector2f(getWidth(), getHeight());
+}

@@ -12,7 +12,7 @@ public :
 
     virtual void draw() = 0;
 	virtual sf::Vector2f* getPosition();
-	virtual void getSize();
+	virtual sf::Vector2f* getSize();
     DrawableComponent(Game* game);
     ~DrawableComponent();
 

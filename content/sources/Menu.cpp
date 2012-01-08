@@ -15,7 +15,7 @@ Menu::Menu(Game* game, string logo, float positionX, float positionY, vector<Dra
 	_selector.SetImage((*_game->getImageManager()->find("arrow.png")));
 	_selectorAnimation = new Animation("../res/animations/arrow.ani", "moving");
 	_selector.SetSubRect((*_selectorAnimation->nextFrame()));
-	_selector.SetPosition(_elements[0]->getPosition()->x - 75.f, _elements[0]->getPosition()->y + _selector.GetImage()->GetHeight()/2);
+	_selector.SetPosition(_elements[0]->getPosition()->x - 75.f, _elements[0]->getPosition()->y + _elements[0]->getSize()->y/2 - _selector.GetImage()->GetHeight()/2);
 	_selectorChoice = 0;
 	_maxChoices = _elements.size();
 	_inputManager = _game->getInputManager();
@@ -42,7 +42,7 @@ void Menu::update()
 		_selectorChoice--;
 	if(_inputManager->isNewKey(InputManager::DOWN) && _selectorChoice < _maxChoices-1)
 		_selectorChoice++;
-	_selector.SetPosition(_elements[_selectorChoice]->getPosition()->x - 75.f, _elements[_selectorChoice]->getPosition()->y + _selector.GetImage()->GetHeight()/2);
+	_selector.SetPosition(_elements[_selectorChoice]->getPosition()->x - 75.f, _elements[_selectorChoice]->getPosition()->y + _elements[0]->getSize()->y/2 - _selector.GetImage()->GetHeight()/2);
 }
 
 void Menu::matchChoice()

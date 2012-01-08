@@ -15,6 +15,7 @@ sf::Vector2f* DrawableComponent::getPosition()
 	return 0;
 }
 
-void DrawableComponent::getSize()
+sf::Vector2f* DrawableComponent::getSize()
 {
+	return 0;
 }
