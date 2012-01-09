@@ -23,6 +23,16 @@ Menu::Menu(Game* game, string logo, float positionX, float positionY, vector<Dra
 
 Menu::~Menu()
 {
+	delete _logoImage;
+	delete _selectorAnimation;
+	delete _app;
+	delete _inputManager;
+	unsigned int size = _elements.size();
+	for(unsigned int i = 0; i < size; i++)
+	{
+        delete _elements[i];
+        _elements[i] = 0;
+    }
 }
 
 void Menu::draw()
