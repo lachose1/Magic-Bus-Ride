@@ -23,11 +23,11 @@ void InputManager::update()
     for(int i = 0; i < KEY_COUNT; ++i)
         _lastState[i] = _currentState[i];
 
-    _currentState[UP] = _input.IsKeyDown(sf::Key::W) || _input.IsKeyDown(sf::Key::Up);
-    _currentState[DOWN] = _input.IsKeyDown(sf::Key::S) || _input.IsKeyDown(sf::Key::Down);
-    _currentState[LEFT] = _input.IsKeyDown(sf::Key::A) || _input.IsKeyDown(sf::Key::Left);
-    _currentState[RIGHT] = _input.IsKeyDown(sf::Key::D) || _input.IsKeyDown(sf::Key::Right);
-    _currentState[SPACE] = _input.IsKeyDown(sf::Key::Space);
+	_currentState[UP] = _input.IsKeyDown(sf::Key::W) || _input.IsKeyDown(sf::Key::Up) || _input.GetJoystickAxis(0, sf::Joy::AxisY) < -30;
+    _currentState[DOWN] = _input.IsKeyDown(sf::Key::S) || _input.IsKeyDown(sf::Key::Down) || _input.GetJoystickAxis(0, sf::Joy::AxisY) > 30;
+    _currentState[LEFT] = _input.IsKeyDown(sf::Key::A) || _input.IsKeyDown(sf::Key::Left) || _input.GetJoystickAxis(0, sf::Joy::AxisX) < -30;
+    _currentState[RIGHT] = _input.IsKeyDown(sf::Key::D) || _input.IsKeyDown(sf::Key::Right) || _input.GetJoystickAxis(0, sf::Joy::AxisX) > 30;
+	_currentState[SPACE] = _input.IsKeyDown(sf::Key::Space) || _input.IsJoystickButtonDown(0, 0);
     _currentState[ESCAPE] = _input.IsKeyDown(sf::Key::Escape);
     _currentState[F1] = _input.IsKeyDown(sf::Key::F1);
     _currentState[F2] = _input.IsKeyDown(sf::Key::F2);
