@@ -1,0 +1,14 @@
+* Magic Bus Ride todo list
+** TODO Create Options class
+   Options will be used to store key mappings preferences such as music or sound
+   volume. These settings will be stored in a text file and retrieved upon
+   starting the game.
+** TODO Add more block types to RoadBlock
+** TODO Add blocks of different heights to map file, and collision with them
+** TODO Add obstacles to the road
+** TODO Make Bus a texture on a box instead of sf::Sprite
+** TODO Add power-ups and points system
+** TODO Make main menu
+** TODO Getting to the end of the road makes you win
+** TODO Multiple levels, go to next once won
+** TODO Add other shit to TODO list
