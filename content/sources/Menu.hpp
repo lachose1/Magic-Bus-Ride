@@ -1,15 +1,13 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <SFML/Graphics.hpp>
-#include "Component.hpp"
 #include "DrawableComponent.hpp"
 #include "Animation.hpp"
 #include "InputManager.hpp"
 
 class Game;
 
-class Menu : public Component
+class Menu : public DrawableComponent
 {
 public :
 
@@ -32,6 +30,7 @@ private :
 	unsigned int _selectorChoice;
 	unsigned int _maxChoices;
 	InputManager* _inputManager;
+    static const int MARGIN_X = 75;
 };
 
 #endif
