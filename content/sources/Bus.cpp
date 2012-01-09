@@ -44,13 +44,13 @@ Bus::~Bus()
 
 void Bus::update()
 {
-    if(!_jumping && isOnHole())
-        _alive = false;
     if(_game->getCameraPosition() == Game::INIT_POS && !_alive)
     {
         _alive = true;
         _blinking = true;
     }
+    if(!_jumping && isOnHole())
+        _alive = false;
 
     float x = _position.x;
 
