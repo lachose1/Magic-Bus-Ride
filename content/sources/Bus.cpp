@@ -102,7 +102,7 @@ void Bus::handleInput(float& x)
         x -= SPEED_X * time;
     if(_inputManager->isKeyPressed(InputManager::RIGHT))
         x += SPEED_X * time;
-    if(_inputManager->isNewKey(InputManager::SPACE) && !_jumping)
+    if(_inputManager->isNewKey(InputManager::JUMP) && !_jumping)
         _jumping = true;
 }
 

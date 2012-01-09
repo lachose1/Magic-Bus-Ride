@@ -80,7 +80,7 @@ void Road::handleInput()
         _blocks[row][_column]->setType(2);
     }
 
-    if(_inputManager->isNewKey(InputManager::S))
+    if(_inputManager->isNewKey(InputManager::SAVE))
         writeMap();
 }
 

@@ -133,14 +133,12 @@ void Game::run()
         Event event;
 
         while (_app->GetEvent(event))
-        {
-            if (event.Type == Event::Closed || _inputManager->isKeyPressed(InputManager::ESCAPE))
+            if (event.Type == Event::Closed)
                 _app->Close();
-        }
 
-		if(_inputManager->isNewKey(InputManager::P) && !_editing)
+		if(_inputManager->isNewKey(InputManager::MENU) && !_editing)
 		   _paused = !_paused;
-        if(_inputManager->isNewKey(InputManager::F2) && !_paused)
+        if(_inputManager->isNewKey(InputManager::EDIT) && !_paused)
             _editing = !_editing;
 
         if(!_paused && !_editing)

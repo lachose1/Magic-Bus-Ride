@@ -29,7 +29,7 @@ Hud::~Hud()
 
 void Hud::update()
 {
-    if(_inputManager->isNewKey(InputManager::F1))
+    if(_inputManager->isNewKey(InputManager::DEV))
         _devEnabled = !_devEnabled;
 
     string score = convertIntToString(_bus->getScore());
