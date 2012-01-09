@@ -15,22 +15,30 @@ public :
     ~Menu();
 	void draw();
 	void update();
-	void matchChoice();
+    std::string getAction();
+
     
 private :
 
-	sf::Vector2f _position;
+    static const int MARGIN_X = 75;
+
+	sf::RenderWindow* _app;
+	InputManager* _inputManager;
+
 	std::vector<DrawableComponent*> _elements;
 	std::vector<std::string> _actions;
-	sf::RenderWindow* _app;
+
+    sf::Vector2f _position;
 	sf::Image* _logoImage;
 	sf::Sprite _logoSprite;
+
 	sf::Sprite _selector;
 	Animation* _selectorAnimation;
+
 	unsigned int _selectorChoice;
 	unsigned int _maxChoices;
-	InputManager* _inputManager;
-    static const int MARGIN_X = 75;
+
+
 };
 
 #endif

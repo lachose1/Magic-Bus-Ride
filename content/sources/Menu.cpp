@@ -58,8 +58,6 @@ void Menu::update()
 {
     _selector.SetSubRect(*_selectorAnimation->nextFrame());
 
-	if(_inputManager->isNewKey(InputManager::ENTER))
-		matchChoice();
 	if(_inputManager->isNewKey(InputManager::UP) && _selectorChoice > 0)
 		--_selectorChoice;
 	if(_inputManager->isNewKey(InputManager::DOWN) && _selectorChoice < _maxChoices - 1)
@@ -68,7 +66,7 @@ void Menu::update()
     _selector.SetY(_elements[_selectorChoice]->getPosition()->y + _elements[_selectorChoice]->getSize()->y / 2 - _selector.GetImage()->GetHeight() / 2);
 }
 
-void Menu::matchChoice()
+string Menu::getAction()
 {
-	_game->menuAction(_actions[_selectorChoice]);
+	return _actions[_selectorChoice];
 }

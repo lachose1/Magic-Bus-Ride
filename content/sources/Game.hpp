@@ -53,13 +53,14 @@ public :
     float getCompletionPercentage();
     Road* getRoad();
     bool isEditing();
-	void menuAction(std::string action);
+
     
 private :
 
     void initialize();
     void loadResources();
     void initOpenGL();
+    void handleMenuAction(std::string action);
 
     //Attributes pertaining to the RenderWindow
     std::string _title;

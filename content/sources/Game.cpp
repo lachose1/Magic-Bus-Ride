@@ -147,6 +147,9 @@ void Game::run()
 		{
             _inputManager->update();
 			_pauseMenu->update();
+
+            if(_inputManager->isKeyPressed(InputManager::ENTER))
+                handleMenuAction(_pauseMenu->getAction());
 		}
         else
         {
@@ -274,15 +277,15 @@ bool Game::isEditing()
     return _editing;
 }
 
-void Game::menuAction(string action)
+void Game::handleMenuAction(string action)
 {
 	if(action == "resume")
 		_paused = !_paused;
-	if(action == "mapeditor")
+	else if(action == "mapeditor")
 	{
 		_paused = !_paused;
 		_editing = !_editing;
 	}
-	if(action == "quit")
+	else if(action == "quit")
 		_app->Close();
 }
