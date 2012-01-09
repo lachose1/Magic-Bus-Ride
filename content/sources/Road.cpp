@@ -53,7 +53,7 @@ void Road::update()
 
 void Road::handleInput()
 {
-    if(_inputManager->isNewKey(InputManager::UP) && getRow() < _length)
+    if(_inputManager->isNewKey(InputManager::UP) && getRow() < _length - 1)
         _game->moveCamera(_blockLength);
     if(_inputManager->isNewKey(InputManager::DOWN) && getRow() > 0)
         _game->moveCamera(-_blockLength);
@@ -87,10 +87,12 @@ void Road::handleInput()
 float Road::getRow()
 {
     float row = (_game->getCameraPosition() + 50) / _blockLength;
-    if(row > 0)
-        return row;
-    else
+    if(row > _length - 1)
+        return _length - 1;
+    else if(row < 0)
         return 0;
+    else
+        return row;
 }
 
 int Road::getColumn()
