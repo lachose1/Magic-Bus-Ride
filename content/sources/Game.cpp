@@ -76,7 +76,7 @@ void Game::initialize()
     _drawableComponents.push_back(_bus);
     _hud = new Hud(this);
     _drawableComponents.push_back(_hud);
-	//_mainMenu = new Menu(this...
+
 	vector<DrawableComponent*> pauseElements;
 	vector<string> pauseActions;
 	pauseElements.push_back( new TextComponent(this, "Resume", "terminus.ttf", Vector2f(300.f, 200.f)));

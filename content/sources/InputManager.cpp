@@ -28,7 +28,7 @@ void InputManager::update()
     _currentState[LEFT] = _input.IsKeyDown(sf::Key::A) || _input.IsKeyDown(sf::Key::Left) || _input.GetJoystickAxis(0, sf::Joy::AxisX) < -30;
     _currentState[RIGHT] = _input.IsKeyDown(sf::Key::D) || _input.IsKeyDown(sf::Key::Right) || _input.GetJoystickAxis(0, sf::Joy::AxisX) > 30;
 	_currentState[JUMP] = _input.IsKeyDown(sf::Key::Space) || _input.IsJoystickButtonDown(0, 0);
-    _currentState[MENU] = _input.IsKeyDown(sf::Key::Escape) || _input.IsJoystickButtonDown(0, 6);
+    _currentState[MENU] = _input.IsKeyDown(sf::Key::Escape) ||  _input.IsJoystickButtonDown(0, 7);
     _currentState[DEV] = _input.IsKeyDown(sf::Key::F1) || _input.IsJoystickButtonDown(0, 4);
     _currentState[EDIT] = _input.IsKeyDown(sf::Key::F2) || _input.IsJoystickButtonDown(0, 5);
     _currentState[SAVE] = _input.IsKeyDown(sf::Key::S);

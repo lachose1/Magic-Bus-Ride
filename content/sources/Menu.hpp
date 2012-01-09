@@ -21,6 +21,7 @@ public :
 private :
 
     static const int MARGIN_X = 75;
+    static const int MARGIN_Y = 50;
 
 	sf::RenderWindow* _app;
 	InputManager* _inputManager;

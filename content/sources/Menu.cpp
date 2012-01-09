@@ -4,7 +4,8 @@
 using namespace std;
 using namespace sf;
 
-Menu::Menu(Game* game, string logo, float positionX, float positionY, vector<DrawableComponent*> elements, vector<string> actions) : DrawableComponent(game), _elements(elements), _actions(actions)
+Menu::Menu(Game* game, string logo, float positionX, float positionY, vector<DrawableComponent*> elements, vector<string> actions)
+    : DrawableComponent(game), _elements(elements), _actions(actions)
 {
     _app = _game->getApp();
 	_inputManager = _game->getInputManager();
