@@ -8,6 +8,8 @@ class RoadBlock : public OpenGLComponent
 public :
     static const float BLOCK_WIDTH;
     static const float BLOCK_LENGTH;
+	static const float SPECIAL_BLOCK_WIDTH;
+    static const float SPECIAL_BLOCK_LENGTH;
     enum Type {HOLE, ROAD, GRASS};
 
     RoadBlock(Game* game, int type, float height = 5.f);
@@ -16,6 +18,7 @@ public :
     void draw(int x, int y);
     void update();
     void setType(int type);
+	void drawSpecial(int x, int y, bool* blocks[13][20]);
 
 private :
 
