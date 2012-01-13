@@ -87,9 +87,8 @@ void Road::handleInput()
 float Road::getRow()
 {
     float row = (_game->getCameraPosition() + 50) / _blockLength;
-    if(row > _length - 1)
-        return _length - 1;
-    else if(row < 0)
+
+    if(row < 0)
         return 0;
     else
         return row;
@@ -200,5 +199,10 @@ void Road::createEnvironment()
 
 bool Road::isSolid(int lane)
 {
-    return _blocks[getRow()][lane]->isSolid();
+    float row = getRow();
+
+    if(row > _length - 1)
+        return false;
+    else
+        return _blocks[row][lane]->isSolid();
 }
