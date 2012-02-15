@@ -116,14 +116,14 @@ void RoadBlock::update()
 {
 }
 
-void RoadBlock::drawSpecial(int x, int y, bool* blocks[13][20])
+void RoadBlock::drawSpecial(int x, int y, bool blocks[13][20])
 {
 	glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, _texture);
 
-    float firstLaneX1 = SPECIAL_BLOCK_WIDTH*3 - SPECIAL_BLOCK_WIDTH/2;
-    float firstLaneX2 = SPECIAL_BLOCK_WIDTH*3 + SPECIAL_BLOCK_WIDTH/2;
-    float texturePointX = SPECIAL_BLOCK_WIDTH*10 / _textureWidth;
+    float firstLaneX1 = BLOCK_WIDTH*3 - BLOCK_WIDTH/2;
+    float firstLaneX2 = BLOCK_WIDTH*3 + BLOCK_WIDTH/2;
+    float texturePointX = BLOCK_WIDTH*10 / _textureWidth;
 
     if(texturePointX < 1)
         texturePointX = 1;
@@ -136,46 +136,46 @@ void RoadBlock::drawSpecial(int x, int y, bool* blocks[13][20])
 			if(blocks[j][i])
 			{
 				glBegin(GL_QUADS);
-        
+
 					//Front
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH,  _height,  0.f-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH,  _height,  0.f-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH, -_height,  0.f-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH, -_height,  0.f-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f,  _height,  0.f-y*BLOCK_LENGTH-i*1.f);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f),  _height,  0.f-y*BLOCK_LENGTH-i*1.f);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f), -_height,  0.f-y*BLOCK_LENGTH-i*1.f);
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f, -_height,  0.f-y*BLOCK_LENGTH-i*1.f);
 
 					//Right
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH,  _height,   0.f-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH,  _height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH, -_height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH, -_height,   0.f-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f),  _height,   0.f-y*BLOCK_LENGTH-i*1.f);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f),  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f), -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f), -_height,   0.f-y*BLOCK_LENGTH-i*1.f);
         
 					//Back
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH,  _height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH,  _height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH, -_height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH, -_height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f),  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f), -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
 
 					//Left
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH,  _height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH,  _height,  0.f-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH, -_height,  0.f-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH, -_height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f,  _height,  0.f-y*BLOCK_LENGTH-i*1.f);
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f, -_height,  0.f-y*BLOCK_LENGTH-i*1.f);
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
         
 					//Top
 					glTexCoord2f(0.0f, texturePointY);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH,  _height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f,  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
 					glTexCoord2f(texturePointX, texturePointY);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH,  _height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f),  _height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
 					glTexCoord2f(texturePointX, 0.0f);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH,  _height,  0.f-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f),  _height,  0.f-y*BLOCK_LENGTH-i*1.f);
 					glTexCoord2f(0.0f, 0.0f);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH,  _height,  0.f-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f,  _height,  0.f-y*BLOCK_LENGTH-i*1.f);
 
 					//Bottom
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH, -_height,  0.f-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH, -_height,  0.f-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX2+x*SPECIAL_BLOCK_WIDTH, -_height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
-					glVertex3f(-firstLaneX1+x*SPECIAL_BLOCK_WIDTH, -_height, -SPECIAL_BLOCK_LENGTH-y*SPECIAL_BLOCK_LENGTH);
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f, -_height,  0.f-y*BLOCK_LENGTH-i*1.f);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f), -_height,  0.f-y*BLOCK_LENGTH-i*1.f);
+					glVertex3f(-firstLaneX2+x*BLOCK_WIDTH-(13.f/2-j*0.5f), -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
+					glVertex3f(-firstLaneX1+x*BLOCK_WIDTH+j*1.f, -_height, -BLOCK_LENGTH-y*BLOCK_LENGTH+(20.f-i*1.f));
 
 				glEnd();
 			}

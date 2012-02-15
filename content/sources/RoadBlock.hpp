@@ -18,7 +18,7 @@ public :
     void draw(int x, int y);
     void update();
     void setType(int type);
-	void drawSpecial(int x, int y, bool* blocks[13][20]);
+	void drawSpecial(int x, int y, bool blocks[13][20]);
 
 private :
 

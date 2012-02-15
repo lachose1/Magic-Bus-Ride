@@ -161,6 +161,15 @@ void Road::drawRoad()
     for(int i = startingRow; i < MAX_ROWS + startingRow && i < _length; ++i)
         for(int j = 0; j < LANES; ++j)
             _blocks[i][j]->draw(j, i);
+
+    bool special[13][20];
+    for(int i = 0; i < 13; i++)
+        for(int j = 0; j < 20; j++)
+            special[i][j] = false;
+
+    for(int i = 0; i < 13; i++)
+        //special[0][i] = true;
+    _blocks[0][0]->drawSpecial(0, 0, special);
 }
 
 void Road::createEnvironment()
